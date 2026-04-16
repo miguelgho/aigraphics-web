@@ -1,13 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  /* Aquí definimos los colores de AI Graphics para la versión 4 */
-  --color-print-cyan: #33d8f5;
-  --color-print-magenta: #e64797;
-  --color-print-yellow: #ffdd00;
-  --color-print-dark: #1a1a1a;
-}
+  /* Fuentes oficiales */
+  --font-sans: var(--font-sora), ui-sans-serif, system-ui;
 
+  /* Colores oficiales de Ai Graphics  */
+  --color-print-yellow: #f4d30d; /* [cite: 179] */
+  --color-print-cyan: #68c9d8; /* [cite: 180] */
+  --color-print-magenta: #e04b9a; /* [cite: 186] */
+  --color-print-dark: #434247; /* [cite: 189] */
+
+  /* Colores de soporte (Azules suaves) [cite: 193] */
+  --color-support-blue: #6ab8ff; /* [cite: 196] */
+  --color-support-light: #e6fafb; /* [cite: 199] */
+}
 :root {
   --background: #ffffff;
   --foreground: #1a1a1a;
