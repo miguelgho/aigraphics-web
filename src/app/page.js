@@ -6,22 +6,19 @@ const servicesData = [
     title: "Digital Solutions",
     desc: "Web development and software solutions to help businesses establish a strong online presence.",
     borderColor: "border-print-cyan",
-    image:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=600&auto=format&fit=crop", // Foto temporal de código/laptop
+    image: "/digital.jpg",
   },
   {
     title: "Creative Print",
     desc: "High-quality custom printing and apparel design, bringing your brand's identity to life.",
     borderColor: "border-print-magenta",
-    image:
-      "https://images.unsplash.com/photo-1626785773985-9441113b2c21?q=80&w=600&auto=format&fit=crop", // Foto temporal de impresión/ropa
+    image: "/print.png",
   },
   {
     title: "Full Branding",
     desc: "End-to-end branding services that ensure your business stands out with a professional identity.",
     borderColor: "border-print-yellow",
-    image:
-      "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=600&auto=format&fit=crop", // Foto temporal de diseño/branding
+    image: "/branding.jpg",
   },
 ];
 
