@@ -32,7 +32,6 @@ export default function Portfolio() {
 
   return (
     <main className="min-h-screen bg-white font-sans">
-      {/* CABECERA */}
       <section className="py-20 px-6 max-w-7xl mx-auto">
         <h1 className="text-6xl md:text-8xl font-black text-print-dark mb-6 tracking-tighter uppercase">
           Our <span className="text-print-magenta italic">Work</span>
@@ -45,7 +44,6 @@ export default function Portfolio() {
         </p>
       </section>
 
-      {/* GRILLA DE PROYECTOS */}
       <section className="max-w-7xl mx-auto px-6 pb-32">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {projects.map((project, index) => (

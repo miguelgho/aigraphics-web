@@ -1,8 +1,6 @@
-// src/app/page.js
 import Link from "next/link";
 import { theme } from "@/lib/theme";
 
-// DATOS: Cambiamos los números por imágenes
 const servicesData = [
   {
     title: "Digital Solutions",
@@ -30,7 +28,6 @@ const servicesData = [
 export default function Home() {
   return (
     <main className="min-h-screen bg-white font-sans">
-      {/* 1. HERO SECTION */}
       <header className={`${theme.section} text-center max-w-5xl mx-auto`}>
         <h2 className={theme.labelCyan}>Create. Print. Shine.</h2>
         <h1 className={theme.mainHeading}>
@@ -48,14 +45,12 @@ export default function Home() {
         </Link>
       </header>
 
-      {/* 2. SERVICES SECTION */}
       <section className="bg-support-light/30 py-20 px-6">
         <div
           className={`${theme.container} grid grid-cols-1 md:grid-cols-3 gap-8`}
         >
           {servicesData.map((service, index) => (
             <div key={index} className={`${theme.card} ${service.borderColor}`}>
-              {/* AQUÍ INYECTAMOS LA IMAGEN EN VEZ DEL NÚMERO */}
               <img
                 src={service.image}
                 alt={service.title}
@@ -68,7 +63,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. MISSION & VISION SECTION */}
       <section className={theme.section}>
         <div className={theme.container}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">

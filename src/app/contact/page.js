@@ -1,4 +1,3 @@
-// src/app/contact/page.js
 import { theme } from "@/lib/theme";
 
 export default function Contact() {
