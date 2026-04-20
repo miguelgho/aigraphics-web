@@ -31,4 +31,21 @@ export const theme = {
     "relative rounded-[4rem] rounded-tr-none overflow-hidden shadow-2xl bg-gray-100",
   imageBackdrop:
     "absolute -bottom-6 -left-6 w-32 h-32 bg-support-light rounded-full -z-10",
+
+  // Estilos de Portafolio
+  portfolioHeader: "py-20 px-6 max-w-7xl mx-auto",
+  portfolioTitle:
+    "text-6xl md:text-8xl font-black text-print-dark mb-6 tracking-tighter uppercase",
+  portfolioSub: "text-xl text-gray-500 max-w-2xl font-medium leading-relaxed",
+
+  // Tarjetas de Proyecto (Grid)
+  projectCard: "group cursor-pointer",
+  projectImgBox:
+    "aspect-[16/10] bg-gray-50 rounded-[2rem] overflow-hidden border-b-8 transition-all duration-500 group-hover:shadow-2xl group-hover:-translate-y-2 relative",
+  projectImage:
+    "w-full h-full object-cover absolute inset-0 transition-transform duration-700 group-hover:scale-105", // <-- Nueva clase para las fotos con un ligero zoom al pasar el mouse
+  projectCategory:
+    "text-xs font-bold text-print-cyan uppercase tracking-widest mb-2 block",
+  projectHeading: "text-3xl font-black text-print-dark uppercase leading-none",
+  projectMeta: "text-gray-400 font-medium italic mt-2",
 };

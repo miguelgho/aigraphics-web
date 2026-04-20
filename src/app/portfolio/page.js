@@ -1,42 +1,52 @@
-export default function Portfolio() {
-  const projects = [
-    {
-      title: "TechFlow Ecosystem",
-      category: "Digital Solutions",
-      desc: "Web Design & Software Development",
-      color: "border-print-cyan",
-      tag: "01",
-    },
-    {
-      title: "Iron Legacy Apparel",
-      category: "Creative Print",
-      desc: "Custom Roland-Printed Jerseys",
-      color: "border-print-magenta",
-      tag: "02",
-    },
-    {
-      title: "Urban Bites Branding",
-      category: "Complete Branding",
-      desc: "Logo, Web & Window Graphics",
-      color: "border-print-yellow",
-      tag: "03",
-    },
-    {
-      title: "Solaris App Interface",
-      category: "Digital Solutions",
-      desc: "UI/UX Design & Branding",
-      color: "border-print-dark",
-      tag: "01",
-    },
-  ];
+import { theme } from "@/lib/theme";
 
+const projects = [
+  {
+    title: "TechFlow Ecosystem",
+    category: "Digital Solutions",
+    desc: "Custom Web Design",
+    color: "border-print-cyan",
+    image: "/website.jpg",
+  },
+  {
+    title: "Iron Legacy Apparel",
+    category: "Creative Print",
+    desc: "Sublimation Apparel and Promotional Swag",
+    color: "border-print-magenta",
+    image: "/shirt-print.jpg",
+  },
+  {
+    title: "Urban Bites Branding",
+    category: "Complete Branding",
+    desc: "Logo - Company Identity",
+    color: "border-print-yellow",
+    image: "/branding.jpg",
+  },
+  {
+    title: "Custom Window Print",
+    category: "Custom Window Print",
+    desc: "Complete Window Design",
+    color: "border-print-dark",
+    image: "/window.jpg",
+  },
+  {
+    title: "Summit Teamwear",
+    category: "Apparel & Embroidery",
+    desc: "Premium embroidered shirts, hats, and custom uniforms to elevate your brand.",
+    color: "border-print-cyan",
+    image: "/embroidery.jpg",
+  },
+];
+
+export default function Portfolio() {
   return (
     <main className="min-h-screen bg-white font-sans">
-      <section className="py-20 px-6 max-w-7xl mx-auto">
-        <h1 className="text-6xl md:text-8xl font-black text-print-dark mb-6 tracking-tighter uppercase">
+      {/* CABECERA */}
+      <section className={theme.portfolioHeader}>
+        <h1 className={theme.portfolioTitle}>
           Our <span className="text-print-magenta italic">Work</span>
         </h1>
-        <p className="text-xl text-gray-500 max-w-2xl font-medium leading-relaxed">
+        <p className={theme.portfolioSub}>
           From cutting-edge digital solutions to high-quality physical prints.
           <span className="block text-print-cyan font-bold mt-2">
             Create. Print. Shine.
@@ -44,28 +54,27 @@ export default function Portfolio() {
         </p>
       </section>
 
+      {/* GRILLA DE PROYECTOS */}
       <section className="max-w-7xl mx-auto px-6 pb-32">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {projects.map((project, index) => (
-            <div key={index} className="group cursor-pointer">
-              <div
-                className={`aspect-[16/10] bg-gray-50 rounded-[2rem] overflow-hidden border-b-8 ${project.color} transition-all duration-500 group-hover:shadow-2xl group-hover:-translate-y-2 relative flex items-center justify-center`}
-              >
-                <span className="text-gray-200 font-black text-6xl opacity-20">
-                  {project.tag}
-                </span>
+            <div key={index} className={theme.projectCard}>
+              {/* CONTENEDOR DE LA IMAGEN */}
+              <div className={`${theme.projectImgBox} ${project.color}`}>
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className={theme.projectImage}
+                />
               </div>
 
+              {/* TEXTOS */}
               <div className="mt-8 px-2">
-                <span className="text-xs font-bold text-print-cyan uppercase tracking-widest mb-2 block">
+                <span className={theme.projectCategory}>
                   {project.category}
                 </span>
-                <h3 className="text-3xl font-black text-print-dark uppercase leading-none">
-                  {project.title}
-                </h3>
-                <p className="text-gray-400 font-medium italic mt-2">
-                  {project.desc}
-                </p>
+                <h3 className={theme.projectHeading}>{project.title}</h3>
+                <p className={theme.projectMeta}>{project.desc}</p>
               </div>
             </div>
           ))}
