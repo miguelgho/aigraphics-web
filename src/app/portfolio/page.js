@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { theme } from "@/lib/theme";
 
 const projects = [
@@ -60,11 +61,16 @@ export default function Portfolio() {
           {projects.map((project, index) => (
             <div key={index} className={theme.projectCard}>
               {/* CONTENEDOR DE LA IMAGEN */}
-              <div className={`${theme.projectImgBox} ${project.color}`}>
-                <img
+              <div
+                className={`${theme.projectImgBox} ${project.color} relative`}
+              >
+                <Image
                   src={project.image}
-                  alt={project.title}
-                  className={theme.projectImage}
+                  alt={`Ai Graphics Project: ${project.title} - ${project.category}`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className={`${theme.projectImage} object-cover`}
+                  priority={index < 2}
                 />
               </div>
 
