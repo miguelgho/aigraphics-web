@@ -23,6 +23,14 @@ export const metadata = {
       "From digital innovation to physical quality. We elevate your brand.",
     url: "https://www.aigraphicsfl.com",
     siteName: "Ai Graphics",
+    images: [
+      {
+        url: "https://www.aigraphicsfl.com/embroidery.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Ai Graphics 360 Branding Agency",
+      },
+    ],
     locale: "en_US",
     type: "website",
   },
