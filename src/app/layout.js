@@ -62,6 +62,30 @@ export default function RootLayout({ children }) {
             gtag('config', 'G-72KGPBRDY2');
           `}
         </Script>
+
+        <Script
+          id="local-business-schema"
+          type="application/ld+json"
+          strategy="afterInteractive"
+        >
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "Ai Graphics",
+              "url": "https://www.aigraphicsfl.com",
+              "telephone": "+1-305-970-5085",
+              "email": "sales@aigraphicsfl.com",
+              "description": "360 Branding, Web Design & Custom Print agency in Miami and South Florida. Create. Print. Shine.",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Miami",
+                "addressRegion": "FL",
+                "addressCountry": "US"
+              }
+            }
+          `}
+        </Script>
       </head>
       <body className="font-sans">
         <Navbar />
