@@ -2,12 +2,15 @@ import { Sora } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Script from "next/script"; // <-- Importamos el componente de Google
+import Script from "next/script";
 
 export const metadata = {
   title: "Ai Graphics | 360 Branding, Web Design & Custom Print in Miami",
   description:
     "Empowering brands with cutting-edge digital solutions, web development, custom embroidery, and premium printing services in Miami, FL. Create. Print. Shine.",
+  verification: {
+    google: "FHXirp4AumEwutWy97OPupLPVuckTDJBUxeGUgUZUEY",
+  },
   keywords: [
     "branding miami",
     "web design florida",
