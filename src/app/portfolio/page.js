@@ -7,7 +7,7 @@ const projects = [
     category: "Digital Solutions",
     desc: "Custom Web Design",
     color: "border-print-cyan",
-    image: "/website.jpg",
+    image: "/website.webp",
   },
   {
     title: "Iron Legacy Apparel",
@@ -21,21 +21,21 @@ const projects = [
     category: "Complete Branding",
     desc: "Logo - Company Identity",
     color: "border-print-yellow",
-    image: "/branding.jpg",
+    image: "/branding.webp",
   },
   {
     title: "Custom Window Print",
     category: "Custom Window Print",
     desc: "Complete Window Design",
     color: "border-print-dark",
-    image: "/window.jpg",
+    image: "/window.webp",
   },
   {
     title: "Summit Teamwear",
     category: "Apparel & Embroidery",
     desc: "Premium embroidered shirts, hats, and custom uniforms to elevate your brand.",
     color: "border-print-cyan",
-    image: "/embroidery.jpg",
+    image: "/embroidery.webp",
   },
 ];
 

@@ -6,19 +6,19 @@ const servicesData = [
     title: "Digital Solutions",
     desc: "Web development and software solutions to help businesses establish a strong online presence.",
     borderColor: "border-print-cyan",
-    image: "/digital.jpg",
+    image: "/digital.webp",
   },
   {
     title: "Creative Print",
     desc: "High-quality custom printing and apparel design, bringing your brand's identity to life.",
     borderColor: "border-print-magenta",
-    image: "/print.png",
+    image: "/print.jpeg",
   },
   {
     title: "Full Branding",
     desc: "End-to-end branding services that ensure your business stands out with a professional identity.",
     borderColor: "border-print-yellow",
-    image: "/branding.jpg",
+    image: "/branding.webp",
   },
 ];
 
@@ -66,7 +66,7 @@ export default function Home() {
             <div className="relative">
               <div className={theme.imageWrapper}>
                 <img
-                  src="https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=1000&auto=format&fit=crop"
+                  src="/palette.webp"
                   alt="Ai Graphics Process"
                   className="w-full h-[500px] object-cover"
                 />
