@@ -46,7 +46,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={sora.variable}>
       <head>
-        {/* 🔥 Google Analytics 🔥 */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-72KGPBRDY2"
           strategy="afterInteractive"
