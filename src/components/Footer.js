@@ -16,11 +16,12 @@ export default function Footer() {
         </p>
         <div className="flex flex-col md:flex-row gap-6 md:gap-12 text-gray-400 font-semibold text-sm mb-12 text-center">
           <a
-            href="mailto:sales@aigraphicsfl.com"
+            href={"mailto:" + "sales" + "@" + "aigraphicsfl.com"}
             className="hover:text-print-magenta transition"
           >
-            sales@aigraphicsfl.com
+            {"sales" + "@" + "aigraphicsfl.com"}
           </a>
+
           <a
             href="tel:+13059705085"
             className="hover:text-print-cyan transition"

@@ -1,11 +1,12 @@
 import { Sora } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import Footer from "@/components/Footer";
 import Script from "next/script";
 
 export const metadata = {
-  title: "Ai Graphics | 360 Branding, Web Design & Custom Print in Miami",
+  title: "Ai Graphics | 360 Branding, Web Design & Custom Print",
   description:
     "Empowering brands with cutting-edge digital solutions, web development, custom embroidery, and premium printing services in Miami, FL. Create. Print. Shine.",
   verification: {
@@ -76,7 +77,7 @@ export default function RootLayout({ children }) {
               "url": "https://www.aigraphicsfl.com",
               "telephone": "+1-305-970-5085",
               "email": "sales@aigraphicsfl.com",
-              "description": "360 Branding, Web Design & Custom Print agency in Miami and South Florida. Create. Print. Shine.",
+              "description": "360 Branding, Web Design & Custom Print agency in South Florida. Create. Print. Shine.",
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Miami",
@@ -90,6 +91,7 @@ export default function RootLayout({ children }) {
       <body className="font-sans">
         <Navbar />
         {children}
+        <WhatsAppButton />
         <Footer />
       </body>
     </html>
