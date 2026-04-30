@@ -40,9 +40,9 @@ Open http://localhost:3000 to see the site.
 
 ### Main Colors:
 
-- Magenta: #FF00FF (approx)
+- Magenta: #FF00FF
 
-- Cyan: #00FFFF (approx)
+- Cyan: #00FFFF
 
 - Dark: #1A1A1A
 
