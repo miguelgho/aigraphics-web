@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🚀 Ai Graphics | 360 Branding & Digital Solutions
 
-## Getting Started
+Professional website for **Ai Graphics**, built with **Next.js**, **Tailwind CSS**, and optimized for high-performance SEO.
 
-First, run the development server:
+## 🛠️ Tech Stack
+
+- **Framework:** Next.js 15 (App Router)
+- **Styling:** Tailwind CSS
+- **Analytics:** Google Analytics 4 (GA4)
+- **SEO:** JSON-LD Local Business Schema & Metadata API
+- **Deployment:** Vercel
+
+## 📁 Project Overview
+
+This project serves as the digital hub for Ai Graphics, a branding and custom print agency serving **Miami-Dade, Broward, and Palm Beach County**.
+
+### Key Features:
+
+- ✅ **Ultra-lightweight:** Images optimized down to 0.5MB for lightning-fast loading.
+- ✅ **SEO Ready:** Fully configured with Google Search Console and Sitemaps.
+- ✅ **Conversion Focused:** Floating WhatsApp integration for direct lead generation.
+- ✅ **Responsive:** Mobile-first design for all screen sizes.
+
+## 🚀 Getting Started
+
+To run the project locally:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 to see the site.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### 🎨 Brand Identity
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Primary Font: Sora (Next.js Google Fonts)
 
-## Learn More
+Main Colors:
 
-To learn more about Next.js, take a look at the following resources:
+- Magenta: #FF00FF (approx)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Cyan: #00FFFF (approx)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Dark: #1A1A1A
 
-## Deploy on Vercel
+### 📍 Service Areas
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Serving South Florida:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Miami-Dade County
+
+- Broward County
+
+- Palm Beach County
+
+© 2026 Ai Graphics LLC. All rights reserved.
