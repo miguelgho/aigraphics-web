@@ -32,11 +32,13 @@ npm run dev
 
 Open http://localhost:3000 to see the site.
 
-### 🎨 Brand Identity
+## 🎨 Brand Identity
 
-Primary Font: Sora (Next.js Google Fonts)
+### Primary Font:
 
-Main Colors:
+- Sora (Next.js Google Fonts)
+
+### Main Colors:
 
 - Magenta: #FF00FF (approx)
 
@@ -44,9 +46,9 @@ Main Colors:
 
 - Dark: #1A1A1A
 
-### 📍 Service Areas
+## 📍 Service Areas
 
-Serving South Florida:
+### Serving South Florida:
 
 - Miami-Dade County
 
@@ -54,4 +56,4 @@ Serving South Florida:
 
 - Palm Beach County
 
-© 2026 Ai Graphics LLC. All rights reserved.
+## © 2026 Ai Graphics LLC. All rights reserved.
