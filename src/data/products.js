@@ -1,147 +1,138 @@
 export const categories = [
   { id: "all", name: "Todos los Productos" },
-  { id: "dtf", name: "Impresión Textil DTF" },
   { id: "embroidery", name: "Bordados & Gorras" },
+  { id: "dtf", name: "Impresión Textil & DTF" },
+  { id: "workwear", name: "Uniformes de Trabajo & Escuela" },
   { id: "vinyl", name: "Rotulación & Microperforado" },
   { id: "signage", name: "Señalética & Displays" },
-  { id: "stickers", name: "Stickers & Papelería" },
+  { id: "promos", name: "Tazas, Stickers & Promos" },
 ];
 
 export const products = [
   {
-    id: "dtf-tshirts",
-    name: "Franelas y Camisetas DTF",
-    category: "dtf",
-    tagline: "Impresión Direct-to-Film a todo color sin límite de diseño",
-    coverImage: "/shirt-print.jpg",
+    id: "caps-embroidery",
+    name: "Gorras Personalizadas",
+    category: "embroidery",
+    tagline: "Bordado plano y 3D Puff en todo tipo de estilos",
+    coverImage:
+      "https://lh3.googleusercontent.com/d/1NE-OYOVOJbU-aEZHlyM8BlBPEwK7q0mE",
     color: "#E04B9A",
     description:
-      "Estampado de máxima durabilidad sobre algodón y telas dry-fit. Colores vivos y tacto suave.",
-    gallery: ["/shirt-print.jpg", "/print.jpeg"],
-    whatsappMsg:
-      "Hola Ai Graphics, me gustaría cotizar franelas/camisetas en DTF.",
+      "Personalizamos todo tipo de gorras (trucker con malla, snapbacks, cerradas, deportivas y viseras) con acabados nítidos y duraderos.",
+    gallery: [
+      "https://lh3.googleusercontent.com/d/1NE-OYOVOJbU-aEZHlyM8BlBPEwK7q0mE",
+      "https://lh3.googleusercontent.com/d/1jb329JGPzRfcVpq3Z-X4HUYkfTJqYcpK",
+      "https://lh3.googleusercontent.com/d/1wSH9noRiDpRx81OQu_hRFvdH3S3XScWK",
+    ],
+    whatsappMsg: "Hola Ai Graphics, deseo cotizar gorras personalizadas.",
   },
   {
-    id: "polos-workwear",
-    name: "Polos y Uniformes de Trabajo",
-    category: "embroidery",
-    tagline: "Presencia corporativa y resistencia para tu equipo",
-    coverImage: "/embroidery-shirt.webp",
+    id: "work-uniforms",
+    name: "Uniformes de Trabajo y Construcción",
+    category: "workwear",
+    tagline: "Polos, camisetas Hi-Vis y enguatadas resistentes",
+    coverImage:
+      "https://lh3.googleusercontent.com/d/1gAWsTeoVUVuTw-b92B3vzDALZfV5Z1IP",
     color: "#68C9D8",
     description:
-      "Polos piqué, enguatadas de trabajo y uniformes para construcción y empresas con bordado de alta definición.",
-    gallery: ["/embroidery-shirt.webp", "/embroidery.webp"],
+      "Prendas de trabajo resistentes para contratistas, soldadura, impermeabilización y servicios técnicos con bordado o estampado duradero.",
+    gallery: [
+      "https://lh3.googleusercontent.com/d/1gAWsTeoVUVuTw-b92B3vzDALZfV5Z1IP",
+      "https://lh3.googleusercontent.com/d/1Q-OOWN-XcBmChIzrnJGRmx7WoPYF4TNm",
+      "https://lh3.googleusercontent.com/d/17cOfEd6RnRdJBVpbNIZBxbI0XPMRKo1q",
+    ],
     whatsappMsg:
-      "Hola Ai Graphics, deseo cotizar polos y uniformes de trabajo.",
+      "Hola Ai Graphics, quiero cotizar uniformes de trabajo para mi empresa.",
   },
   {
-    id: "caps-embroidery",
-    name: "Gorras y Snapbacks Bordadas",
-    category: "embroidery",
-    tagline: "Bordado plano y 3D Puff de alto relieve",
-    coverImage: "/embroidery.webp",
+    id: "dtf-tshirts",
+    name: "Camisetas Corporativas y Personalizadas",
+    category: "dtf",
+    tagline: "Estampado DTF a todo color en todo tipo de prendas",
+    coverImage:
+      "https://lh3.googleusercontent.com/d/15QfmlELfgqtR1ktWexMSA6h-_BaOcGIs",
     color: "#E04B9A",
     description:
-      "Bordado profesional en gorras tipo trucker (malla), snapbacks cerradas y viseras.",
-    gallery: ["/embroidery.webp", "/embroidery-shirt.webp"],
-    whatsappMsg: "Hola Ai Graphics, deseo cotizar gorras bordadas.",
+      "Impresión textil full color sin límite de diseño para empresas, eventos, marcas y reuniones familiares.",
+    gallery: [
+      "https://lh3.googleusercontent.com/d/15QfmlELfgqtR1ktWexMSA6h-_BaOcGIs",
+      "https://lh3.googleusercontent.com/d/1161AL7Awf96OjRjArlA9tj6CX0f2tQyA",
+    ],
+    whatsappMsg:
+      "Hola Ai Graphics, me gustaría cotizar camisetas personalizadas.",
+  },
+  {
+    id: "school-uniforms",
+    name: "Uniformes Escolares y Graduaciones",
+    category: "workwear",
+    tagline: "Personalización para colegios, faldas y prendas Senior",
+    coverImage:
+      "https://lh3.googleusercontent.com/d/1367t_4WaLnVSuiUN3tQeB1ppV4Pc6Z3l",
+    color: "#F4D30D",
+    description:
+      "Confección y personalización de faldas, chalecos, polos y conjuntos conmemorativos para clases de graduación.",
+    gallery: [
+      "https://lh3.googleusercontent.com/d/1367t_4WaLnVSuiUN3tQeB1ppV4Pc6Z3l",
+    ],
+    whatsappMsg:
+      "Hola Ai Graphics, deseo cotizar uniformes escolares o prendas de graduación.",
+  },
+  {
+    id: "mugs-drinkware",
+    name: "Tazas y Cristalería Personalizada",
+    category: "promos",
+    tagline: "Sublimación y detalles decorativos para regalos y eventos",
+    coverImage:
+      "https://lh3.googleusercontent.com/d/1EDap3Ddp7z4wMcUS8Z5uK5j7xEJkkdhi",
+    color: "#F4D30D",
+    description:
+      "Tazas de cerámica sublimadas y copas de cristal con calcomanías decorativas para celebraciones, empresas y detalles especiales.",
+    gallery: [
+      "https://lh3.googleusercontent.com/d/1EDap3Ddp7z4wMcUS8Z5uK5j7xEJkkdhi",
+      "https://lh3.googleusercontent.com/d/1ubQVnYdC1_Q3pPhpVcD8BR70c0AUQzmc",
+      "https://lh3.googleusercontent.com/d/1SahQFaqM2fn0h40z5Lii8jbFRyRz4T9k",
+    ],
+    whatsappMsg:
+      "Hola Ai Graphics, me gustaría cotizar tazas o cristalería personalizada.",
+  },
+  {
+    id: "stickers",
+    name: "Stickers Troquelados (Die-Cut)",
+    category: "promos",
+    tagline: "Calcomanías personalizadas en vinilo impermeable",
+    coverImage:
+      "https://lh3.googleusercontent.com/d/1ubQVnYdC1_Q3pPhpVcD8BR70c0AUQzmc",
+    color: "#68C9D8",
+    description:
+      "Vinil adhesivo de alta resistencia con protección contra agua y sol en cualquier forma, diseño y tamaño.",
+    gallery: [
+      "https://lh3.googleusercontent.com/d/1ubQVnYdC1_Q3pPhpVcD8BR70c0AUQzmc",
+    ],
+    whatsappMsg: "Hola Ai Graphics, quiero cotizar stickers personalizados.",
   },
   {
     id: "microperforado",
     name: "Microperforado para Ventanas y Autos",
     category: "vinyl",
-    tagline: "Visión hacia afuera con publicidad total hacia el exterior",
+    tagline: "Visión hacia afuera con publicidad total al exterior",
     coverImage: "/window.webp",
     color: "#68C9D8",
     description:
-      "Vinilo microperforado (One-Way Vision) para cristales traseros de vehículos y vitrinas comerciales.",
+      "Vinilo microperforado (One-Way Vision) para vitrinas comerciales y cristales traseros de vehículos.",
     gallery: ["/window.webp"],
+    whatsappMsg: "Hola Ai Graphics, me gustaría cotizar microperforado.",
+  },
+  {
+    id: "signage-displays",
+    name: "Roll-Ups, A-Frames & Letreros Rígidos",
+    category: "signage",
+    tagline: "Estructuras portátiles y señalética de exterior",
+    coverImage: "/print.jpeg",
+    color: "#F4D30D",
+    description:
+      "Banners retráctiles, caballetes de acera y letreros rígidos en PVC y Coroplast con laminado protector UV.",
+    gallery: ["/print.jpeg"],
     whatsappMsg:
-      "Hola Ai Graphics, me gustaría cotizar microperforado para ventana/vehículo.",
-  },
-  {
-    id: "window-lettering",
-    name: "Rotulación Comercial para Vitrinas",
-    category: "vinyl",
-    tagline: "Publicidad en vinilo de corte y gráficos para tiendas",
-    coverImage: "/window.webp",
-    color: "#E04B9A",
-    description:
-      "Logos, horarios, promociones y diseño gráfico en vinil para puertas y fachadas de locales.",
-    gallery: ["/window.webp"],
-    whatsappMsg:
-      "Hola Ai Graphics, quiero cotizar rotulación para mi vitrina/local.",
-  },
-  {
-    id: "stickers",
-    name: "Stickers Troquelados (Die-Cut)",
-    category: "stickers",
-    tagline: "Calcomanías personalizadas en vinilo impermeable",
-    coverImage: "/palette.webp",
-    color: "#F4D30D",
-    description:
-      "Vinil adhesivo de alta adherencia con laminado protector contra sol y agua. En cualquier forma y tamaño.",
-    gallery: ["/palette.webp"],
-    whatsappMsg: "Hola Ai Graphics, quiero cotizar stickers personalizados.",
-  },
-  {
-    id: "rollups",
-    name: "Roll-Ups (Banners Retráctiles)",
-    category: "signage",
-    tagline: "Displays portátiles de alta presencia para ferias y eventos",
-    coverImage: "/print.jpeg",
-    color: "#F4D30D",
-    description:
-      "Estructura de aluminio ligera y resistente, lona impresa en alta resolución y bolso para transporte.",
-    gallery: ["/print.jpeg"],
-    whatsappMsg: "Hola Ai Graphics, deseo cotizar Roll-Ups portátiles.",
-  },
-  {
-    id: "aframes",
-    name: "A-Frames (Caballetes de Acera)",
-    category: "signage",
-    tagline: "Publicidad de doble cara para la entrada de tu local",
-    coverImage: "/window.webp",
-    color: "#F4D30D",
-    description:
-      "Estructuras plegables para exteriores con paneles intercambiables en PVC o Coroplast.",
-    gallery: ["/window.webp"],
-    whatsappMsg: "Hola Ai Graphics, quiero cotizar un A-Frame publicitario.",
-  },
-  {
-    id: "coroplast-signs",
-    name: "Letreros en Coroplast (Yard Signs)",
-    category: "signage",
-    tagline: "Carteles resistentes para inmobiliarias, jardines y eventos",
-    coverImage: "/print.jpeg",
-    color: "#68C9D8",
-    description:
-      "Plástico corrugado ligero y resistente a la intemperie con opción de estacas metálicas.",
-    gallery: ["/print.jpeg"],
-    whatsappMsg: "Hola Ai Graphics, deseo cotizar letreros en Coroplast.",
-  },
-  {
-    id: "pvc-signs",
-    name: "Letreros en PVC Rígido Laminado",
-    category: "signage",
-    tagline: "Señalética interior y exterior de máxima durabilidad",
-    coverImage: "/print.jpeg",
-    color: "#E04B9A",
-    description:
-      "Placas rígidas de PVC con vinil impreso y sobrelaminado protector UV de alta resistencia.",
-    gallery: ["/print.jpeg"],
-    whatsappMsg: "Hola Ai Graphics, me gustaría cotizar letreros en PVC.",
-  },
-  {
-    id: "business-cards",
-    name: "Tarjetas de Presentación (Business Cards)",
-    category: "stickers",
-    tagline: "Impresión nítida y acabados profesionales",
-    coverImage: "/branding.webp",
-    color: "#2B2E35",
-    description:
-      "Tarjetas corporativas a todo color en cartulina gruesa con acabado mate o brillante.",
-    gallery: ["/branding.webp"],
-    whatsappMsg: "Hola Ai Graphics, quiero cotizar tarjetas de presentación.",
+      "Hola Ai Graphics, deseo cotizar letreros, roll-ups o A-frames.",
   },
 ];

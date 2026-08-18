@@ -24,6 +24,7 @@ export default function ProductCatalog() {
         </p>
       </div>
 
+      {/* Botones de Filtro de Categoría */}
       <div className="flex flex-wrap gap-2 justify-center mb-12">
         {categories.map((cat) => (
           <button
@@ -40,6 +41,7 @@ export default function ProductCatalog() {
         ))}
       </div>
 
+      {/* Grid de Productos Individuales */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {filteredProducts.map((product) => (
           <div
@@ -52,6 +54,7 @@ export default function ProductCatalog() {
                 src={product.coverImage}
                 alt={product.name}
                 fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
@@ -96,6 +99,7 @@ export default function ProductCatalog() {
         ))}
       </div>
 
+      {/* Modal / Galería de Trabajos */}
       {selectedProduct && (
         <div
           className="fixed inset-0 bg-black/75 z-50 flex items-center justify-center p-4 backdrop-blur-sm"
@@ -138,6 +142,7 @@ export default function ProductCatalog() {
                     src={imgUrl}
                     alt={`${selectedProduct.name} ejemplo ${index + 1}`}
                     fill
+                    sizes="(max-width: 640px) 50vw, 33vw"
                     className="object-cover"
                   />
                 </div>

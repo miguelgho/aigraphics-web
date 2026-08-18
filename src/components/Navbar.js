@@ -17,13 +17,14 @@ export default function Navbar() {
                 src="/logo.png"
                 alt="Ai Graphics Logo"
                 fill
+                sizes="(max-width: 640px) 176px, 208px"
                 className="object-contain object-left"
                 priority
               />
             </div>
           </Link>
 
-          {/* Centro: Enlaces de Navegación (Computadoras) */}
+          {/* Centro: Enlaces de Navegación (Desktop) */}
           <nav className="hidden md:flex items-center space-x-8">
             <Link
               href="/"
@@ -69,7 +70,7 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Botón de Menú para Celulares */}
+          {/* Botón Menú Móvil */}
           <div className="flex md:hidden items-center gap-2">
             <a
               href="tel:3059705085"
@@ -109,7 +110,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Menú Desplegable en Celulares */}
+      {/* Menú Desplegable en Móvil */}
       {isOpen && (
         <div className="md:hidden bg-white border-b border-gray-100 px-4 pt-2 pb-6 space-y-3 shadow-lg">
           <Link

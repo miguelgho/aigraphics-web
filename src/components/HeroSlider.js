@@ -4,24 +4,34 @@ import Image from "next/image";
 
 const slides = [
   {
-    image: "/embroidery.webp",
-    tag: "Bordados Computarizados & Gorras",
-    desc: "Uniformes corporativos, polos y gorras 3D Puff",
+    image:
+      "https://lh3.googleusercontent.com/d/1NE-OYOVOJbU-aEZHlyM8BlBPEwK7q0mE",
+    tag: "Bordados Profesionales en Gorras",
+    desc: "Bordado plano y 3D Puff en todo tipo de gorras y estilos",
   },
   {
-    image: "/shirt-print.jpg",
+    image:
+      "https://lh3.googleusercontent.com/d/1gAWsTeoVUVuTw-b92B3vzDALZfV5Z1IP",
+    tag: "Uniformes de Trabajo & Construcción",
+    desc: "Polos, ropa de alta visibilidad y prendas resistentes",
+  },
+  {
+    image:
+      "https://lh3.googleusercontent.com/d/15QfmlELfgqtR1ktWexMSA6h-_BaOcGIs",
     tag: "Impresión Textil DTF",
-    desc: "Franelas y camisetas a todo color de alta durabilidad",
+    desc: "Estampados a todo color en todo tipo de telas y prendas",
   },
   {
-    image: "/window.webp",
-    tag: "Rotulación & Microperforado",
-    desc: "Gráficos comerciales para vitrinas y cristales de vehículos",
+    image:
+      "https://lh3.googleusercontent.com/d/1367t_4WaLnVSuiUN3tQeB1ppV4Pc6Z3l",
+    tag: "Uniformes Escolares & Senior Class",
+    desc: "Prendas personalizadas para colegios y graduaciones",
   },
   {
-    image: "/print.jpeg",
-    tag: "Señalética, Roll-Ups & Banners",
-    desc: "Displays para eventos, letreros en PVC y Coroplast",
+    image:
+      "https://lh3.googleusercontent.com/d/1EDap3Ddp7z4wMcUS8Z5uK5j7xEJkkdhi",
+    tag: "Tazas y Artículos Promocionales",
+    desc: "Sublimación y detalles personalizados para marcas y eventos",
   },
 ];
 
@@ -38,7 +48,7 @@ export default function HeroSlider() {
   return (
     <section className="relative bg-gradient-to-br from-[#1E2024] via-[#2B2E35] to-[#16171A] text-white py-14 lg:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        {/* Lado Izquierdo: Textos y Botones */}
+        {/* Lado Izquierdo: Textos */}
         <div className="lg:col-span-6 space-y-6 text-center lg:text-left z-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-[#68C9D8] text-xs font-bold uppercase tracking-wider backdrop-blur-md border border-white/10">
             ✨ Create. Print. Shine.
@@ -57,7 +67,6 @@ export default function HeroSlider() {
             empresas y escuelas.
           </p>
 
-          {/* Botones de acción */}
           <div className="flex flex-wrap gap-4 justify-center lg:justify-start pt-2">
             <a
               href="https://wa.me/13059705085?text=Hola%20Ai%20Graphics,%20me%20gustaría%20solicitar%20una%20cotización."
@@ -75,7 +84,6 @@ export default function HeroSlider() {
             </a>
           </div>
 
-          {/* Insignias de confianza */}
           <div className="pt-6 border-t border-white/10 grid grid-cols-3 gap-2 text-center lg:text-left">
             <div>
               <p className="text-[#F4D30D] font-bold text-xs sm:text-sm">
@@ -98,7 +106,7 @@ export default function HeroSlider() {
           </div>
         </div>
 
-        {/* Lado Derecho: Slider de Imágenes */}
+        {/* Lado Derecho: Slider */}
         <div className="lg:col-span-6 relative">
           <div className="relative h-[320px] sm:h-[400px] w-full rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-gray-900">
             {slides.map((slide, index) => (
@@ -112,6 +120,7 @@ export default function HeroSlider() {
                   src={slide.image}
                   alt={slide.tag}
                   fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"
                   priority={index === 0}
                 />
@@ -128,7 +137,6 @@ export default function HeroSlider() {
               </div>
             ))}
 
-            {/* Puntos de navegación */}
             <div className="absolute bottom-6 right-6 z-30 flex gap-2">
               {slides.map((_, idx) => (
                 <button
