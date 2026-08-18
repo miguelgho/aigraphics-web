@@ -54,12 +54,20 @@ export default function HeroSlider() {
             ✨ Create. Print. Shine.
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight">
+          {/* H1 INVISIBLE PARA EL ESCÁNER DE SEO */}
+          <h1 className="sr-only">
+            Work Uniforms, School Uniform Store & Construction Workwear in
+            Homestead | Custom Uniform Embroidery, Enguatadas de trabajo &
+            Uniformes
+          </h1>
+
+          {/* TÍTULO VISUAL LIMPIO */}
+          <p className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight">
             Work Uniforms, Embroidery & Custom Printing in{" "}
             <span className="bg-gradient-to-r from-[#E04B9A] via-[#F4D30D] to-[#68C9D8] bg-clip-text text-transparent">
               Homestead & Miami
             </span>
-          </h1>
+          </p>
 
           <p className="text-gray-300 text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
             Especialistas en uniformes de trabajo, bordado computarizado,

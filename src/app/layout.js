@@ -32,7 +32,8 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const businessSchema = {
+  // Schema Estructurado (JSON-LD) para negocios locales (100% invisible para el usuario)
+  const structuredSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: "Ai Graphics LLC",
@@ -40,6 +41,7 @@ export default function RootLayout({ children }) {
     telephone: "+1-305-970-5085",
     email: "Sales@aigraphicsfl.com",
     url: "https://aigraphicsfl.com",
+    priceRange: "$$",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Homestead",
@@ -51,10 +53,53 @@ export default function RootLayout({ children }) {
       latitude: 25.4687,
       longitude: -80.4776,
     },
-    areaServed: ["Homestead", "Kendall", "Cutler Bay", "Miami"],
-    priceRange: "$$",
+    areaServed: [
+      {
+        "@type": "City",
+        name: "Homestead",
+      },
+      {
+        "@type": "City",
+        name: "Kendall",
+      },
+      {
+        "@type": "City",
+        name: "Cutler Bay",
+      },
+      {
+        "@type": "City",
+        name: "Miami",
+      },
+    ],
     description:
-      "Custom work uniforms, school uniform store, construction workwear, custom embroidery, DTF printing, signs, and banners.",
+      "Work Uniforms, School Uniform Store & Construction Workwear in Homestead | Custom Uniform Embroidery, Enguatadas de trabajo & Uniformes",
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Servicios de Personalización y Uniformes",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Custom Uniform Embroidery",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "DTF T-Shirt Printing",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Window Microperforado & Signs",
+          },
+        },
+      ],
+    },
   };
 
   return (
@@ -62,7 +107,7 @@ export default function RootLayout({ children }) {
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredSchema) }}
         />
       </head>
       <body className="bg-gray-50 text-gray-900 flex flex-col min-h-screen">
