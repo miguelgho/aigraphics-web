@@ -48,7 +48,6 @@ export default function ReviewsWidget() {
         </p>
       </div>
 
-      {/* Contenedor sin scrollbar */}
       <div
         id="reviewsWidgetContainer"
         ref={containerRef}

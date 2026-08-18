@@ -53,7 +53,6 @@ export default function FAQSection() {
 
   return (
     <section id="faqs" className="py-16 px-4 max-w-6xl mx-auto">
-      {/* Schema estructurado para Google y AI */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}

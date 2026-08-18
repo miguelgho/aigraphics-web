@@ -9,7 +9,7 @@ export default function Home() {
       {/* Hero Interactivo con Slider */}
       <HeroSlider />
 
-      {/* Catálogo de Productos y Galería */}
+      {/* Catálogo de Productos estructurado en las 4 Categorías */}
       <ProductCatalog />
 
       {/* Widget Oficial de Reseñas de Google */}

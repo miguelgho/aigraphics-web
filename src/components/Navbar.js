@@ -24,7 +24,6 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Centro: Enlaces de Navegación (Desktop) */}
           <nav className="hidden md:flex items-center space-x-8">
             <Link
               href="/"
@@ -52,7 +51,6 @@ export default function Navbar() {
             </Link>
           </nav>
 
-          {/* Lado Derecho: Teléfono y Botón de Cotización */}
           <div className="hidden sm:flex items-center gap-4">
             <a
               href="tel:3059705085"
@@ -70,7 +68,6 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Botón Menú Móvil */}
           <div className="flex md:hidden items-center gap-2">
             <a
               href="tel:3059705085"
@@ -110,7 +107,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Menú Desplegable en Móvil */}
       {isOpen && (
         <div className="md:hidden bg-white border-b border-gray-100 px-4 pt-2 pb-6 space-y-3 shadow-lg">
           <Link
