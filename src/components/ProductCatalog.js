@@ -33,7 +33,7 @@ export default function ProductCatalog() {
             className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all shadow-sm ${
               activeCategory === cat.id
                 ? "bg-[#E04B9A] text-white shadow-md scale-105"
-                : "bg-white text-gray-800 hover:bg-gray-100 border border-gray-200"
+                : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-200"
             }`}
           >
             {cat.name}
@@ -66,9 +66,7 @@ export default function ProductCatalog() {
             <div className="p-6 flex-1 flex flex-col justify-between">
               <div>
                 <span
-                  className={`inline-block px-2.5 py-1 rounded-md text-[11px] font-bold uppercase tracking-wider mb-2 ${
-                    product.color === "#F4D30D" ? "text-gray-900" : "text-white"
-                  }`}
+                  className="inline-block px-2.5 py-1 rounded-md text-[11px] font-bold text-white uppercase tracking-wider mb-2"
                   style={{ backgroundColor: product.color }}
                 >
                   {product.tagline}
@@ -76,13 +74,13 @@ export default function ProductCatalog() {
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
                   {product.name}
                 </h3>
-                <p className="text-sm text-gray-700 leading-relaxed mb-4">
+                <p className="text-sm text-gray-600 leading-relaxed mb-4">
                   {product.description}
                 </p>
               </div>
 
               <div className="flex items-center justify-between pt-4 border-t border-gray-100 mt-2">
-                <span className="text-xs font-bold text-gray-900 group-hover:text-[#E04B9A] transition-colors">
+                <span className="text-xs font-bold text-[#68C9D8] group-hover:text-[#E04B9A] transition-colors">
                   Ver galería →
                 </span>
                 <a
@@ -91,7 +89,7 @@ export default function ProductCatalog() {
                   rel="noopener noreferrer"
                   aria-label={`Cotizar ${product.name} por WhatsApp`}
                   onClick={(e) => e.stopPropagation()}
-                  className="bg-[#15803D] text-white px-4 py-2 rounded-xl text-xs font-bold hover:bg-[#166534] transition-colors shadow-sm"
+                  className="bg-[#25D366] text-white px-4 py-2 rounded-xl text-xs font-bold hover:bg-[#1EBE5D] transition-colors shadow-sm"
                 >
                   Cotizar WhatsApp
                 </a>
@@ -112,18 +110,14 @@ export default function ProductCatalog() {
           >
             <button
               onClick={() => setSelectedProduct(null)}
-              aria-label="Cerrar modal de galería"
-              className="absolute top-5 right-5 text-gray-600 hover:text-gray-900 text-2xl font-bold p-2"
+              aria-label="Cerrar modal"
+              className="absolute top-5 right-5 text-gray-400 hover:text-gray-800 text-2xl font-bold"
             >
               ✕
             </button>
 
             <span
-              className={`inline-block px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider mb-2 ${
-                selectedProduct.color === "#F4D30D"
-                  ? "text-gray-900"
-                  : "text-white"
-              }`}
+              className="inline-block px-3 py-1 rounded-md text-xs font-bold text-white uppercase tracking-wider mb-2"
               style={{ backgroundColor: selectedProduct.color }}
             >
               {selectedProduct.category.toUpperCase()}
@@ -131,11 +125,11 @@ export default function ProductCatalog() {
             <h3 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-2">
               {selectedProduct.name}
             </h3>
-            <p className="text-gray-700 text-sm mb-6">
+            <p className="text-gray-600 text-sm mb-6">
               {selectedProduct.description}
             </p>
 
-            <h4 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">
+            <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">
               Muestras de Trabajos Anteriores:
             </h4>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-8">

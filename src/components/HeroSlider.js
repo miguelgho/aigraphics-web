@@ -48,7 +48,7 @@ export default function HeroSlider() {
   return (
     <section className="relative bg-gradient-to-br from-[#1E2024] via-[#2B2E35] to-[#16171A] text-white py-14 lg:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        {/* Lado Izquierdo */}
+        {/* Lado Izquierdo: Textos */}
         <div className="lg:col-span-6 space-y-6 text-center lg:text-left z-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-[#68C9D8] text-xs font-bold uppercase tracking-wider backdrop-blur-md border border-white/10">
             ✨ Create. Print. Shine.
@@ -69,8 +69,8 @@ export default function HeroSlider() {
 
           <p className="text-gray-300 text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
             Tu tienda y taller local especializado en uniformes de trabajo,
-            gorras bordadas, camisetas DTF, rotulación y letreros para empresas
-            y escuelas.
+            gorras bordadas, camisetas DTF, rotulación con microperforado y
+            letreros para empresas y escuelas.
           </p>
 
           <div className="flex flex-wrap gap-3 justify-center lg:justify-start pt-2">
@@ -85,8 +85,8 @@ export default function HeroSlider() {
             </a>
             <a
               href="tel:3059705085"
-              aria-label="Llamar a Ai Graphics al 305-970-5085"
-              className="px-6 py-3.5 rounded-xl bg-[#15803D] text-white font-bold text-sm hover:bg-[#166534] transition-all shadow-lg hover:scale-105"
+              aria-label="Llamar al 305-970-5085"
+              className="px-6 py-3.5 rounded-xl bg-[#25D366] text-white font-bold text-sm hover:bg-[#1ebe5d] transition-all shadow-lg hover:scale-105"
             >
               📞 Llamar (305) 970-5085
             </a>
@@ -104,13 +104,13 @@ export default function HeroSlider() {
               <p className="text-[#F4D30D] font-bold text-xs sm:text-sm">
                 ⚡ Rush Orders
               </p>
-              <p className="text-gray-400 text-[11px]">Listos en 24–48 hrs</p>
+              <p className="text-gray-300 text-[11px]">Listos en 24–48 hrs</p>
             </div>
             <div>
               <p className="text-[#68C9D8] font-bold text-xs sm:text-sm">
                 ⭐ Calidad
               </p>
-              <p className="text-gray-400 text-[11px]">
+              <p className="text-gray-300 text-[11px]">
                 Bordado e impresión HD
               </p>
             </div>
@@ -118,7 +118,7 @@ export default function HeroSlider() {
               <p className="text-[#E04B9A] font-bold text-xs sm:text-sm">
                 📍 Taller Local
               </p>
-              <p className="text-gray-400 text-[11px]">Homestead & Miami</p>
+              <p className="text-gray-300 text-[11px]">Homestead & Miami</p>
             </div>
           </div>
         </div>
@@ -143,7 +143,7 @@ export default function HeroSlider() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
-                <div className="absolute bottom-6 left-6 right-6 z-20">
+                <div className="absolute bottom-5 left-5 right-5 z-20">
                   <span className="inline-block px-3 py-1 rounded-lg bg-[#E04B9A] text-white text-xs font-bold uppercase tracking-wider mb-2 shadow-md">
                     {slide.tag}
                   </span>
@@ -154,19 +154,22 @@ export default function HeroSlider() {
               </div>
             ))}
 
-            {/* Puntos accesibles con aria-label */}
-            <div className="absolute bottom-6 right-6 z-30 flex gap-2">
+            <div className="absolute bottom-4 right-4 z-30 flex items-center gap-1.5 bg-black/40 px-3 py-1.5 rounded-full backdrop-blur-sm">
               {slides.map((slide, idx) => (
                 <button
                   key={idx}
                   onClick={() => setCurrent(idx)}
                   aria-label={`Ver diapositiva ${idx + 1}: ${slide.tag}`}
-                  className={`w-3 h-3 rounded-full transition-all ${
-                    idx === current
-                      ? "bg-[#F4D30D] w-7"
-                      : "bg-white/70 hover:bg-white"
-                  }`}
-                />
+                  className="p-1 flex items-center justify-center"
+                >
+                  <span
+                    className={`block rounded-full transition-all ${
+                      idx === current
+                        ? "bg-[#F4D30D] w-5 h-2.5"
+                        : "bg-white/60 hover:bg-white w-2.5 h-2.5"
+                    }`}
+                  />
+                </button>
               ))}
             </div>
           </div>
