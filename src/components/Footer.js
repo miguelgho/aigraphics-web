@@ -1,7 +1,45 @@
 import Link from "next/link";
 import { BUSINESS_HOURS } from "@/lib/site";
+import { faqsPath, path } from "@/lib/i18n";
 
-export default function Footer() {
+const copy = {
+  en: {
+    callLabel: "Call 305-970-5085",
+    links: [
+      ["Services", "/#servicios"],
+      ["Products", "products"],
+      ["Portfolio", "portfolio"],
+      ["Workshop", "workshop"],
+      ["Web Design", "webDesign"],
+      ["FAQs", "faqs"],
+      ["Contact", "contact"],
+    ],
+    visits: "Visits by appointment only",
+  },
+  es: {
+    callLabel: "Llamar al 305-970-5085",
+    links: [
+      ["Servicios", "/es#servicios"],
+      ["Productos", "products"],
+      ["Portafolio", "portfolio"],
+      ["Taller", "workshop"],
+      ["Diseño Web", "webDesign"],
+      ["FAQs", "faqs"],
+      ["Contacto", "contact"],
+    ],
+    visits: "Visitas con cita previa",
+  },
+};
+
+export default function Footer({ lang = "en" }) {
+  const t = copy[lang];
+  const hrefFor = (target) =>
+    target.startsWith("/")
+      ? target
+      : target === "faqs"
+        ? faqsPath(lang)
+        : path(target, lang);
+
   return (
     <footer className="font-sans text-white">
       {/* Franja de contacto, igual que el pie del roll-up */}
@@ -10,7 +48,7 @@ export default function Footer() {
           <a
             href="tel:+13059705085"
             className="flex items-center gap-4 group"
-            aria-label="Llamar al 305-970-5085"
+            aria-label={t.callLabel}
           >
             <span className="w-14 h-14 rounded-full bg-print-magenta flex items-center justify-center ring-4 ring-white/15">
               <svg
@@ -28,27 +66,15 @@ export default function Footer() {
           </a>
 
           <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm font-semibold text-gray-300">
-            <Link href="/#servicios" className="hover:text-white">
-              Servicios
-            </Link>
-            <Link href="/productos" className="hover:text-white">
-              Productos
-            </Link>
-            <Link href="/portfolio" className="hover:text-white">
-              Portafolio
-            </Link>
-            <Link href="/taller" className="hover:text-white">
-              Taller
-            </Link>
-            <Link href="/diseno-web" className="hover:text-white">
-              Diseño Web
-            </Link>
-            <Link href="/#faqs" className="hover:text-white">
-              FAQs
-            </Link>
-            <Link href="/contact" className="hover:text-white">
-              Contacto
-            </Link>
+            {t.links.map(([label, target]) => (
+              <Link
+                key={label}
+                href={hrefFor(target)}
+                className="hover:text-white"
+              >
+                {label}
+              </Link>
+            ))}
           </nav>
         </div>
       </div>
@@ -113,7 +139,7 @@ export default function Footer() {
             <span className="font-bold text-white">Ai Graphics LLC</span> ·
             Homestead / Miami, FL · Create. Print. Shine.
             <span className="block text-xs text-gray-400 mt-1">
-              🕖 {BUSINESS_HOURS} · Visitas con cita previa
+              🕖 {BUSINESS_HOURS[lang]} · {t.visits}
             </span>
           </p>
 

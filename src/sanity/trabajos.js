@@ -10,13 +10,14 @@ const builder = client ? createImageUrlBuilder(client) : null;
 
 const TRABAJOS_QUERY = `*[_type == "trabajo" && count(fotos) > 0]
   | order(destacado desc, fecha desc, _createdAt desc) {
-    _id, titulo, categoria, producto, descripcion,
+    _id, titulo, tituloEn, categoria, producto, descripcion, descripcionEn,
     fotos[]{ asset, hotspot, crop, alt }
   }`;
 
 // Devuelve los trabajos subidos en /studio, con las URLs de las fotos ya listas.
+// En inglés usa el título y la descripción en inglés si existen; si no, los de español.
 // Si Sanity no está configurado o no responde, devuelve [] y el sitio usa sus fotos fijas.
-export async function getTrabajos() {
+export async function getTrabajos(lang = "es") {
   if (!client) return [];
   try {
     const docs = await client.fetch(
@@ -26,10 +27,11 @@ export async function getTrabajos() {
     );
     return docs.map((doc) => ({
       id: doc._id,
-      titulo: doc.titulo,
+      titulo: (lang === "en" && doc.tituloEn) || doc.titulo,
       categoria: doc.categoria,
       producto: doc.producto ?? null,
-      descripcion: doc.descripcion ?? null,
+      descripcion:
+        (lang === "en" && doc.descripcionEn) || doc.descripcion || null,
       fotos: doc.fotos
         .filter((foto) => foto?.asset)
         .map((foto) => ({
@@ -41,7 +43,7 @@ export async function getTrabajos() {
             .fit("crop")
             .auto("format")
             .url(),
-          alt: foto.alt || doc.titulo,
+          alt: foto.alt || (lang === "en" && doc.tituloEn) || doc.titulo,
         })),
     }));
   } catch (error) {

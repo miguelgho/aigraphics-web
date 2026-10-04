@@ -40,42 +40,36 @@ Providing end-to-end custom apparel, commercial embroidery, large-format signage
 ```text
 aigraphics-web/
 ├── public/
-│   ├── images/              # Optimized static assets (.webp)
-│   ├── favicon.ico
+│   ├── trabajos/ taller/ diseno-web/  # Optimized photos (.webp)
+│   ├── og-image.jpg / og-image-es.jpg # Social share images (EN / ES)
 │   ├── robots.txt
-│   ├── sitemap.xml
 │   └── llms.txt             # Structured business data for LLMs
 ├── src/
 │   ├── app/
-│   │   ├── layout.js        # Root shell, fonts, and global SEO metadata
-│   │   ├── globals.css      # Tailwind theme: official brand colors and helpers
-│   │   ├── (site)/          # Public website (Navbar + Footer layout)
-│   │   │   ├── page.js      # Main landing page
-│   │   │   ├── contact/     # Contact page route
-│   │   │   ├── portfolio/   # Portfolio gallery (photos from Sanity)
-│   │   │   └── taller/      # "Nuestro Taller": process, machines, turnaround
-│   │   └── studio/          # Sanity Studio: photo upload panel at /studio
-│   ├── components/
-│   │   ├── Navbar.js        # Header navigation
-│   │   ├── Footer.js        # Site footer and quick links
-│   │   ├── HeroSection.js   # Hero: Uniformes | Gran Formato panels
-│   │   ├── ProductCatalog.js# Filterable product grid
-│   │   ├── GoogleReviews.js # Google reviews styled with the brand
-│   │   ├── FAQSection.js    # Accordion FAQ component
-│   │   ├── ServicesSection.js # The 4 service pillars from the roll-up
-│   │   ├── PortfolioGallery.js # Filterable work gallery with photo viewer
-│   │   └── WhatsAppButton.js# Floating contact button
+│   │   ├── (en)/            # English site (main): /, /products, /portfolio,
+│   │   │                    #   /workshop, /web-design, /contact
+│   │   ├── (es)/es/         # Spanish site: /es, /es/productos, /es/portafolio,
+│   │   │                    #   /es/taller, /es/diseno-web, /es/contacto
+│   │   ├── studio/          # Sanity Studio: photo upload panel at /studio
+│   │   ├── sitemap.js       # Sitemap with both languages (hreflang)
+│   │   ├── global-not-found.js # Bilingual 404 page
+│   │   └── globals.css      # Tailwind theme: brand colors and helpers
+│   ├── views/               # Each page's content in English and Spanish
+│   ├── components/          # Navbar (EN | ES switch), Footer, Hero, catalog...
 │   ├── data/
-│   │   ├── products.js      # Centralized product and category definitions
+│   │   ├── products.js      # Products in English and Spanish (names, slugs, texts)
 │   │   └── workCategories.js# Portfolio categories (site + /studio)
 │   ├── sanity/              # Sanity client, env and "trabajo" schema
 │   └── lib/
-│       └── theme.js         # Theme utilities and design tokens
-├── scripts/
+│       ├── i18n.js          # Page addresses per language, hreflang metadata
+│       └── site.js          # Site URL and business hours
 ├── sanity.config.js         # Studio configuration (Spanish UI)
-├── package.json
 └── README.md
 ```
+
+**Idiomas:** el inglés es la versión principal (sin prefijo) y el español vive en `/es`.
+Los textos de cada página están en `src/views/` en un objeto `copy = { en: {...}, es: {...} }`.
+Las direcciones viejas en español (`/productos`, `/taller`, `/diseno-web`) redirigen a `/es/...`.
 
 ---
 
@@ -87,6 +81,7 @@ Las fotos del portafolio y de las galerías de productos se suben desde el panel
 **Subir un trabajo:** entra a `/studio` → *Trabajo realizado* → **+** → escribe el título, elige la
 categoría, arrastra o toma las fotos → **Publicar**. Aparece en la página en ~1 minuto.
 Marca *Destacado* para que salga primero, y elige un producto para que también se vea en su galería.
+Si llenas *Título en inglés*, la versión en inglés lo usa; si no, muestra el título en español.
 
 **Configuración inicial (una sola vez):**
 

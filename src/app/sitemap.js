@@ -1,27 +1,41 @@
-import { products } from "@/data/products";
-import { SITE_URL } from "@/lib/site";
+import { getProducts } from "@/data/products";
+import { ROUTES, absoluteUrl, productPath } from "@/lib/i18n";
 
-// Se genera solo: incluye cada página de producto para Google y Google Ads.
+// Se genera solo: cada página en inglés y en español, enlazadas entre sí (hreflang).
+const priorities = {
+  home: 1.0,
+  products: 0.9,
+  portfolio: 0.8,
+  workshop: 0.7,
+  webDesign: 0.8,
+  contact: 0.5,
+};
+
 export default function sitemap() {
   const now = new Date();
-  const pages = [
-    { path: "", priority: 1.0 },
-    { path: "/productos", priority: 0.9 },
-    { path: "/portfolio", priority: 0.8 },
-    { path: "/taller", priority: 0.7 },
-    { path: "/diseno-web", priority: 0.8 },
-    { path: "/contact", priority: 0.5 },
-  ];
+  const entry = (paths, priority) =>
+    ["en", "es"].map((lang) => ({
+      url: absoluteUrl(paths[lang]),
+      lastModified: now,
+      priority:
+        lang === "en" ? priority : Math.round((priority - 0.1) * 10) / 10,
+      alternates: {
+        languages: {
+          "en-US": absoluteUrl(paths.en),
+          "es-US": absoluteUrl(paths.es),
+        },
+      },
+    }));
+
   return [
-    ...pages.map(({ path, priority }) => ({
-      url: `${SITE_URL}${path}`,
-      lastModified: now,
-      priority,
-    })),
-    ...products.map((p) => ({
-      url: `${SITE_URL}/productos/${p.slug}`,
-      lastModified: now,
-      priority: 0.8,
-    })),
+    ...Object.entries(priorities).flatMap(([page, priority]) =>
+      entry(ROUTES[page], priority),
+    ),
+    ...getProducts("en").flatMap((product) =>
+      entry(
+        { en: productPath(product, "en"), es: productPath(product, "es") },
+        0.8,
+      ),
+    ),
   ];
 }

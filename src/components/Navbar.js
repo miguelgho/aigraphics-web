@@ -2,54 +2,162 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { WhatsAppIcon } from "@/components/QuoteButton";
+import { getProducts } from "@/data/products";
+import {
+  categoryPath,
+  faqsPath,
+  path,
+  productPath,
+  switchLanguagePath,
+} from "@/lib/i18n";
 
-// Menú "Servicios": Diseño Web va primero porque es el servicio nuevo.
-const services = [
-  {
-    href: "/diseno-web",
-    title: "Diseño de Páginas Web",
-    desc: "Tu negocio en internet, listo para Google",
-    isNew: true,
+const copy = {
+  en: {
+    services: "Services",
+    newBadge: "New",
+    allProducts: "See all products →",
+    cta: "Get a quote",
+    ctaMsg: "Hi Ai Graphics, I'd like to request a quote.",
+    call: "📞 Call",
+    home: "Home",
+    whatsapp: "Message us on WhatsApp",
+    whatsappMsg: "Hi Ai Graphics, I'd like a quote.",
+    openMenu: "Open menu",
+    closeMenu: "Close menu",
+    logoAlt: "Ai Graphics logo",
+    switchLabel: "Ver esta página en español",
+    menu: [
+      {
+        page: "webDesign",
+        title: "Website Design",
+        desc: "Your business online, ready for Google",
+        isNew: true,
+      },
+      {
+        category: "embroidery",
+        title: "Uniforms & Embroidery",
+        desc: "Polos, hats and school uniforms",
+      },
+      {
+        category: "dtf",
+        title: "DTF Printing",
+        desc: "T-shirts, long sleeves and hoodies",
+      },
+      {
+        category: "signs",
+        title: "Signs & Large Format",
+        desc: "Banners, roll-ups, vinyl and coroplast",
+      },
+      {
+        product: "signs-microperforado",
+        title: "Vehicle Graphics",
+        desc: "Perforated film and lettering for your car",
+      },
+      {
+        category: "marketing",
+        title: "Promotional Products",
+        desc: "Stickers, business cards, flyers and mugs",
+      },
+    ],
+    links: [
+      { page: "portfolio", label: "Portfolio" },
+      { page: "workshop", label: "Workshop", long: "Our Workshop" },
+      { faqs: true, label: "FAQs", long: "Frequently Asked Questions" },
+      { page: "contact", label: "Contact" },
+    ],
   },
-  {
-    href: "/productos?categoria=embroidery",
-    title: "Uniformes y Bordados",
-    desc: "Polos, gorras y uniformes escolares",
+  es: {
+    services: "Servicios",
+    newBadge: "Nuevo",
+    allProducts: "Ver todos los productos →",
+    cta: "Pide tu cotización",
+    ctaMsg: "Hola Ai Graphics, me gustaría solicitar una cotización.",
+    call: "📞 Llamar",
+    home: "Inicio",
+    whatsapp: "Escríbenos por WhatsApp",
+    whatsappMsg: "Hola Ai Graphics, deseo una cotización.",
+    openMenu: "Abrir menú",
+    closeMenu: "Cerrar menú",
+    logoAlt: "Logo de Ai Graphics",
+    switchLabel: "View this page in English",
+    menu: [
+      {
+        page: "webDesign",
+        title: "Diseño de Páginas Web",
+        desc: "Tu negocio en internet, listo para Google",
+        isNew: true,
+      },
+      {
+        category: "embroidery",
+        title: "Uniformes y Bordados",
+        desc: "Polos, gorras y uniformes escolares",
+      },
+      {
+        category: "dtf",
+        title: "Impresión DTF",
+        desc: "Camisetas, franelas y enguatadas",
+      },
+      {
+        category: "signs",
+        title: "Letreros y Gran Formato",
+        desc: "Banners, roll-ups, vinil y coroplast",
+      },
+      {
+        product: "signs-microperforado",
+        title: "Rotulación de Vehículos",
+        desc: "Microperforado y letras para tu auto",
+      },
+      {
+        category: "marketing",
+        title: "Promocionales",
+        desc: "Stickers, tarjetas, flyers y tazas",
+      },
+    ],
+    links: [
+      { page: "portfolio", label: "Portafolio" },
+      { page: "workshop", label: "Taller", long: "Nuestro Taller" },
+      { faqs: true, label: "FAQs", long: "Preguntas Frecuentes" },
+      { page: "contact", label: "Contacto" },
+    ],
   },
-  {
-    href: "/productos?categoria=dtf",
-    title: "Impresión DTF",
-    desc: "Camisetas, franelas y enguatadas",
-  },
-  {
-    href: "/productos?categoria=signs",
-    title: "Letreros y Gran Formato",
-    desc: "Banners, roll-ups, vinil y coroplast",
-  },
-  {
-    href: "/productos/microperforado",
-    title: "Rotulación de Vehículos",
-    desc: "Microperforado y letras para tu auto",
-  },
-  {
-    href: "/productos?categoria=marketing",
-    title: "Promocionales",
-    desc: "Stickers, tarjetas, flyers y tazas",
-  },
-];
+};
 
-const links = [
-  { href: "/portfolio", label: "Portafolio" },
-  { href: "/taller", label: "Taller" },
-  { href: "/#faqs", label: "FAQs" },
-  { href: "/contact", label: "Contacto" },
-];
+const whatsappHref = (msg) =>
+  `https://wa.me/13059705085?text=${encodeURIComponent(msg)}`;
 
-function NewBadge() {
+// Botón EN / ES: lleva a la misma página en el otro idioma.
+function LanguageSwitch({ lang, label, className = "" }) {
+  const pathname = usePathname();
+  const other = lang === "en" ? "es" : "en";
+  const href = switchLanguagePath(pathname, getProducts(lang), other);
+  return (
+    <a
+      href={href}
+      hrefLang={other}
+      aria-label={label}
+      title={label}
+      className={`inline-flex items-center rounded-full border border-gray-200 bg-white p-0.5 text-xs font-bold shadow-sm hover:border-print-magenta transition-colors ${className}`}
+    >
+      {["en", "es"].map((l) => (
+        <span
+          key={l}
+          className={`px-2.5 py-1 rounded-full uppercase ${
+            l === lang ? "bg-print-ink text-white" : "text-gray-500"
+          }`}
+        >
+          {l}
+        </span>
+      ))}
+    </a>
+  );
+}
+
+function NewBadge({ label }) {
   return (
     <span className="ml-2 inline-block px-2 py-0.5 rounded-full bg-print-magenta text-white text-[10px] font-bold uppercase tracking-wider align-middle">
-      Nuevo
+      {label}
     </span>
   );
 }
@@ -67,7 +175,24 @@ function Chevron({ open }) {
   );
 }
 
-export default function Navbar() {
+export default function Navbar({ lang = "en" }) {
+  const t = copy[lang];
+  const products = getProducts(lang);
+  const menuHref = ({ page, category, product }) =>
+    page
+      ? path(page, lang)
+      : category
+        ? categoryPath(category, lang)
+        : productPath(
+            products.find((p) => p.id === product),
+            lang,
+          );
+  const services = t.menu.map((s) => ({ ...s, href: menuHref(s) }));
+  const links = t.links.map((l) => ({
+    ...l,
+    href: l.faqs ? faqsPath(lang) : path(l.page, lang),
+  }));
+
   const [isOpen, setIsOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(true);
@@ -102,11 +227,15 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b-4 border-print-magenta shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <Link href="/" className="flex items-center group" onClick={closeAll}>
+          <Link
+            href={path("home", lang)}
+            className="flex items-center group"
+            onClick={closeAll}
+          >
             <div className="relative h-12 w-44 sm:w-52">
               <Image
                 src="/logo.png"
-                alt="Ai Graphics Logo"
+                alt={t.logoAlt}
                 fill
                 sizes="(max-width: 640px) 176px, 208px"
                 className="object-contain object-left"
@@ -130,7 +259,7 @@ export default function Navbar() {
                 aria-haspopup="true"
                 className={`${linkClass} inline-flex items-center gap-1 py-7`}
               >
-                Servicios
+                {t.services}
                 <Chevron open={servicesOpen} />
               </button>
 
@@ -150,7 +279,7 @@ export default function Navbar() {
                         >
                           <span className="font-bold text-sm text-print-ink">
                             {s.title}
-                            {s.isNew && <NewBadge />}
+                            {s.isNew && <NewBadge label={t.newBadge} />}
                           </span>
                           <span className="block text-xs text-gray-500 mt-0.5">
                             {s.desc}
@@ -163,11 +292,11 @@ export default function Navbar() {
                     ))}
                   </ul>
                   <Link
-                    href="/productos"
+                    href={path("products", lang)}
                     onClick={closeAll}
                     className="mt-1 block rounded-xl px-4 py-3 text-sm font-bold text-print-cyan-dark hover:bg-gray-50"
                   >
-                    Ver todos los productos →
+                    {t.allProducts}
                   </Link>
                 </div>
               )}
@@ -181,6 +310,7 @@ export default function Navbar() {
           </nav>
 
           <div className="hidden sm:flex items-center gap-4">
+            <LanguageSwitch lang={lang} label={t.switchLabel} />
             <a
               href="tel:3059705085"
               className="hidden xl:flex items-center gap-2 text-sm font-bold text-print-ink hover:text-print-magenta-dark transition-colors whitespace-nowrap"
@@ -188,27 +318,32 @@ export default function Navbar() {
               <span>📞</span> (305) 970-5085
             </a>
             <a
-              href="https://wa.me/13059705085?text=Hola%20Ai%20Graphics,%20me%20gustaría%20solicitar%20una%20cotización."
+              href={whatsappHref(t.ctaMsg)}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-print-magenta text-white text-xs font-bold hover:bg-print-magenta-dark transition-all shadow-sm whitespace-nowrap"
             >
               <WhatsAppIcon className="w-3.5 h-3.5" />
-              Pide tu cotización
+              {t.cta}
             </a>
           </div>
 
           <div className="flex lg:hidden items-center gap-2">
+            <LanguageSwitch
+              lang={lang}
+              label={t.switchLabel}
+              className="sm:hidden"
+            />
             <a
               href="tel:3059705085"
               className="px-3 py-1.5 rounded-lg bg-gray-100 text-gray-800 text-xs font-bold"
             >
-              📞 Llamar
+              {t.call}
             </a>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="p-2 rounded-lg text-gray-600 hover:bg-gray-100"
-              aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
+              aria-label={isOpen ? t.closeMenu : t.openMenu}
               aria-expanded={isOpen}
             >
               <svg
@@ -241,11 +376,11 @@ export default function Navbar() {
       {isOpen && (
         <div className="lg:hidden bg-white border-b border-gray-100 px-4 pt-2 pb-6 shadow-lg max-h-[calc(100vh-5rem)] overflow-y-auto">
           <Link
-            href="/"
+            href={path("home", lang)}
             onClick={closeAll}
             className="block text-sm font-semibold text-gray-800 py-3 border-b border-gray-100"
           >
-            Inicio
+            {t.home}
           </Link>
 
           <button
@@ -254,7 +389,7 @@ export default function Navbar() {
             aria-expanded={mobileServicesOpen}
             className="w-full flex items-center justify-between text-sm font-semibold text-gray-800 py-3 border-b border-gray-100"
           >
-            Servicios
+            {t.services}
             <Chevron open={mobileServicesOpen} />
           </button>
           {mobileServicesOpen && (
@@ -267,17 +402,17 @@ export default function Navbar() {
                     className="block py-2 text-sm text-gray-700"
                   >
                     {s.title}
-                    {s.isNew && <NewBadge />}
+                    {s.isNew && <NewBadge label={t.newBadge} />}
                   </Link>
                 </li>
               ))}
               <li>
                 <Link
-                  href="/productos"
+                  href={path("products", lang)}
                   onClick={closeAll}
                   className="block py-2 text-sm font-bold text-print-cyan-dark"
                 >
-                  Ver todos los productos →
+                  {t.allProducts}
                 </Link>
               </li>
             </ul>
@@ -290,22 +425,18 @@ export default function Navbar() {
               onClick={closeAll}
               className="block text-sm font-semibold text-gray-800 py-3 border-b border-gray-100"
             >
-              {l.href === "/taller"
-                ? "Nuestro Taller"
-                : l.href === "/#faqs"
-                  ? "Preguntas Frecuentes"
-                  : l.label}
+              {l.long || l.label}
             </Link>
           ))}
 
           <a
-            href="https://wa.me/13059705085?text=Hola%20Ai%20Graphics,%20deseo%20una%20cotización."
+            href={whatsappHref(t.whatsappMsg)}
             target="_blank"
             rel="noopener noreferrer"
             className="mt-4 flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-print-magenta text-white text-xs font-bold shadow-md"
           >
             <WhatsAppIcon className="w-3.5 h-3.5" />
-            Escríbenos por WhatsApp
+            {t.whatsapp}
           </a>
         </div>
       )}
