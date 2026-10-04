@@ -18,6 +18,7 @@ export default async function Productos({ searchParams }) {
   return (
     <div className="brand-dots">
       <ProductCatalog
+        key={initialCategory}
         products={products}
         title="Todos nuestros productos"
         subtitle="Elige una categoría o entra a cualquier producto para ver fotos de trabajos realizados y hacer tu pedido."
