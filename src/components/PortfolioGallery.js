@@ -6,7 +6,29 @@ import QuoteButton from "@/components/QuoteButton";
 
 const ribbonBg = { magenta: "bg-print-magenta", cyan: "bg-print-cyan" };
 
-export default function PortfolioGallery({ trabajos }) {
+const copy = {
+  en: {
+    all: "All",
+    close: "Close",
+    prev: "Previous photo",
+    next: "Next photo",
+    cta: "I want something similar",
+    msg: (title) =>
+      `Hi Ai Graphics, I saw "${title}" on your website and I'd like something similar.`,
+  },
+  es: {
+    all: "Todos",
+    close: "Cerrar",
+    prev: "Foto anterior",
+    next: "Foto siguiente",
+    cta: "Quiero algo similar",
+    msg: (title) =>
+      `Hola Ai Graphics, vi el trabajo "${title}" en su página y quiero algo similar.`,
+  },
+};
+
+export default function PortfolioGallery({ trabajos, lang = "en" }) {
+  const t = copy[lang];
   const [activeCategory, setActiveCategory] = useState("all");
   const [selected, setSelected] = useState(null);
   const [photoIndex, setPhotoIndex] = useState(0);
@@ -33,19 +55,21 @@ export default function PortfolioGallery({ trabajos }) {
     <>
       {categories.length > 1 && (
         <div className="flex flex-wrap gap-2 justify-center mb-12">
-          {[{ value: "all", title: "Todos" }, ...categories].map((cat) => (
-            <button
-              key={cat.value}
-              onClick={() => setActiveCategory(cat.value)}
-              className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all shadow-sm ${
-                activeCategory === cat.value
-                  ? "bg-print-magenta text-white shadow-md scale-105"
-                  : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-200"
-              }`}
-            >
-              {cat.title}
-            </button>
-          ))}
+          {[{ value: "all", title: { [lang]: t.all } }, ...categories].map(
+            (cat) => (
+              <button
+                key={cat.value}
+                onClick={() => setActiveCategory(cat.value)}
+                className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all shadow-sm ${
+                  activeCategory === cat.value
+                    ? "bg-print-magenta text-white shadow-md scale-105"
+                    : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-200"
+                }`}
+              >
+                {cat.title[lang]}
+              </button>
+            ),
+          )}
         </div>
       )}
 
@@ -78,7 +102,7 @@ export default function PortfolioGallery({ trabajos }) {
                   <span
                     className={`brand-ribbon text-base mb-3 ${ribbonBg[cat.color]}`}
                   >
-                    {cat.title}
+                    {cat.title[lang]}
                   </span>
                 )}
                 <h2 className="font-display font-bold uppercase text-2xl text-print-dark leading-tight">
@@ -101,7 +125,7 @@ export default function PortfolioGallery({ trabajos }) {
           >
             <button
               onClick={() => setSelected(null)}
-              aria-label="Cerrar"
+              aria-label={t.close}
               className="absolute top-3 right-4 z-10 text-gray-400 hover:text-gray-800 text-2xl font-bold"
             >
               ✕
@@ -119,14 +143,14 @@ export default function PortfolioGallery({ trabajos }) {
                 <>
                   <button
                     onClick={() => step(-1)}
-                    aria-label="Foto anterior"
+                    aria-label={t.prev}
                     className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 text-print-ink text-xl font-bold shadow"
                   >
                     ‹
                   </button>
                   <button
                     onClick={() => step(1)}
-                    aria-label="Foto siguiente"
+                    aria-label={t.next}
                     className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 text-print-ink text-xl font-bold shadow"
                   >
                     ›
@@ -147,8 +171,9 @@ export default function PortfolioGallery({ trabajos }) {
                 )}
               </div>
               <QuoteButton
-                label="Quiero algo similar"
-                message={`Hola Ai Graphics, vi el trabajo "${selected.titulo}" en su página y quiero algo similar.`}
+                lang={lang}
+                label={t.cta}
+                message={t.msg(selected.titulo)}
                 className="shrink-0"
               />
             </div>

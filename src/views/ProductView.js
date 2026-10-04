@@ -3,58 +3,102 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import ProductCatalog from "@/components/ProductCatalog";
 import QuoteButton from "@/components/QuoteButton";
-import { categories, getProductBySlug, products } from "@/data/products";
+import { getCategories, getProductBySlug, getProducts } from "@/data/products";
 import { getTrabajos } from "@/sanity/trabajos";
 import { SITE_URL } from "@/lib/site";
+import { buildMetadata, categoryPath, path, productPath } from "@/lib/i18n";
 
-export function generateStaticParams() {
-  return products.map((p) => ({ slug: p.slug }));
-}
+const copy = {
+  en: {
+    metaTitle: (name) => `${name} in Homestead & Miami | Ai Graphics`,
+    home: "Home",
+    products: "Products",
+    breadcrumb: "Breadcrumb",
+    photoAlt: (name, i) => `${name}, job ${i}`,
+    price: "Request a price",
+    bullets: [
+      "Production in 3–5 business days",
+      "Rush in 24–48 h",
+      "Pickup by appointment in Homestead or shipping",
+    ],
+    gallery: "Our work",
+    howTitle: "How to order",
+    step: "Step",
+    steps: [
+      {
+        title: "Tell us your idea",
+        text: "Send us your logo or idea, quantities, sizes and the date you need it.",
+      },
+      {
+        title: "We confirm the details",
+        text: "We send you the price and turnaround time, and fine-tune the design with you.",
+      },
+      {
+        title: "We make it",
+        text: "We produce it in our workshop and you pick it up in Homestead by appointment, or we ship it to you.",
+      },
+    ],
+    startOrder: "Start my order",
+    related: "You may also like",
+  },
+  es: {
+    metaTitle: (name) => `${name} en Homestead y Miami | Ai Graphics`,
+    home: "Inicio",
+    products: "Productos",
+    breadcrumb: "Ruta",
+    photoAlt: (name, i) => `${name}, trabajo ${i}`,
+    price: "Solicitar precio",
+    bullets: [
+      "Producción en 3–5 días hábiles",
+      "Rush en 24–48 h",
+      "Recogida con cita en Homestead o envío",
+    ],
+    gallery: "Trabajos realizados",
+    howTitle: "Cómo hacer tu pedido",
+    step: "Paso",
+    steps: [
+      {
+        title: "Cuéntanos tu idea",
+        text: "Escríbenos con tu logo o idea, cantidades, tallas y la fecha en que lo necesitas.",
+      },
+      {
+        title: "Confirmamos los detalles",
+        text: "Te enviamos el precio y el tiempo de entrega, y ajustamos el diseño contigo.",
+      },
+      {
+        title: "Lo producimos",
+        text: "Lo hacemos en nuestro taller y lo recoges en Homestead con cita previa, o te lo enviamos.",
+      },
+    ],
+    startOrder: "Empezar mi pedido",
+    related: "También te puede interesar",
+  },
+};
 
-export async function generateMetadata({ params }) {
-  const { slug } = await params;
-  const product = getProductBySlug(slug);
+export const productStaticParams = (lang) =>
+  getProducts(lang).map((p) => ({ slug: p.slug }));
+
+export function productMetadata(slug, lang) {
+  const product = getProductBySlug(slug, lang);
   if (!product) return {};
-  return {
-    title: `${product.name} en Homestead y Miami | Ai Graphics`,
+  return buildMetadata({
+    lang,
+    paths: { en: productPath(product, "en"), es: productPath(product, "es") },
+    title: copy[lang].metaTitle(product.name),
     description: product.description,
-    alternates: {
-      canonical: `${SITE_URL}/productos/${product.slug}`,
-    },
-    openGraph: {
-      title: `${product.name} | Ai Graphics`,
-      description: product.description,
-      images: [product.coverImage],
-      locale: "es_US",
-      type: "website",
-    },
-  };
+    image: product.coverImage,
+  });
 }
 
-const steps = [
-  {
-    title: "Cuéntanos tu idea",
-    text: "Escríbenos con tu logo o idea, cantidades, tallas y la fecha en que lo necesitas.",
-  },
-  {
-    title: "Confirmamos los detalles",
-    text: "Te enviamos el precio y el tiempo de entrega, y ajustamos el diseño contigo.",
-  },
-  {
-    title: "Lo producimos",
-    text: "Lo hacemos en nuestro taller y lo recoges en Homestead con cita previa, o te lo enviamos.",
-  },
-];
-
-export default async function ProductPage({ params }) {
-  const { slug } = await params;
-  const product = getProductBySlug(slug);
+export default async function ProductView({ slug, lang }) {
+  const t = copy[lang];
+  const product = getProductBySlug(slug, lang);
   if (!product) notFound();
 
-  const category = categories.find((c) => c.id === product.category);
+  const category = getCategories(lang).find((c) => c.id === product.category);
 
   // Fotos subidas en /studio para este producto, seguidas de las fijas.
-  const trabajos = await getTrabajos();
+  const trabajos = await getTrabajos(lang);
   const uploaded = trabajos
     .filter((t) => t.producto === product.id)
     .flatMap((t) => t.fotos);
@@ -62,11 +106,11 @@ export default async function ProductPage({ params }) {
     ...uploaded,
     ...product.gallery.map((src, i) => ({
       src,
-      alt: `${product.name}, trabajo ${i + 1}`,
+      alt: t.photoAlt(product.name, i + 1),
     })),
   ];
 
-  const related = products
+  const related = getProducts(lang)
     .filter((p) => p.category === product.category && p.id !== product.id)
     .slice(0, 3);
 
@@ -96,19 +140,25 @@ export default async function ProductPage({ params }) {
 
       {/* Encabezado del producto */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 pt-10 pb-14">
-        <nav className="text-sm text-gray-500 mb-8" aria-label="Ruta">
-          <Link href="/" className="hover:text-print-magenta-dark">
-            Inicio
+        <nav className="text-sm text-gray-500 mb-8" aria-label={t.breadcrumb}>
+          <Link
+            href={path("home", lang)}
+            className="hover:text-print-magenta-dark"
+          >
+            {t.home}
           </Link>
           {" / "}
-          <Link href="/productos" className="hover:text-print-magenta-dark">
-            Productos
+          <Link
+            href={path("products", lang)}
+            className="hover:text-print-magenta-dark"
+          >
+            {t.products}
           </Link>
           {category && (
             <>
               {" / "}
               <Link
-                href={`/productos?categoria=${category.id}`}
+                href={categoryPath(category.id, lang)}
                 className="hover:text-print-magenta-dark"
               >
                 {category.name}
@@ -137,7 +187,8 @@ export default async function ProductPage({ params }) {
             </p>
             <div className="flex flex-wrap gap-3 mt-8">
               <QuoteButton
-                label="Solicitar precio"
+                lang={lang}
+                label={t.price}
                 message={product.whatsappMsg}
                 size="lg"
               />
@@ -149,9 +200,9 @@ export default async function ProductPage({ params }) {
               </a>
             </div>
             <ul className="flex flex-wrap gap-x-6 gap-y-2 mt-6 text-sm text-print-dark">
-              <li>✔ Producción en 3–5 días hábiles</li>
-              <li>✔ Rush en 24–48 h</li>
-              <li>✔ Recogida con cita en Homestead o envío</li>
+              {t.bullets.map((b) => (
+                <li key={b}>✔ {b}</li>
+              ))}
             </ul>
           </div>
           <div className="relative mx-3">
@@ -178,7 +229,7 @@ export default async function ProductPage({ params }) {
         <section className="bg-white py-14 px-4 sm:px-6">
           <div className="max-w-7xl mx-auto">
             <h2 className="font-display font-bold uppercase text-print-cyan text-3xl md:text-4xl text-center">
-              Trabajos realizados
+              {t.gallery}
             </h2>
             <span
               className="brand-swoosh w-40 max-w-full mx-auto mt-2 mb-10"
@@ -208,14 +259,14 @@ export default async function ProductPage({ params }) {
       <section className="py-14 px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
           <h2 className="font-display font-bold uppercase text-print-cyan text-3xl md:text-4xl text-center">
-            Cómo hacer tu pedido
+            {t.howTitle}
           </h2>
           <span
             className="brand-swoosh w-40 max-w-full mx-auto mt-2 mb-10"
             aria-hidden="true"
           />
           <ol className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {steps.map((step, i) => (
+            {t.steps.map((step, i) => (
               <li
                 key={step.title}
                 className="bg-white rounded-3xl p-6 border border-gray-100 shadow-sm"
@@ -225,7 +276,7 @@ export default async function ProductPage({ params }) {
                     i % 2 === 0 ? "bg-print-magenta" : "bg-print-cyan"
                   }`}
                 >
-                  Paso {i + 1}
+                  {t.step} {i + 1}
                 </span>
                 <h3 className="font-display font-bold uppercase text-xl text-print-dark mt-4">
                   {step.title}
@@ -238,7 +289,8 @@ export default async function ProductPage({ params }) {
           </ol>
           <div className="text-center mt-10">
             <QuoteButton
-              label="Empezar mi pedido"
+              lang={lang}
+              label={t.startOrder}
               message={product.whatsappMsg}
               variant="ink"
               size="lg"
@@ -249,10 +301,7 @@ export default async function ProductPage({ params }) {
 
       {related.length > 0 && (
         <div className="bg-white">
-          <ProductCatalog
-            products={related}
-            title="También te puede interesar"
-          />
+          <ProductCatalog lang={lang} products={related} title={t.related} />
         </div>
       )}
     </div>

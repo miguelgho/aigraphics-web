@@ -2,13 +2,20 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { categories } from "@/data/products";
+import { getCategories } from "@/data/products";
+import { productPath } from "@/lib/i18n";
+
+const copy = {
+  en: { filterBy: "Filter by", details: "See details and photos →" },
+  es: { filterBy: "Filtrar por", details: "Ver detalles y fotos →" },
+};
 
 // Tarjetas de productos que llevan a la página de cada producto.
-// En la página principal se usa con los destacados y sin filtros; en /productos con todos.
+// En la página principal se usa con los destacados y sin filtros; en el catálogo con todos.
 export default function ProductCatalog({
   products,
-  title = "Nuestros Productos y Servicios",
+  lang = "en",
+  title,
   subtitle,
   showFilter = false,
   initialCategory = "all",
@@ -16,6 +23,7 @@ export default function ProductCatalog({
   children,
 }) {
   const Heading = headingLevel;
+  const t = copy[lang];
   const [activeCategory, setActiveCategory] = useState(initialCategory);
 
   const filteredProducts =
@@ -40,11 +48,11 @@ export default function ProductCatalog({
 
       {showFilter && (
         <div className="flex flex-wrap gap-2 justify-center mb-12">
-          {categories.map((cat) => (
+          {getCategories(lang).map((cat) => (
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
-              aria-label={`Filtrar por ${cat.name}`}
+              aria-label={`${t.filterBy} ${cat.name}`}
               className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all shadow-sm ${
                 activeCategory === cat.id
                   ? "bg-print-magenta text-white shadow-md scale-105"
@@ -61,7 +69,7 @@ export default function ProductCatalog({
         {filteredProducts.map((product) => (
           <Link
             key={product.id}
-            href={`/productos/${product.slug}`}
+            href={productPath(product, lang)}
             className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col"
           >
             <div className="relative h-56 w-full overflow-hidden bg-gray-100">
@@ -91,7 +99,7 @@ export default function ProductCatalog({
               </div>
 
               <span className="pt-4 border-t border-gray-100 mt-2 text-sm font-bold text-print-cyan-dark group-hover:text-print-magenta-dark transition-colors">
-                Ver detalles y fotos →
+                {t.details}
               </span>
             </div>
           </Link>

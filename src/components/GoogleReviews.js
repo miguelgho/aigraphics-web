@@ -1,5 +1,26 @@
 import { googleReviewsLinks } from "@/lib/googleReviews";
 
+const copy = {
+  en: {
+    title: "What our customers say",
+    of5: "out of 5 stars",
+    reviews: "reviews on Google",
+    fallbackTitle: "Google Reviews",
+    fallbackText: "See what our customers in Homestead and Miami think.",
+    seeAll: "See all on Google",
+    leave: "⭐ Leave us a review",
+  },
+  es: {
+    title: "Lo que dicen nuestros clientes",
+    of5: "de 5 estrellas",
+    reviews: "reseñas en Google",
+    fallbackTitle: "Reseñas de Google",
+    fallbackText: "Mira lo que opinan nuestros clientes de Homestead y Miami.",
+    seeAll: "Ver todas en Google",
+    leave: "⭐ Déjanos tu reseña",
+  },
+};
+
 function GoogleLogo({ className }) {
   return (
     <svg viewBox="0 0 48 48" className={className} aria-hidden="true">
@@ -24,7 +45,7 @@ function GoogleLogo({ className }) {
 }
 
 // Estrellas con relleno parcial (ej. 4.7).
-function Stars({ value, size = "w-5 h-5" }) {
+function Stars({ value, label, size = "w-5 h-5" }) {
   const pct = Math.max(0, Math.min(100, (value / 5) * 100));
   const row = (cls) => (
     <div className={`flex ${cls}`}>
@@ -42,7 +63,7 @@ function Stars({ value, size = "w-5 h-5" }) {
     <div
       className="relative inline-block"
       role="img"
-      aria-label={`${value} de 5 estrellas`}
+      aria-label={`${value} ${label}`}
     >
       {row("text-gray-200")}
       <div
@@ -55,7 +76,8 @@ function Stars({ value, size = "w-5 h-5" }) {
   );
 }
 
-export default function GoogleReviews({ data }) {
+export default function GoogleReviews({ data, lang = "en" }) {
+  const t = copy[lang];
   const mapsUrl = data?.mapsUrl ?? googleReviewsLinks.maps;
   const reviews = data?.reviews ?? [];
 
@@ -63,7 +85,7 @@ export default function GoogleReviews({ data }) {
     <section id="resenas" className="py-16 px-4 max-w-7xl mx-auto">
       <div className="text-center mb-10">
         <h2 className="font-display font-bold uppercase text-print-cyan text-4xl md:text-5xl">
-          Lo que dicen nuestros clientes
+          {t.title}
         </h2>
         <span
           className="brand-swoosh w-48 max-w-full mx-auto mt-2 mb-4"
@@ -83,20 +105,18 @@ export default function GoogleReviews({ data }) {
                 <span className="font-display font-bold text-5xl leading-none">
                   {data.rating.toFixed(1)}
                 </span>
-                <Stars value={data.rating} size="w-6 h-6" />
+                <Stars value={data.rating} label={t.of5} size="w-6 h-6" />
               </div>
               <p className="text-gray-300 text-sm mt-1">
-                {data.total} reseñas en Google
+                {data.total} {t.reviews}
               </p>
             </div>
           ) : (
             <div>
               <p className="font-display font-bold uppercase text-2xl">
-                Reseñas de Google
+                {t.fallbackTitle}
               </p>
-              <p className="text-gray-300 text-sm mt-1">
-                Mira lo que opinan nuestros clientes de Homestead y Miami.
-              </p>
+              <p className="text-gray-300 text-sm mt-1">{t.fallbackText}</p>
             </div>
           )}
         </div>
@@ -107,7 +127,7 @@ export default function GoogleReviews({ data }) {
             rel="noopener noreferrer"
             className="px-5 py-3 rounded-xl bg-white text-print-ink text-sm font-bold hover:bg-gray-100 transition-colors"
           >
-            Ver todas en Google
+            {t.seeAll}
           </a>
           {googleReviewsLinks.writeReview && (
             <a
@@ -116,7 +136,7 @@ export default function GoogleReviews({ data }) {
               rel="noopener noreferrer"
               className="px-5 py-3 rounded-xl bg-print-magenta text-white text-sm font-bold hover:bg-print-magenta-dark transition-colors"
             >
-              ⭐ Déjanos tu reseña
+              {t.leave}
             </a>
           )}
         </div>
@@ -167,7 +187,7 @@ export default function GoogleReviews({ data }) {
                 <GoogleLogo className="w-5 h-5 ml-auto shrink-0" />
               </div>
               <div className="mt-3">
-                <Stars value={review.rating} size="w-4 h-4" />
+                <Stars value={review.rating} label={t.of5} size="w-4 h-4" />
               </div>
               {review.text && (
                 <p className="text-print-dark text-sm leading-relaxed mt-3 line-clamp-6">

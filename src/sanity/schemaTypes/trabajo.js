@@ -1,6 +1,6 @@
 import { defineArrayMember, defineField, defineType } from "sanity";
 import { workCategories } from "../../data/workCategories";
-import { products } from "../../data/products";
+import { getProducts } from "../../data/products";
 
 export const trabajo = defineType({
   name: "trabajo",
@@ -16,11 +16,21 @@ export const trabajo = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: "tituloEn",
+      title: "Título en inglés (opcional)",
+      description:
+        'Para la versión en inglés de la página. Si lo dejas vacío, se muestra el título en español. Ej: "Embroidered polos for a construction crew"',
+      type: "string",
+    }),
+    defineField({
       name: "categoria",
       title: "Categoría",
       type: "string",
       options: {
-        list: workCategories.map(({ value, title }) => ({ value, title })),
+        list: workCategories.map(({ value, title }) => ({
+          value,
+          title: title.es,
+        })),
         layout: "radio",
       },
       validation: (rule) => rule.required(),
@@ -51,7 +61,7 @@ export const trabajo = defineType({
       title: "Mostrar también en la galería de este producto (opcional)",
       type: "string",
       options: {
-        list: products.map((p) => ({ value: p.id, title: p.name })),
+        list: getProducts("es").map((p) => ({ value: p.id, title: p.name })),
       },
     }),
     defineField({
@@ -63,6 +73,12 @@ export const trabajo = defineType({
     defineField({
       name: "descripcion",
       title: "Descripción (opcional)",
+      type: "text",
+      rows: 3,
+    }),
+    defineField({
+      name: "descripcionEn",
+      title: "Descripción en inglés (opcional)",
       type: "text",
       rows: 3,
     }),
@@ -90,7 +106,7 @@ export const trabajo = defineType({
     select: { title: "titulo", categoria: "categoria", media: "fotos.0" },
     prepare({ title, categoria, media }) {
       const cat = workCategories.find((c) => c.value === categoria);
-      return { title, subtitle: cat?.title, media };
+      return { title, subtitle: cat?.title.es, media };
     },
   },
 });

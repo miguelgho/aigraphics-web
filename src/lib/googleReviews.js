@@ -10,11 +10,12 @@ export const googleReviewsLinks = {
 };
 
 // Devuelve { rating, total, mapsUrl, reviews[] } o null si no está configurado o falla.
-export async function getGoogleReviews() {
+// "lang" solo cambia textos de Google como "hace 2 meses"; las reseñas se muestran como se escribieron.
+export async function getGoogleReviews(lang = "en") {
   if (!API_KEY) return null;
   try {
     const res = await fetch(
-      `https://places.googleapis.com/v1/places/${PLACE_ID}?languageCode=es`,
+      `https://places.googleapis.com/v1/places/${PLACE_ID}?languageCode=${lang}`,
       {
         headers: {
           "X-Goog-Api-Key": API_KEY,
@@ -36,7 +37,9 @@ export async function getGoogleReviews() {
       mapsUrl: data.googleMapsUri || googleReviewsLinks.maps,
       reviews: (data.reviews ?? []).map((review) => ({
         id: review.name,
-        author: review.authorAttribution?.displayName ?? "Cliente de Google",
+        author:
+          review.authorAttribution?.displayName ??
+          (lang === "en" ? "Google user" : "Cliente de Google"),
         authorUrl: review.authorAttribution?.uri ?? null,
         photo: review.authorAttribution?.photoUri ?? null,
         rating: review.rating ?? 0,

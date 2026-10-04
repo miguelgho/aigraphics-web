@@ -30,9 +30,21 @@ export function WhatsAppIcon({ className = "w-4 h-4" }) {
   );
 }
 
+const defaults = {
+  en: {
+    message: "Hi Ai Graphics, I'd like to place an order.",
+    opens: "opens WhatsApp",
+  },
+  es: {
+    message: "Hola Ai Graphics, me gustaría hacer un pedido.",
+    opens: "abre WhatsApp",
+  },
+};
+
 export default function QuoteButton({
   label,
-  message = "Hola Ai Graphics, me gustaría hacer un pedido.",
+  lang = "en",
+  message = defaults[lang].message,
   variant = "magenta",
   size = "md",
   className = "",
@@ -42,7 +54,7 @@ export default function QuoteButton({
       href={`https://wa.me/${PHONE}?text=${encodeURIComponent(message)}`}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={`${label} (abre WhatsApp)`}
+      aria-label={`${label} (${defaults[lang].opens})`}
       className={`inline-flex items-center justify-center font-bold transition-all ${variants[variant]} ${sizes[size]} ${className}`}
     >
       <WhatsAppIcon className={size === "sm" ? "w-3.5 h-3.5" : "w-4 h-4"} />
