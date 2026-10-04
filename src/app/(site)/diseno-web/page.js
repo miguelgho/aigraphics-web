@@ -412,20 +412,32 @@ export default function DisenoWeb() {
             href="https://marthasolstudio.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="group bg-print-ink text-white rounded-3xl p-8 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all"
+            className="group bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all"
           >
-            <div>
-              <span className="brand-ribbon bg-print-magenta text-base">
+            <div className="relative aspect-[16/9] bg-gray-100">
+              <Image
+                src="/diseno-web/ejemplo-marthasol.webp"
+                alt="Página web de Martha Sol Studio"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover object-top"
+              />
+            </div>
+            <div className="p-6">
+              <span className="brand-ribbon bg-print-magenta text-sm">
                 Proyecto de cliente
               </span>
-              <p className="font-display font-bold uppercase text-4xl mt-6">
+              <p className="font-display font-bold uppercase text-2xl text-print-ink mt-3">
                 Martha Sol Studio
               </p>
-              <p className="text-gray-300 mt-2">marthasolstudio.com</p>
+              <p className="text-sm text-print-dark mt-1">
+                Fotografía y video en Miami: página elegante con portafolio,
+                servicios y reservas.{" "}
+                <span className="font-bold text-print-cyan-dark group-hover:underline">
+                  Visitar →
+                </span>
+              </p>
             </div>
-            <p className="mt-10 font-bold text-print-yellow group-hover:underline">
-              Visitar la página →
-            </p>
           </a>
         </div>
       </section>

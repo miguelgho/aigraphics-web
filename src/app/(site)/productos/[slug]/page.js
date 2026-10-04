@@ -42,7 +42,7 @@ const steps = [
   },
   {
     title: "Lo producimos",
-    text: "Lo hacemos en nuestro taller y lo recoges en Homestead o te lo enviamos.",
+    text: "Lo hacemos en nuestro taller y lo recoges en Homestead con cita previa, o te lo enviamos.",
   },
 ];
 
@@ -151,7 +151,7 @@ export default async function ProductPage({ params }) {
             <ul className="flex flex-wrap gap-x-6 gap-y-2 mt-6 text-sm text-print-dark">
               <li>✔ Producción en 3–5 días hábiles</li>
               <li>✔ Rush en 24–48 h</li>
-              <li>✔ Recogida en Homestead o envío</li>
+              <li>✔ Recogida con cita en Homestead o envío</li>
             </ul>
           </div>
           <div className="relative mx-3">

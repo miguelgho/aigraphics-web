@@ -72,7 +72,6 @@ aigraphics-web/
 │   └── lib/
 │       └── theme.js         # Theme utilities and design tokens
 ├── scripts/
-│   └── importar-fotos-drive.mjs # One-time copy of Drive photos into Sanity
 ├── sanity.config.js         # Studio configuration (Spanish UI)
 ├── package.json
 └── README.md
@@ -91,17 +90,14 @@ Marca *Destacado* para que salga primero, y elige un producto para que también 
 
 **Configuración inicial (una sola vez):**
 
-1. Crea un proyecto gratis en [sanity.io](https://www.sanity.io/get-started) (dataset `production`).
+1. Proyecto de Sanity: **`elpqmrtt`** (dataset `production`), ya configurado en `src/sanity/env.js`.
 2. En [sanity.io/manage](https://www.sanity.io/manage) → *API* → *CORS origins*, agrega
    `https://aigraphicsfl.com`, `https://www.aigraphicsfl.com` y `http://localhost:3000`
    con **Allow credentials** activado.
-3. En Vercel → *Settings* → *Environment Variables* agrega `NEXT_PUBLIC_SANITY_PROJECT_ID`
-   y `NEXT_PUBLIC_SANITY_DATASET=production`, y vuelve a desplegar. Localmente, copia `.env.example` a `.env.local`.
-4. (Opcional) Para copiar las fotos actuales de Google Drive: crea un token *Editor* en
-   *API → Tokens*, ponlo en `.env.local` como `SANITY_API_WRITE_TOKEN` y ejecuta
-   `node --env-file=.env.local scripts/importar-fotos-drive.mjs`.
-
-Mientras Sanity no esté configurado, el sitio sigue mostrando las fotos fijas de `products.js`.
+3. No hace falta configurar variables en Vercel: el Project ID ya está en el código
+   (se puede cambiar con `NEXT_PUBLIC_SANITY_PROJECT_ID` si algún día se usa otro proyecto).
+Los trabajos subidos en `/studio` aparecen primero en el portafolio, seguidos de las fotos fijas
+del sitio (`public/trabajos/`). Si Sanity no responde, el sitio sigue mostrando solo las fotos fijas.
 
 ---
 

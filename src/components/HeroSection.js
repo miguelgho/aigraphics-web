@@ -36,7 +36,10 @@ const promises = [
   { title: "Rush 24–48 h", desc: "Producción normal en 3–5 días hábiles" },
   { title: "Sin mínimos", desc: "En uniformes, desde una sola pieza" },
   { title: "Te ayudamos", desc: "Con el diseño o vectorización de tu logo" },
-  { title: "Local y nacional", desc: "Recogida en Homestead o envío a EE.UU." },
+  {
+    title: "Local y nacional",
+    desc: "Recogida con cita en Homestead o envío a EE.UU.",
+  },
 ];
 
 // Marcas de corte de imprenta en las esquinas de cada panel.

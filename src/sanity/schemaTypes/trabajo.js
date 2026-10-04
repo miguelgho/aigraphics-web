@@ -56,7 +56,8 @@ export const trabajo = defineType({
     }),
     defineField({
       name: "cliente",
-      title: "Cliente (opcional)",
+      title: "Cliente (opcional, solo interno)",
+      description: "Para tu control. No se muestra en la página.",
       type: "string",
     }),
     defineField({

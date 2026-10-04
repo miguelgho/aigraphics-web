@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BUSINESS_HOURS } from "@/lib/site";
 
 export default function Footer() {
   return (
@@ -111,6 +112,9 @@ export default function Footer() {
           <p className="text-sm text-gray-300">
             <span className="font-bold text-white">Ai Graphics LLC</span> ·
             Homestead / Miami, FL · Create. Print. Shine.
+            <span className="block text-xs text-gray-400 mt-1">
+              🕖 {BUSINESS_HOURS} · Visitas con cita previa
+            </span>
           </p>
 
           <p className="text-gray-400 text-xs font-semibold">

@@ -9,7 +9,7 @@ export const metadata = {
     "Uniformes, bordados, impresión DTF, letreros, microperforado y rotulación de vehículos hechos por Ai Graphics en Homestead y Miami.",
 };
 
-// Trabajos reales de Ai Graphics (sin nombres de clientes). Se muestran mientras no haya trabajos subidos en /studio.
+// Trabajos reales de Ai Graphics (sin nombres de clientes). Se muestran después de los subidos en /studio.
 const trabajosDeEjemplo = [
   {
     id: "uniforme-escolar",
@@ -227,7 +227,7 @@ const trabajosDeEjemplo = [
 
 export default async function Portfolio() {
   const subidos = await getTrabajos();
-  const trabajos = subidos.length > 0 ? subidos : trabajosDeEjemplo;
+  const trabajos = [...subidos, ...trabajosDeEjemplo];
 
   return (
     <div className="brand-dots min-h-screen">
