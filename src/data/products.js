@@ -166,13 +166,13 @@ export const productData = [
     id: "embroidery-polos",
     featured: true,
     category: "embroidery",
-    coverImage: "/trabajos/polo-corporativo-bordado.webp",
+    coverImage: "/trabajos/logo-bordado-detalle.webp",
     color: "#1C9CE5",
     gallery: [
+      "/trabajos/logo-bordado-detalle.webp",
       "/trabajos/polo-corporativo-bordado.webp",
       "/trabajos/polo-gris-bordado.webp",
       "/trabajos/polo-blanco-bordado.webp",
-      "/trabajos/logo-bordado-detalle.webp",
       "/trabajos/polos-trabajo-dtf-1.webp",
     ],
     en: {
