@@ -9,6 +9,7 @@ export default function sitemap() {
     { path: "/productos", priority: 0.9 },
     { path: "/portfolio", priority: 0.8 },
     { path: "/taller", priority: 0.7 },
+    { path: "/diseno-web", priority: 0.8 },
     { path: "/contact", priority: 0.5 },
   ];
   return [

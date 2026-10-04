@@ -17,14 +17,14 @@ export default function Contact() {
           href="/"
           className="text-print-cyan-dark font-bold text-sm mb-6 inline-block hover:text-print-magenta-dark transition"
         >
-          ← Back to Home
+          ← Volver al inicio
         </Link>
 
         <h1 className="font-display text-5xl font-bold text-print-dark mb-2 text-center uppercase">
-          Get a <span className="text-print-magenta italic">Quote</span>
+          Pide tu <span className="text-print-magenta italic">cotización</span>
         </h1>
         <p className="text-gray-500 text-center mb-10 text-sm">
-          Tell us about your project and we’ll get back to you within 24 hours.
+          Cuéntanos de tu proyecto y te respondemos en menos de 24 horas.
         </p>
 
         <form
@@ -34,17 +34,17 @@ export default function Contact() {
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className={theme.formLabel}>Full Name / Company</label>
+              <label className={theme.formLabel}>Nombre / Empresa</label>
               <input
                 type="text"
                 name="name"
                 required
                 className={theme.inputShared}
-                placeholder="John Doe"
+                placeholder="Juan Pérez"
               />
             </div>
             <div>
-              <label className={theme.formLabel}>Phone Number</label>
+              <label className={theme.formLabel}>Teléfono</label>
               <input
                 type="tel"
                 name="phone"
@@ -56,52 +56,50 @@ export default function Contact() {
           </div>
 
           <div>
-            <label className={theme.formLabel}>Email Address</label>
+            <label className={theme.formLabel}>Correo electrónico</label>
             <input
               type="email"
               name="email"
               required
               className={theme.inputShared}
-              placeholder="email@example.com"
+              placeholder="correo@ejemplo.com"
             />
           </div>
 
           <div>
-            <label className={theme.formLabel}>Service Needed</label>
+            <label className={theme.formLabel}>¿Qué necesitas?</label>
             <select name="service" className={theme.inputShared}>
               <option value="uniforms">
-                Uniforms & Embroidery (Polos, Work Shirts, Caps)
+                Uniformes y bordado (polos, camisas, gorras)
               </option>
-              <option value="dtf">DTF Printing (T-Shirts, Hoodies)</option>
+              <option value="dtf">Impresión DTF (camisetas, enguatadas)</option>
               <option value="signs">
-                Signs & Storefronts (Banners, Window Vinyl)
+                Letreros y gran formato (banners, vinil de vitrina)
               </option>
               <option value="vehicle">
-                Vehicle Graphics (Lettering, Magnets)
+                Rotulación de vehículos (letras, magnéticos, microperforado)
               </option>
               <option value="promo">
-                Marketing & Promo (Cards, Flyers, Drinkware)
+                Promocionales (tarjetas, flyers, tazas)
               </option>
-              <option value="website">
-                Website Design (Diseño de Sitios Web)
-              </option>
-              <option value="other">Other / Not sure</option>
+              <option value="website">Diseño de páginas web</option>
+              <option value="other">Otro / No estoy seguro</option>
             </select>
           </div>
 
           <div>
-            <label className={theme.formLabel}>Project Details</label>
+            <label className={theme.formLabel}>Detalles del proyecto</label>
             <textarea
               name="message"
               rows="4"
               required
               className={theme.inputShared}
-              placeholder="Quantities, sizes, colors or ideas you have in mind..."
+              placeholder="Cantidades, tallas, colores o ideas que tengas en mente..."
             ></textarea>
           </div>
 
           <button type="submit" className={theme.btnPrimary}>
-            Send Inquiry
+            Enviar solicitud
           </button>
         </form>
       </div>

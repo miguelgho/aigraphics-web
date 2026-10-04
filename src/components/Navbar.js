@@ -25,46 +25,40 @@ export default function Navbar() {
             </div>
           </Link>
 
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link
-              href="/"
-              className="text-sm font-semibold text-gray-700 hover:text-print-magenta-dark transition-colors"
-            >
-              Inicio
-            </Link>
-            <Link
-              href="/#servicios"
-              className="text-sm font-semibold text-gray-700 hover:text-print-magenta-dark transition-colors"
-            >
-              Servicios
-            </Link>
+          <nav className="hidden lg:flex items-center gap-5 xl:gap-7">
             <Link
               href="/productos"
-              className="text-sm font-semibold text-gray-700 hover:text-print-magenta-dark transition-colors"
+              className="text-sm font-semibold text-gray-700 hover:text-print-magenta-dark transition-colors whitespace-nowrap"
             >
               Productos
             </Link>
             <Link
               href="/portfolio"
-              className="text-sm font-semibold text-gray-700 hover:text-print-magenta-dark transition-colors"
+              className="text-sm font-semibold text-gray-700 hover:text-print-magenta-dark transition-colors whitespace-nowrap"
             >
               Portafolio
             </Link>
             <Link
               href="/taller"
-              className="text-sm font-semibold text-gray-700 hover:text-print-magenta-dark transition-colors"
+              className="text-sm font-semibold text-gray-700 hover:text-print-magenta-dark transition-colors whitespace-nowrap"
             >
               Taller
             </Link>
             <Link
+              href="/diseno-web"
+              className="text-sm font-semibold text-gray-700 hover:text-print-magenta-dark transition-colors whitespace-nowrap"
+            >
+              Diseño Web
+            </Link>
+            <Link
               href="/#faqs"
-              className="text-sm font-semibold text-gray-700 hover:text-print-magenta-dark transition-colors"
+              className="text-sm font-semibold text-gray-700 hover:text-print-magenta-dark transition-colors whitespace-nowrap"
             >
               FAQs
             </Link>
             <Link
               href="/contact"
-              className="text-sm font-semibold text-gray-700 hover:text-print-magenta-dark transition-colors"
+              className="text-sm font-semibold text-gray-700 hover:text-print-magenta-dark transition-colors whitespace-nowrap"
             >
               Contacto
             </Link>
@@ -73,7 +67,7 @@ export default function Navbar() {
           <div className="hidden sm:flex items-center gap-4">
             <a
               href="tel:3059705085"
-              className="flex items-center gap-2 text-xs md:text-sm font-bold text-print-ink hover:text-print-magenta-dark transition-colors"
+              className="hidden xl:flex items-center gap-2 text-sm font-bold text-print-ink hover:text-print-magenta-dark transition-colors whitespace-nowrap"
             >
               <span>📞</span> (305) 970-5085
             </a>
@@ -81,14 +75,14 @@ export default function Navbar() {
               href="https://wa.me/13059705085?text=Hola%20Ai%20Graphics,%20me%20gustaría%20solicitar%20una%20cotización."
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-print-magenta text-white text-xs font-bold hover:bg-print-magenta-dark transition-all shadow-sm"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-print-magenta text-white text-xs font-bold hover:bg-print-magenta-dark transition-all shadow-sm whitespace-nowrap"
             >
               <WhatsAppIcon className="w-3.5 h-3.5" />
               Pide tu cotización
             </a>
           </div>
 
-          <div className="flex md:hidden items-center gap-2">
+          <div className="flex lg:hidden items-center gap-2">
             <a
               href="tel:3059705085"
               className="px-3 py-1.5 rounded-lg bg-gray-100 text-gray-800 text-xs font-bold"
@@ -128,7 +122,7 @@ export default function Navbar() {
       </div>
 
       {isOpen && (
-        <div className="md:hidden bg-white border-b border-gray-100 px-4 pt-2 pb-6 space-y-3 shadow-lg">
+        <div className="lg:hidden bg-white border-b border-gray-100 px-4 pt-2 pb-6 space-y-3 shadow-lg">
           <Link
             href="/"
             onClick={() => setIsOpen(false)}
@@ -163,6 +157,13 @@ export default function Navbar() {
             className="block text-sm font-semibold text-gray-800 py-2 border-b border-gray-50"
           >
             Nuestro Taller
+          </Link>
+          <Link
+            href="/diseno-web"
+            onClick={() => setIsOpen(false)}
+            className="block text-sm font-semibold text-gray-800 py-2 border-b border-gray-50"
+          >
+            Diseño de Páginas Web
           </Link>
           <Link
             href="/#faqs"

@@ -8,7 +8,7 @@ export const metadata = {
   title:
     "Nuestro Taller | Bordado, DTF y Gran Formato en Homestead | Ai Graphics",
   description:
-    "Conoce el taller de Ai Graphics en Homestead: bordado computarizado, impresión DTF, impresión de gran formato e instalación de vinil y microperforado, todo hecho en casa.",
+    "Conoce el taller de Ai Graphics en Homestead: bordado computarizado, impresión DTF, gran formato e instalación de vinil y microperforado, todo en casa.",
 };
 
 // Pasos del proceso, cada uno con fotos reales del taller.

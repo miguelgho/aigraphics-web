@@ -22,6 +22,7 @@ export default async function Productos({ searchParams }) {
         title="Todos nuestros productos"
         subtitle="Elige una categoría o entra a cualquier producto para ver fotos de trabajos realizados y hacer tu pedido."
         showFilter
+        headingLevel="h1"
         initialCategory={initialCategory}
       />
     </div>

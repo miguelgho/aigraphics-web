@@ -12,8 +12,10 @@ export default function ProductCatalog({
   subtitle,
   showFilter = false,
   initialCategory = "all",
+  headingLevel = "h2",
   children,
 }) {
+  const Heading = headingLevel;
   const [activeCategory, setActiveCategory] = useState(initialCategory);
 
   const filteredProducts =
@@ -24,9 +26,9 @@ export default function ProductCatalog({
   return (
     <section id="productos" className="py-16 px-4 max-w-7xl mx-auto">
       <div className="text-center mb-12">
-        <h2 className="font-display font-bold uppercase text-print-cyan text-4xl md:text-5xl">
+        <Heading className="font-display font-bold uppercase text-print-cyan text-4xl md:text-5xl">
           {title}
-        </h2>
+        </Heading>
         <span
           className="brand-swoosh w-48 max-w-full mx-auto mt-2 mb-4"
           aria-hidden="true"

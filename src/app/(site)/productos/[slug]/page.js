@@ -25,6 +25,8 @@ export async function generateMetadata({ params }) {
       title: `${product.name} | Ai Graphics`,
       description: product.description,
       images: [product.coverImage],
+      locale: "es_US",
+      type: "website",
     },
   };
 }

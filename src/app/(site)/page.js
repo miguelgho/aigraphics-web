@@ -34,6 +34,31 @@ export default async function Home() {
         </div>
       </ProductCatalog>
 
+      {/* Servicio nuevo: diseño de páginas web */}
+      <section className="px-4">
+        <div className="max-w-7xl mx-auto bg-print-ink text-white rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+          <div>
+            <span className="brand-ribbon bg-print-magenta text-base">
+              Nuevo servicio
+            </span>
+            <p className="font-display font-bold uppercase text-3xl sm:text-4xl mt-4">
+              ¿Tu negocio necesita página web?
+            </p>
+            <p className="text-gray-300 mt-1">
+              Diseñamos tu sitio con la misma imagen de tus uniformes y
+              letreros. Promo de lanzamiento: $399.99 para los primeros 5
+              clientes.
+            </p>
+          </div>
+          <Link
+            href="/diseno-web"
+            className="shrink-0 px-7 py-4 rounded-xl bg-print-magenta text-white font-bold hover:bg-print-magenta-dark transition-all shadow-lg hover:scale-105"
+          >
+            Ver paquetes y precios →
+          </Link>
+        </div>
+      </section>
+
       {/* Reseñas oficiales de Google (Places API) */}
       <GoogleReviews data={reviews} />
 
