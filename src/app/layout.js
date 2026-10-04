@@ -1,8 +1,12 @@
+import { Oswald, Sora } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
-import Analytics from "@/components/Analytics";
+
+const sora = Sora({ subsets: ["latin"], variable: "--font-sora" });
+const oswald = Oswald({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-oswald",
+});
 
 export const metadata = {
   title: "Work Uniforms Uniformes Homestead Kendall Cutler Bay | Ai Graphics",
@@ -103,20 +107,14 @@ export default function RootLayout({ children }) {
   };
 
   return (
-    <html lang="es">
+    <html lang="es" className={`${sora.variable} ${oswald.variable}`}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredSchema) }}
         />
       </head>
-      <body className="bg-gray-50 text-gray-900 flex flex-col min-h-screen">
-        <Navbar />
-        <main className="flex-grow">{children}</main>
-        <Footer />
-        <WhatsAppButton />
-        <Analytics />
-      </body>
+      <body className="bg-white text-print-ink font-sans">{children}</body>
     </html>
   );
 }

@@ -1,17 +1,18 @@
+import Link from "next/link";
 import { theme } from "@/lib/theme";
 
 export default function Contact() {
   return (
-    <main className="bg-gray-50 py-16 px-6 font-sans">
+    <main className="brand-dots py-16 px-6 font-sans">
       <div className="max-w-3xl mx-auto bg-white p-10 rounded-3xl shadow-sm border border-gray-100">
-        <a
+        <Link
           href="/"
-          className="text-print-cyan font-bold text-sm mb-6 inline-block hover:text-print-magenta transition"
+          className="text-print-cyan-dark font-bold text-sm mb-6 inline-block hover:text-print-magenta-dark transition"
         >
           ← Back to Home
-        </a>
+        </Link>
 
-        <h1 className="text-4xl font-black text-print-dark mb-2 text-center uppercase tracking-tighter">
+        <h1 className="font-display text-5xl font-bold text-print-dark mb-2 text-center uppercase">
           Get a <span className="text-print-magenta italic">Quote</span>
         </h1>
         <p className="text-gray-500 text-center mb-10 text-sm">
@@ -60,14 +61,20 @@ export default function Contact() {
           <div>
             <label className={theme.formLabel}>Service Needed</label>
             <select name="service" className={theme.inputShared}>
-              <option value="web_design">Web Design & E-commerce</option>
-              <option value="logo_branding">Logo & Branding Design</option>
-              <option value="apparel">Custom Apparel (Shirts, Hats)</option>
-              <option value="windows">Window Graphics & Signs</option>
-              <option value="swag">Promotional Items (SWAG)</option>
-              <option value="full_360">
-                Full 360 Package (Digital + Print)
+              <option value="uniforms">
+                Uniforms & Embroidery (Polos, Work Shirts, Caps)
               </option>
+              <option value="dtf">DTF Printing (T-Shirts, Hoodies)</option>
+              <option value="signs">
+                Signs & Storefronts (Banners, Window Vinyl)
+              </option>
+              <option value="vehicle">
+                Vehicle Graphics (Lettering, Magnets)
+              </option>
+              <option value="promo">
+                Marketing & Promo (Cards, Flyers, Drinkware)
+              </option>
+              <option value="other">Other / Not sure</option>
             </select>
           </div>
 

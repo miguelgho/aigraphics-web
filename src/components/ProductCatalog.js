@@ -3,7 +3,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { categories, products } from "@/data/products";
 
-export default function ProductCatalog() {
+export default function ProductCatalog({ trabajos = [] }) {
   const [activeCategory, setActiveCategory] = useState("all");
   const [selectedProduct, setSelectedProduct] = useState(null);
 
@@ -12,12 +12,28 @@ export default function ProductCatalog() {
       ? products
       : products.filter((p) => p.category === activeCategory);
 
+  // Fotos subidas en /studio para este producto; si no hay, usamos las fijas.
+  const galleryFor = (product) => {
+    const subidas = trabajos
+      .filter((t) => t.producto === product.id)
+      .flatMap((t) => t.fotos);
+    if (subidas.length > 0) return subidas;
+    return product.gallery.map((src, index) => ({
+      src,
+      alt: `${product.name} ejemplo ${index + 1}`,
+    }));
+  };
+
   return (
     <section id="productos" className="py-16 px-4 max-w-7xl mx-auto">
       <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-3">
+        <h2 className="font-display font-bold uppercase text-print-cyan text-4xl md:text-5xl">
           Nuestros Productos y Servicios
         </h2>
+        <span
+          className="brand-swoosh w-48 max-w-full mx-auto mt-2 mb-4"
+          aria-hidden="true"
+        />
         <p className="text-gray-600 max-w-2xl mx-auto">
           Selecciona una categoría o haz clic en cualquier producto para ver
           fotos de trabajos realizados y cotizar al instante.
@@ -32,7 +48,7 @@ export default function ProductCatalog() {
             aria-label={`Filtrar por ${cat.name}`}
             className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all shadow-sm ${
               activeCategory === cat.id
-                ? "bg-[#E04B9A] text-white shadow-md scale-105"
+                ? "bg-print-magenta text-white shadow-md scale-105"
                 : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-200"
             }`}
           >
@@ -80,7 +96,7 @@ export default function ProductCatalog() {
               </div>
 
               <div className="flex items-center justify-between pt-4 border-t border-gray-100 mt-2">
-                <span className="text-xs font-bold text-[#68C9D8] group-hover:text-[#E04B9A] transition-colors">
+                <span className="text-xs font-bold text-print-cyan-dark group-hover:text-print-magenta-dark transition-colors">
                   Ver galería →
                 </span>
                 <a
@@ -133,14 +149,14 @@ export default function ProductCatalog() {
               Muestras de Trabajos Anteriores:
             </h4>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-8">
-              {selectedProduct.gallery.map((imgUrl, index) => (
+              {galleryFor(selectedProduct).map((foto) => (
                 <div
-                  key={index}
+                  key={foto.src}
                   className="relative h-44 rounded-xl overflow-hidden bg-gray-100 border border-gray-200"
                 >
                   <Image
-                    src={imgUrl}
-                    alt={`${selectedProduct.name} ejemplo ${index + 1}`}
+                    src={foto.thumb || foto.src}
+                    alt={foto.alt}
                     fill
                     sizes="(max-width: 640px) 50vw, 33vw"
                     className="object-cover"
@@ -161,7 +177,7 @@ export default function ProductCatalog() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Cotizar ${selectedProduct.name} por WhatsApp`}
-                className="px-6 py-2.5 rounded-xl bg-[#E04B9A] text-white text-sm font-bold hover:bg-[#c93f87] transition-all shadow-md text-center"
+                className="px-6 py-2.5 rounded-xl bg-print-magenta text-white text-sm font-bold hover:bg-print-magenta-dark transition-all shadow-md text-center"
               >
                 Cotizar este producto por WhatsApp
               </a>

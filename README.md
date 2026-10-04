@@ -22,7 +22,7 @@ Providing end-to-end custom apparel, commercial embroidery, large-format signage
 - **Interactive Landing Page:** Hero slider (`HeroSlider`), dynamic product catalog, customer testimonials (`ReviewsWidget`), and collapsible FAQs (`FAQSection`).
 - **Categorized Product Catalog:** Client-side filtering across core service categories:
   - **DTF Printing:** Custom t-shirts, high-durability workwear, and school uniforms.
-  - **Computerized Embroidery:** Corporate polos, outerwear, and structured caps.
+  - **Computerized Embroidery:** Corporate polos, school uniforms, and structured caps.
   - **Signage & Large Format:** Retractable banners, Coroplast/PVC yard signs, perforated window vinyl, and vehicle graphics.
   - **Marketing & Promotional Goods:** Die-cut vinyl stickers, business cards, sublimated drinkware, and event merchandise.
 - **Dedicated Routes:**
@@ -47,27 +47,72 @@ aigraphics-web/
 │   └── llms.txt             # Structured business data for LLMs
 ├── src/
 │   ├── app/
-│   │   ├── layout.js        # Root shell, font imports, and global SEO metadata
-│   │   ├── page.js          # Main landing page
-│   │   ├── globals.css      # Tailwind core directives and theme styles
-│   │   ├── contact/
-│   │   │   └── page.js      # Contact page route
-│   │   └── portfolio/
-│   │       └── page.js      # Portfolio gallery route
+│   │   ├── layout.js        # Root shell, fonts, and global SEO metadata
+│   │   ├── globals.css      # Tailwind theme: official brand colors and helpers
+│   │   ├── (site)/          # Public website (Navbar + Footer layout)
+│   │   │   ├── page.js      # Main landing page
+│   │   │   ├── contact/     # Contact page route
+│   │   │   └── portfolio/   # Portfolio gallery (photos from Sanity)
+│   │   └── studio/          # Sanity Studio: photo upload panel at /studio
 │   ├── components/
 │   │   ├── Navbar.js        # Header navigation
 │   │   ├── Footer.js        # Site footer and quick links
-│   │   ├── HeroSlider.js    # Interactive homepage hero banner
+│   │   ├── HeroSection.js   # Hero: Uniformes | Gran Formato panels
 │   │   ├── ProductCatalog.js# Filterable product grid
-│   │   ├── ReviewsWidget.js # Customer reviews and ratings
+│   │   ├── GoogleReviews.js # Google reviews styled with the brand
 │   │   ├── FAQSection.js    # Accordion FAQ component
+│   │   ├── ServicesSection.js # The 4 service pillars from the roll-up
+│   │   ├── PortfolioGallery.js # Filterable work gallery with photo viewer
 │   │   └── WhatsAppButton.js# Floating contact button
 │   ├── data/
-│   │   └── products.js      # Centralized product and category definitions
+│   │   ├── products.js      # Centralized product and category definitions
+│   │   └── workCategories.js# Portfolio categories (site + /studio)
+│   ├── sanity/              # Sanity client, env and "trabajo" schema
 │   └── lib/
 │       └── theme.js         # Theme utilities and design tokens
+├── scripts/
+│   └── importar-fotos-drive.mjs # One-time copy of Drive photos into Sanity
+├── sanity.config.js         # Studio configuration (Spanish UI)
 ├── package.json
 └── README.md
+```
+
+---
+
+## 📸 Fotos de trabajos (Sanity)
+
+Las fotos del portafolio y de las galerías de productos se suben desde el panel **`/studio`**
+(por ejemplo `https://aigraphicsfl.com/studio`), sin tocar código.
+
+**Subir un trabajo:** entra a `/studio` → *Trabajo realizado* → **+** → escribe el título, elige la
+categoría, arrastra o toma las fotos → **Publicar**. Aparece en la página en ~1 minuto.
+Marca *Destacado* para que salga primero, y elige un producto para que también se vea en su galería.
+
+**Configuración inicial (una sola vez):**
+
+1. Crea un proyecto gratis en [sanity.io](https://www.sanity.io/get-started) (dataset `production`).
+2. En [sanity.io/manage](https://www.sanity.io/manage) → *API* → *CORS origins*, agrega
+   `https://aigraphicsfl.com`, `https://www.aigraphicsfl.com` y `http://localhost:3000`
+   con **Allow credentials** activado.
+3. En Vercel → *Settings* → *Environment Variables* agrega `NEXT_PUBLIC_SANITY_PROJECT_ID`
+   y `NEXT_PUBLIC_SANITY_DATASET=production`, y vuelve a desplegar. Localmente, copia `.env.example` a `.env.local`.
+4. (Opcional) Para copiar las fotos actuales de Google Drive: crea un token *Editor* en
+   *API → Tokens*, ponlo en `.env.local` como `SANITY_API_WRITE_TOKEN` y ejecuta
+   `node --env-file=.env.local scripts/importar-fotos-drive.mjs`.
+
+Mientras Sanity no esté configurado, el sitio sigue mostrando las fotos fijas de `products.js`.
+
+---
+
+## ⭐ Reseñas de Google
+
+La sección de reseñas lee las reseñas oficiales del perfil de Google (Places API) y se actualiza una vez al día.
+
+1. En [Google Cloud Console](https://console.cloud.google.com/) crea un proyecto, activa **Places API (New)** y crea una **API key** restringida a esa API.
+2. Agrega `GOOGLE_PLACES_API_KEY` en Vercel (y en `.env.local`).
+3. El Place ID de Ai Graphics (`ChIJU64i6zKHlqIRnT-yyaZkAL0`) ya viene en el código; `GOOGLE_PLACE_ID` solo hace falta para cambiarlo.
+
+Sin la llave, la sección muestra los botones para ver y dejar reseñas en Google Maps. Google muestra como máximo 5 reseñas por la API.
 
 ---
 
@@ -113,5 +158,3 @@ Phone: (305) 970-5085
 Email: sales@aigraphicsfl.com
 
 Location: Homestead / Miami, FL
-
-```
