@@ -62,6 +62,22 @@ export default function RootLayout({ children }) {
       latitude: 25.5092,
       longitude: -80.4074,
     },
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday",
+        ],
+        opens: "07:00",
+        closes: "19:00",
+      },
+    ],
     areaServed: [
       {
         "@type": "City",

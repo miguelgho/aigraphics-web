@@ -1,4 +1,4 @@
-import { SITE_URL } from "@/lib/site";
+import { BUSINESS_HOURS, SITE_URL } from "@/lib/site";
 import Image from "next/image";
 import Link from "next/link";
 import QuoteButton from "@/components/QuoteButton";
@@ -143,6 +143,9 @@ export default function Taller() {
           <p className="mt-4 max-w-xl mx-auto lg:mx-0 text-sm text-print-ink bg-print-yellow/30 border border-print-yellow rounded-xl px-4 py-3">
             📅 Nuestro taller funciona en casa: si quieres recoger tu pedido o
             ver muestras, avísanos antes por WhatsApp para coordinar tu visita.
+            <span className="block mt-1 font-bold">
+              🕖 Horario: {BUSINESS_HOURS}
+            </span>
           </p>
           <div className="flex flex-wrap gap-3 justify-center lg:justify-start mt-8">
             <QuoteButton

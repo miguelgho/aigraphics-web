@@ -1,4 +1,4 @@
-import { SITE_URL } from "@/lib/site";
+import { BUSINESS_HOURS, SITE_URL } from "@/lib/site";
 import Link from "next/link";
 import { theme } from "@/lib/theme";
 
@@ -29,6 +29,9 @@ export default function Contact() {
         <p className="-mt-6 mb-10 text-center text-xs text-print-ink bg-print-yellow/30 border border-print-yellow rounded-xl px-4 py-3">
           📅 Nuestro taller funciona en casa: si quieres recoger tu pedido o ver
           muestras, avísanos antes por WhatsApp para coordinar tu visita.
+          <span className="block mt-1 font-bold">
+            🕖 Horario: {BUSINESS_HOURS}
+          </span>
         </p>
 
         <form
