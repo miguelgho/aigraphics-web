@@ -60,7 +60,7 @@ const steps = [
   },
   {
     title: "Instalación y entrega",
-    text: "Instalamos vinil y microperforado en tu local o vehículo, y te entregamos tu pedido listo: recógelo en el taller o te lo enviamos.",
+    text: "Instalamos vinil y microperforado en tu local o vehículo, y te entregamos tu pedido listo: recógelo en el taller con cita previa o te lo enviamos.",
     photos: [
       {
         src: "/taller/instalacion-vinil-auto.webp",
@@ -103,7 +103,7 @@ const facts = [
   { value: "Sin mínimos", label: "En uniformes, desde una pieza" },
   {
     value: "Local y nacional",
-    label: "Recogida en Homestead o envío a EE.UU.",
+    label: "Recogida con cita en Homestead o envío a EE.UU.",
   },
 ];
 
@@ -139,6 +139,10 @@ export default function Taller() {
             Cada uniforme, banner y rotulación sale de nuestras propias
             máquinas. Así cuidamos la calidad, los colores y los tiempos de
             entrega de principio a fin, sin intermediarios.
+          </p>
+          <p className="mt-4 max-w-xl mx-auto lg:mx-0 text-sm text-print-ink bg-print-yellow/30 border border-print-yellow rounded-xl px-4 py-3">
+            📅 Nuestro taller funciona en casa: si quieres recoger tu pedido o
+            ver muestras, avísanos antes por WhatsApp para coordinar tu visita.
           </p>
           <div className="flex flex-wrap gap-3 justify-center lg:justify-start mt-8">
             <QuoteButton

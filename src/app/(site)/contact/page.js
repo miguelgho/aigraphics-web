@@ -26,6 +26,10 @@ export default function Contact() {
         <p className="text-gray-500 text-center mb-10 text-sm">
           Cuéntanos de tu proyecto y te respondemos en menos de 24 horas.
         </p>
+        <p className="-mt-6 mb-10 text-center text-xs text-print-ink bg-print-yellow/30 border border-print-yellow rounded-xl px-4 py-3">
+          📅 Nuestro taller funciona en casa: si quieres recoger tu pedido o ver
+          muestras, avísanos antes por WhatsApp para coordinar tu visita.
+        </p>
 
         <form
           action="https://formspree.io/f/mnjovdaa"

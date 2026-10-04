@@ -26,7 +26,7 @@ export default function FAQSection() {
     },
     {
       q: "¿Ofrecen recogida local y envíos, y qué áreas cubren?",
-      a: "Sí, ofrecemos recogida local y entregas cubriendo Homestead, Kendall, Cutler Bay, Miami y todo el sur de Florida, además de envíos a nivel nacional en todo Estados Unidos. Puedes coordinar la opción que te resulte más cómoda al hacer tu pedido.",
+      a: "Sí. Puedes recoger tu pedido en nuestro taller de Homestead con cita previa (el taller funciona en casa, así que avísanos antes por WhatsApp). También entregamos cubriendo Homestead, Kendall, Cutler Bay, Miami y todo el sur de Florida, además de envíos a nivel nacional en todo Estados Unidos. Puedes coordinar la opción que te resulte más cómoda al hacer tu pedido.",
     },
     {
       q: "¿Imprimen tarjetas de presentación y flyers a juego con la marca y uniformes de mi negocio?",
