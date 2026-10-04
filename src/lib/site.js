@@ -1,2 +1,2 @@
-// Dirección pública del sitio (la misma que usa el canonical de layout.js).
-export const SITE_URL = "https://aigraphicsfl.com";
+// Dirección pública del sitio (el dominio principal configurado en Vercel).
+export const SITE_URL = "https://www.aigraphicsfl.com";
