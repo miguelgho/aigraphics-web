@@ -10,7 +10,7 @@ const builder = client ? createImageUrlBuilder(client) : null;
 
 const TRABAJOS_QUERY = `*[_type == "trabajo" && count(fotos) > 0]
   | order(destacado desc, fecha desc, _createdAt desc) {
-    _id, titulo, categoria, producto, cliente, descripcion,
+    _id, titulo, categoria, producto, descripcion,
     fotos[]{ asset, hotspot, crop, alt }
   }`;
 
@@ -29,7 +29,6 @@ export async function getTrabajos() {
       titulo: doc.titulo,
       categoria: doc.categoria,
       producto: doc.producto ?? null,
-      cliente: doc.cliente ?? null,
       descripcion: doc.descripcion ?? null,
       fotos: doc.fotos
         .filter((foto) => foto?.asset)
