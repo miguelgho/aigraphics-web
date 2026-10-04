@@ -11,7 +11,7 @@ export const trabajo = defineType({
       name: "titulo",
       title: "Título",
       description:
-        'Ej: "Uniformes para Plomería JR" o "Microperforado Restaurante El Sol"',
+        'Describe el trabajo sin nombres de empresas o escuelas. Ej: "Polos bordados para equipo de construcción" o "Microperforado para restaurante"',
       type: "string",
       validation: (rule) => rule.required(),
     }),
