@@ -113,6 +113,10 @@ export default function Footer() {
             Homestead / Miami, FL · Create. Print. Shine.
           </p>
 
+          <p className="text-sm text-gray-300">
+            Horario: lunes a domingo, 7:00 AM – 7:00 PM
+          </p>
+
           <p className="text-gray-400 text-xs font-semibold">
             © {new Date().getFullYear()} AI GRAPHICS LLC. ALL RIGHTS RESERVED.
           </p>

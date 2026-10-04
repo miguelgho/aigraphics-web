@@ -45,6 +45,22 @@ export default function RootLayout({ children }) {
     email: "Sales@aigraphicsfl.com",
     url: SITE_URL,
     priceRange: "$$",
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday",
+        ],
+        opens: "07:00",
+        closes: "19:00",
+      },
+    ],
     hasMap: googleReviewsLinks.maps,
     sameAs: [
       "https://www.instagram.com/aigraphicsfl",
