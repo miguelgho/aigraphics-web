@@ -1,8 +1,8 @@
 export default function FAQSection() {
   const faqs = [
     {
-      q: "¿Pueden agregar bordado personalizado a uniformes de empresa, como polos, gorras y chaquetas?",
-      a: "Sí, realizamos bordado computarizado de alta precisión para uniformes corporativos, polos, todo tipo de gorras, chaquetas y enguatadas de trabajo. Agregamos el logotipo o nombre de tu empresa con acabado profesional y duradero. Si no tienes tu arte listo, te ayudamos con el diseño, vectorización y digitalización del bordado.",
+      q: "¿Pueden agregar bordado personalizado a uniformes de empresa, como polos y gorras?",
+      a: "Sí, realizamos bordado computarizado de alta precisión para uniformes corporativos, polos, todo tipo de gorras y enguatadas de trabajo. Agregamos el logotipo o nombre de tu empresa con acabado profesional y duradero. Si no tienes tu arte listo, te ayudamos con el diseño, vectorización y digitalización del bordado.",
     },
     {
       q: "¿Ofrecen impresión DTF o estampado térmico para uniformes con logotipos a todo color?",
@@ -10,11 +10,11 @@ export default function FAQSection() {
     },
     {
       q: "¿Pueden ayudarme con el diseño o vectorización si solo tengo una imagen de baja calidad de mi logotipo?",
-      a: "Totalmente. Si solo tienes una foto borrosa o un archivo pixelado de tu logo, nuestros especialistas en diseño gráfico pueden recrearlo y convertirlo en un vector de alta resolución listo para producción. Esto asegura que tu logotipo se vea 100% nítido tanto en bordados como en camisetas, gorras y letreros.",
+      a: "Totalmente. Si solo tienes una foto borrosa o un archivo pixelado de tu logo, nuestros especialistas en diseño gráfico pueden recrearlo y convertirlo en un vector de alta resolución listo para producción. Esto asegura que tu logotipo se vea 100% nítido tanto en bordados como en camisetas, gorras y letreros. El costo de este servicio depende de la complejidad del diseño y del tamaño del pedido; te lo indicamos al cotizar.",
     },
     {
       q: "¿Pueden crear paquetes combinados de uniformes para mi equipo (polos, hoodies, gorras y camisetas)?",
-      a: "Es una de nuestras especialidades. Confeccionamos y personalizamos conjuntos completos a juego (polos, sudaderas con capucha, gorras, camisetas y chaquetas) con la misma identidad visual de tu marca, combinando bordado o impresión DTF según tu preferencia.",
+      a: "Es una de nuestras especialidades. Confeccionamos y personalizamos conjuntos completos a juego (polos, sudaderas con capucha, gorras y camisetas) con la misma identidad visual de tu marca, combinando bordado o impresión DTF según tu preferencia.",
     },
     {
       q: "¿Tienen cantidad mínima de pedido para uniformes de trabajo o puedo ordenar una sola pieza?",
@@ -59,12 +59,16 @@ export default function FAQSection() {
       />
 
       <div className="text-center mb-12">
-        <span className="inline-block px-3.5 py-1.5 rounded-full bg-[#E04B9A]/10 text-[#E04B9A] text-xs font-bold uppercase tracking-wider mb-2">
+        <span className="inline-block px-3.5 py-1.5 rounded-full bg-print-magenta/10 text-print-magenta-dark text-xs font-bold uppercase tracking-wider mb-2">
           Centro de Ayuda & FAQs
         </span>
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-3">
+        <h2 className="font-display font-bold uppercase text-print-cyan text-4xl md:text-5xl">
           Preguntas Frecuentes
         </h2>
+        <span
+          className="brand-swoosh w-48 max-w-full mx-auto mt-2 mb-4"
+          aria-hidden="true"
+        />
         <p className="text-gray-600 text-sm sm:text-base max-w-2xl mx-auto">
           Todo lo que necesitas saber sobre bordados, impresión DTF, uniformes,
           vectorización y entregas en Homestead y Miami.

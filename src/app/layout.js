@@ -1,35 +1,37 @@
+import { Oswald, Sora } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
-import Analytics from "@/components/Analytics";
+import { SITE_URL } from "@/lib/site";
+import { googleReviewsLinks } from "@/lib/googleReviews";
+
+const sora = Sora({ subsets: ["latin"], variable: "--font-sora" });
+const oswald = Oswald({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-oswald",
+});
 
 export const metadata = {
-  title: "Work Uniforms Uniformes Homestead Kendall Cutler Bay | Ai Graphics",
+  metadataBase: new URL(SITE_URL),
+  title:
+    "Uniformes, Bordados y Gran Formato en Homestead y Miami | Ai Graphics",
   description:
-    "Ai Graphics: work uniforms, school uniform store, construction workwear, custom uniform embroidery, enguatadas de trabajo, uniformes in Homestead, Kendall, Cutler Bay.",
-  keywords: [
-    "Work Uniforms",
-    "School Uniform Store",
-    "Construction Workwear",
-    "Custom Uniform Embroidery",
-    "Enguatadas de trabajo",
-    "Uniformes Homestead",
-    "DTF Printing Miami",
-    "Signs and Banners",
-  ],
+    "Uniformes de trabajo y escolares, bordado, camisetas DTF, banners, microperforado y rotulación de vehículos en Homestead y Miami. Work uniforms & signs.",
   alternates: {
-    canonical: "https://aigraphicsfl.com",
+    canonical: SITE_URL,
   },
   openGraph: {
-    title: "Work Uniforms & Custom Embroidery in Homestead | Ai Graphics",
+    title: "Ai Graphics | Uniformes, Bordados y Gran Formato",
     description:
-      "Work uniforms, school uniforms, custom embroidery, and printing in Homestead, FL.",
-    url: "https://aigraphicsfl.com",
+      "Vestimos tu equipo y rotulamos tu negocio: uniformes, bordado, DTF, banners y rotulación en Homestead y Miami.",
+    url: SITE_URL,
     siteName: "Ai Graphics",
-    locale: "en_US",
+    locale: "es_US",
     type: "website",
+    images: [
+      { url: "/og-image.jpg", width: 1200, height: 630, alt: "Ai Graphics" },
+    ],
   },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({ children }) {
@@ -37,11 +39,18 @@ export default function RootLayout({ children }) {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: "Ai Graphics LLC",
-    image: "https://aigraphicsfl.com/logo.png",
+    image: `${SITE_URL}/og-image.jpg`,
+    logo: `${SITE_URL}/logo.png`,
     telephone: "+1-305-970-5085",
     email: "Sales@aigraphicsfl.com",
-    url: "https://aigraphicsfl.com",
+    url: SITE_URL,
     priceRange: "$$",
+    hasMap: googleReviewsLinks.maps,
+    sameAs: [
+      "https://www.instagram.com/aigraphicsfl",
+      "https://www.tiktok.com/@aigraphicsfl",
+      googleReviewsLinks.maps,
+    ],
     address: {
       "@type": "PostalAddress",
       addressLocality: "Homestead",
@@ -50,8 +59,8 @@ export default function RootLayout({ children }) {
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: 25.4687,
-      longitude: -80.4776,
+      latitude: 25.5092,
+      longitude: -80.4074,
     },
     areaServed: [
       {
@@ -72,7 +81,7 @@ export default function RootLayout({ children }) {
       },
     ],
     description:
-      "Work Uniforms, School Uniform Store & Construction Workwear in Homestead | Custom Uniform Embroidery, Enguatadas de trabajo & Uniformes",
+      "Taller de uniformes, bordado, impresión DTF, gran formato y rotulación de vehículos en Homestead, FL. Work uniforms, embroidery, DTF printing and signs.",
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Servicios de Personalización y Uniformes",
@@ -98,25 +107,26 @@ export default function RootLayout({ children }) {
             name: "Window Microperforado & Signs",
           },
         },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Diseño de sitios web",
+          },
+        },
       ],
     },
   };
 
   return (
-    <html lang="es">
+    <html lang="es" className={`${sora.variable} ${oswald.variable}`}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredSchema) }}
         />
       </head>
-      <body className="bg-gray-50 text-gray-900 flex flex-col min-h-screen">
-        <Navbar />
-        <main className="flex-grow">{children}</main>
-        <Footer />
-        <WhatsAppButton />
-        <Analytics />
-      </body>
+      <body className="bg-white text-print-ink font-sans">{children}</body>
     </html>
   );
 }

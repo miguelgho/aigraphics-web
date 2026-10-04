@@ -2,11 +2,11 @@ export default function WhatsAppButton() {
   return (
     <a
       // Replace the text after "?text=" to customize the default message
-      href="https://wa.me/13059705085?text=Hello%20Ai%20Graphics!%20I'm%20interested%20in%20your%20services."
+      href="https://wa.me/13059705085?text=Hola%20Ai%20Graphics,%20quiero%20información%20sobre%20sus%20servicios."
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center justify-center"
-      aria-label="Chat with us on WhatsApp"
+      className="fixed bottom-6 right-6 z-50 bg-print-cyan text-white p-4 rounded-full shadow-2xl ring-4 ring-white hover:bg-print-cyan-dark hover:scale-110 transition-transform duration-300 flex items-center justify-center"
+      aria-label="Escríbenos por WhatsApp"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

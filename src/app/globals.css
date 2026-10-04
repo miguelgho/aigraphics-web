@@ -3,23 +3,58 @@
 @theme {
   /* Fuentes oficiales */
   --font-sans: var(--font-sora), ui-sans-serif, system-ui;
+  --font-display: var(--font-oswald), "Arial Narrow", ui-sans-serif, sans-serif;
 
-  /* Colores oficiales de Ai Graphics  */
-  --color-print-yellow: #f4d30d; /* [cite: 179] */
-  --color-print-cyan: #68c9d8; /* [cite: 180] */
-  --color-print-magenta: #e04b9a; /* [cite: 186] */
-  --color-print-dark: #434247; /* [cite: 189] */
+  /* Colores de Ai Graphics tomados del roll-up impreso. Son más intensos que los
+     HEX del manual de marca (#e04b9a, #68c9d8) para igualar los materiales
+     impresos y dar buen contraste con texto blanco. */
+  --color-print-magenta: #e4157c; /* Magenta de cintas y franja web */
+  --color-print-magenta-dark: #b80f62; /* Hover / texto magenta sobre blanco */
+  --color-print-cyan: #1c9ce5; /* Azul de "Custom Branding & Signs" */
+  --color-print-cyan-dark: #0f78b8; /* Hover / texto azul sobre blanco */
+  --color-print-yellow: #f7cf0a; /* Amarillo del logo (solo acentos) */
+  --color-print-dark: #3d393a; /* Gris carbón de "Graphics" */
+  --color-print-ink: #231f20; /* Negro de la franja de contacto */
 
-  /* Colores de soporte (Azules suaves) [cite: 193] */
-  --color-support-blue: #6ab8ff; /* [cite: 196] */
-  --color-support-light: #e6fafb; /* [cite: 199] */
+  /* Colores de soporte */
+  --color-support-light: #f4f4f5; /* Fondo gris claro con puntos */
 }
+
 :root {
   --background: #ffffff;
-  --foreground: #1a1a1a;
+  --foreground: #231f20;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
+}
+
+@layer components {
+  /* Fondo blanco con puntos grises, como el roll-up */
+  .brand-dots {
+    background-color: #ffffff;
+    background-image: radial-gradient(#e6e6e8 22%, transparent 24%);
+    background-size: 26px 26px;
+  }
+
+  /* Cinta inclinada de títulos (Signs & Storefronts, Uniforms…) */
+  .brand-ribbon {
+    display: inline-block;
+    clip-path: polygon(0 0, 100% 0, calc(100% - 0.9em) 100%, 0 100%);
+    padding: 0.2em 1.4em 0.2em 0.6em;
+    font-family: var(--font-display);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: #ffffff;
+  }
+
+  /* Subrayado curvo magenta bajo los titulares */
+  .brand-swoosh {
+    display: block;
+    height: 0.75rem;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 16' preserveAspectRatio='none'%3E%3Cpath d='M2 14 Q200 -6 398 10 Q200 2 2 14Z' fill='%23e4157c'/%3E%3C/svg%3E")
+      center / 100% 100% no-repeat;
+  }
 }
