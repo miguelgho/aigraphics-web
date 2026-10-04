@@ -52,7 +52,8 @@ aigraphics-web/
 │   │   ├── (site)/          # Public website (Navbar + Footer layout)
 │   │   │   ├── page.js      # Main landing page
 │   │   │   ├── contact/     # Contact page route
-│   │   │   └── portfolio/   # Portfolio gallery (photos from Sanity)
+│   │   │   ├── portfolio/   # Portfolio gallery (photos from Sanity)
+│   │   │   └── taller/      # "Nuestro Taller": process, machines, turnaround
 │   │   └── studio/          # Sanity Studio: photo upload panel at /studio
 │   ├── components/
 │   │   ├── Navbar.js        # Header navigation

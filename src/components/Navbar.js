@@ -50,6 +50,12 @@ export default function Navbar() {
               Portafolio
             </Link>
             <Link
+              href="/taller"
+              className="text-sm font-semibold text-gray-700 hover:text-print-magenta-dark transition-colors"
+            >
+              Taller
+            </Link>
+            <Link
               href="/#faqs"
               className="text-sm font-semibold text-gray-700 hover:text-print-magenta-dark transition-colors"
             >
@@ -148,6 +154,13 @@ export default function Navbar() {
             className="block text-sm font-semibold text-gray-800 py-2 border-b border-gray-50"
           >
             Portafolio
+          </Link>
+          <Link
+            href="/taller"
+            onClick={() => setIsOpen(false)}
+            className="block text-sm font-semibold text-gray-800 py-2 border-b border-gray-50"
+          >
+            Nuestro Taller
           </Link>
           <Link
             href="/#faqs"

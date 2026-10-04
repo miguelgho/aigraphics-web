@@ -36,6 +36,9 @@ export default function Footer() {
             <Link href="/portfolio" className="hover:text-white">
               Portafolio
             </Link>
+            <Link href="/taller" className="hover:text-white">
+              Taller
+            </Link>
             <Link href="/#faqs" className="hover:text-white">
               FAQs
             </Link>
