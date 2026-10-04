@@ -156,10 +156,10 @@ export default function Taller() {
         </div>
         <div className="relative mx-3">
           <CropMarks />
-          <div className="relative aspect-[4/5] sm:aspect-[4/3] lg:aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl bg-print-ink">
+          <div className="relative aspect-[6/5] rounded-2xl overflow-hidden shadow-2xl bg-print-ink">
             <Image
-              src="/taller/taller-interior.webp"
-              alt="Interior del taller de Ai Graphics con la bordadora y letreros listos"
+              src="/taller/taller-bordadora.webp"
+              alt="Taller de Ai Graphics con la bordadora y prendas listas"
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 50vw"
