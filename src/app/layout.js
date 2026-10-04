@@ -2,6 +2,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import Analytics from "@/components/Analytics";
 
 export const metadata = {
   title: "Work Uniforms Uniformes Homestead Kendall Cutler Bay | Ai Graphics",
@@ -114,6 +115,7 @@ export default function RootLayout({ children }) {
         <main className="flex-grow">{children}</main>
         <Footer />
         <WhatsAppButton />
+        <Analytics />
       </body>
     </html>
   );
