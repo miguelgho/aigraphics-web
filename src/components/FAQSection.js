@@ -10,7 +10,7 @@ export default function FAQSection() {
     },
     {
       q: "¿Pueden ayudarme con el diseño o vectorización si solo tengo una imagen de baja calidad de mi logotipo?",
-      a: "Totalmente. Si solo tienes una foto borrosa o un archivo pixelado de tu logo, nuestros especialistas en diseño gráfico pueden recrearlo y convertirlo en un vector de alta resolución listo para producción. Esto asegura que tu logotipo se vea 100% nítido tanto en bordados como en camisetas, gorras y letreros.",
+      a: "Totalmente. Si solo tienes una foto borrosa o un archivo pixelado de tu logo, nuestros especialistas en diseño gráfico pueden recrearlo y convertirlo en un vector de alta resolución listo para producción. Esto asegura que tu logotipo se vea 100% nítido tanto en bordados como en camisetas, gorras y letreros. El costo de este servicio depende de la complejidad del diseño y del tamaño del pedido; te lo indicamos al cotizar.",
     },
     {
       q: "¿Pueden crear paquetes combinados de uniformes para mi equipo (polos, hoodies, gorras y camisetas)?",

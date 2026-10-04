@@ -33,7 +33,7 @@ const lines = [
 const promises = [
   { title: "Rush 24–48 h", desc: "Producción normal en 3–5 días hábiles" },
   { title: "Sin mínimos", desc: "En uniformes, desde una sola pieza" },
-  { title: "Diseño incluido", desc: "Vectorizamos tu logo si no lo tienes" },
+  { title: "Te ayudamos", desc: "Con el diseño o vectorización de tu logo" },
   { title: "Local y nacional", desc: "Recogida en Homestead o envío a EE.UU." },
 ];
 
