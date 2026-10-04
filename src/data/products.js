@@ -24,6 +24,7 @@ export const productData = [
       "/trabajos/manga-larga-dtf.webp",
       "/trabajos/camisetas-enguatadas-dtf-1.webp",
       "/trabajos/camisetas-enguatadas-dtf-2.webp",
+      "/trabajos/enguatadas-dtf-azules.webp",
     ],
     en: {
       slug: "dtf-t-shirts-hoodies",
@@ -54,7 +55,6 @@ export const productData = [
       "/trabajos/polo-trabajo-dtf.webp",
       "/trabajos/polo-amarillo-dtf.webp",
       "/trabajos/camiseta-equipo-dtf.webp",
-      "/trabajos/polos-trabajo-dtf-1.webp",
       "/trabajos/polos-trabajo-dtf-2.webp",
     ],
     en: {
@@ -173,7 +173,6 @@ export const productData = [
       "/trabajos/polo-corporativo-bordado.webp",
       "/trabajos/polo-gris-bordado.webp",
       "/trabajos/polo-blanco-bordado.webp",
-      "/trabajos/polos-trabajo-dtf-1.webp",
     ],
     en: {
       slug: "embroidered-polos",
