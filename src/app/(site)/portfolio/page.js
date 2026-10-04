@@ -1,7 +1,9 @@
+import { SITE_URL } from "@/lib/site";
 import PortfolioGallery from "@/components/PortfolioGallery";
 import { getTrabajos } from "@/sanity/trabajos";
 
 export const metadata = {
+  alternates: { canonical: `${SITE_URL}/portfolio` },
   title: "Portafolio de Trabajos | Ai Graphics",
   description:
     "Uniformes, bordados, impresión DTF, letreros, microperforado y rotulación de vehículos hechos por Ai Graphics en Homestead y Miami.",

@@ -1,5 +1,13 @@
+import { SITE_URL } from "@/lib/site";
 import Link from "next/link";
 import { theme } from "@/lib/theme";
+
+export const metadata = {
+  title: "Contacto y Cotizaciones | Ai Graphics",
+  description:
+    "Cuéntanos tu proyecto de uniformes, bordados, DTF, letreros o diseño web y te respondemos en menos de 24 horas.",
+  alternates: { canonical: `${SITE_URL}/contact` },
+};
 
 export default function Contact() {
   return (

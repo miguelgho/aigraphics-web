@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { workCategories } from "@/data/workCategories";
+import QuoteButton from "@/components/QuoteButton";
 
 const ribbonBg = { magenta: "bg-print-magenta", cyan: "bg-print-cyan" };
 
@@ -150,16 +151,11 @@ export default function PortfolioGallery({ trabajos }) {
                   </p>
                 )}
               </div>
-              <a
-                href={`https://wa.me/13059705085?text=${encodeURIComponent(
-                  `Hola Ai Graphics, vi el trabajo "${selected.titulo}" en su página y quiero algo similar.`,
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="shrink-0 px-6 py-3 rounded-xl bg-print-magenta text-white text-sm font-bold hover:bg-print-magenta-dark transition-all shadow-md text-center"
-              >
-                💬 Quiero algo similar
-              </a>
+              <QuoteButton
+                label="Quiero algo similar"
+                message={`Hola Ai Graphics, vi el trabajo "${selected.titulo}" en su página y quiero algo similar.`}
+                className="shrink-0"
+              />
             </div>
           </div>
         </div>

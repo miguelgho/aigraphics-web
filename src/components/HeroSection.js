@@ -1,6 +1,6 @@
 import Image from "next/image";
-
-const WHATSAPP = "https://wa.me/13059705085?text=";
+import Link from "next/link";
+import QuoteButton from "@/components/QuoteButton";
 
 // Las dos líneas de negocio, presentadas como dos "pliegos" impresos.
 const lines = [
@@ -13,7 +13,8 @@ const lines = [
     alt: "Escudo bordado en polo de uniforme escolar",
     items: ["Polos de trabajo", "Hi-Vis", "Gorras bordadas", "Escolares"],
     color: "bg-print-cyan",
-    cta: "Cotizar uniformes",
+    cta: "Quiero uniformes",
+    href: "/productos?categoria=embroidery",
     msg: "Hola Ai Graphics, quiero cotizar uniformes para mi equipo.",
   },
   {
@@ -25,7 +26,8 @@ const lines = [
     alt: "Microperforado full color en el vidrio trasero de un auto",
     items: ["Banners", "Microperforado", "Vinil de vitrina", "Vehículos"],
     color: "bg-print-magenta",
-    cta: "Cotizar gran formato",
+    cta: "Quiero un letrero",
+    href: "/productos?categoria=signs",
     msg: "Hola Ai Graphics, quiero cotizar un banner / rotulación.",
   },
 ];
@@ -90,14 +92,11 @@ export default function HeroSection() {
           </p>
 
           <div className="flex flex-wrap gap-3 justify-center mt-8">
-            <a
-              href={`${WHATSAPP}${encodeURIComponent("Hola Ai Graphics, me gustaría solicitar una cotización.")}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-7 py-4 rounded-xl bg-print-magenta text-white font-bold hover:bg-print-magenta-dark transition-all shadow-lg hover:scale-105"
-            >
-              💬 Cotizar por WhatsApp
-            </a>
+            <QuoteButton
+              label="Empieza tu pedido"
+              message="Hola Ai Graphics, me gustaría empezar un pedido."
+              size="lg"
+            />
             <a
               href="tel:3059705085"
               className="px-7 py-4 rounded-xl bg-print-ink text-white font-bold hover:bg-print-dark transition-all shadow-lg hover:scale-105"
@@ -143,14 +142,19 @@ export default function HeroSection() {
                       </li>
                     ))}
                   </ul>
-                  <a
-                    href={`${WHATSAPP}${encodeURIComponent(line.msg)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block mt-5 px-5 py-3 rounded-xl bg-white text-print-ink font-bold text-sm hover:bg-print-yellow transition-colors"
-                  >
-                    {line.cta} →
-                  </a>
+                  <div className="flex flex-wrap items-center gap-4 mt-5">
+                    <QuoteButton
+                      label={line.cta}
+                      message={line.msg}
+                      variant="white"
+                    />
+                    <Link
+                      href={line.href}
+                      className="text-white text-sm font-bold underline-offset-4 hover:underline"
+                    >
+                      Ver productos →
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>

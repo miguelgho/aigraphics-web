@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { WhatsAppIcon } from "@/components/QuoteButton";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,7 +39,7 @@ export default function Navbar() {
               Servicios
             </Link>
             <Link
-              href="/#productos"
+              href="/productos"
               className="text-sm font-semibold text-gray-700 hover:text-print-magenta-dark transition-colors"
             >
               Productos
@@ -80,9 +81,10 @@ export default function Navbar() {
               href="https://wa.me/13059705085?text=Hola%20Ai%20Graphics,%20me%20gustaría%20solicitar%20una%20cotización."
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 rounded-xl bg-print-magenta text-white text-xs font-bold hover:bg-print-magenta-dark transition-all shadow-sm"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-print-magenta text-white text-xs font-bold hover:bg-print-magenta-dark transition-all shadow-sm"
             >
-              💬 Cotizar
+              <WhatsAppIcon className="w-3.5 h-3.5" />
+              Pide tu cotización
             </a>
           </div>
 
@@ -142,7 +144,7 @@ export default function Navbar() {
             Servicios
           </Link>
           <Link
-            href="/#productos"
+            href="/productos"
             onClick={() => setIsOpen(false)}
             className="block text-sm font-semibold text-gray-800 py-2 border-b border-gray-50"
           >
@@ -180,9 +182,10 @@ export default function Navbar() {
             href="https://wa.me/13059705085?text=Hola%20Ai%20Graphics,%20deseo%20una%20cotización."
             target="_blank"
             rel="noopener noreferrer"
-            className="block w-full text-center py-2.5 rounded-xl bg-print-magenta text-white text-xs font-bold shadow-md"
+            className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-print-magenta text-white text-xs font-bold shadow-md"
           >
-            💬 Cotizar por WhatsApp
+            <WhatsAppIcon className="w-3.5 h-3.5" />
+            Escríbenos por WhatsApp
           </a>
         </div>
       )}

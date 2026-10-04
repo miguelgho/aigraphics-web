@@ -7,10 +7,13 @@ export const categories = [
   { id: "misc", name: "Misceláneos" }
 ];
 
+// Cada producto tiene su propia página en /productos/[slug] (útil para Google Ads).
+// "featured" marca los que se muestran en la página principal.
 export const products = [
   // ==================== 1. IMPRESIÓN DTF ====================
   {
     id: "dtf-tshirts",
+    slug: "camisetas-enguatadas-dtf",
     name: "Camisetas, Franelas y Enguatadas DTF",
     category: "dtf",
     tagline: "Impresión full color de máxima durabilidad",
@@ -21,13 +24,15 @@ export const products = [
       "/trabajos/camiseta-dtf-full-color.webp",
       "/trabajos/camiseta-gris-dtf.webp",
       "/trabajos/manga-larga-dtf.webp",
-      "https://lh3.googleusercontent.com/d/15QfmlELfgqtR1ktWexMSA6h-_BaOcGIs",
-      "https://lh3.googleusercontent.com/d/1161AL7Awf96OjRjArlA9tj6CX0f2tQyA",
+      "/trabajos/camisetas-enguatadas-dtf-1.webp",
+      "/trabajos/camisetas-enguatadas-dtf-2.webp",
     ],
     whatsappMsg: "Hola Ai Graphics, me gustaría cotizar camisetas o enguatadas en DTF."
   },
   {
     id: "dtf-polos",
+    slug: "polos-trabajo-dtf",
+    featured: true,
     name: "Polos y Ropa de Trabajo en DTF",
     category: "dtf",
     tagline: "Estampado de alta definición para contratistas",
@@ -38,13 +43,14 @@ export const products = [
       "/trabajos/polo-trabajo-dtf.webp",
       "/trabajos/polo-amarillo-dtf.webp",
       "/trabajos/camiseta-equipo-dtf.webp",
-      "https://lh3.googleusercontent.com/d/1gAWsTeoVUVuTw-b92B3vzDALZfV5Z1IP",
-      "https://lh3.googleusercontent.com/d/17cOfEd6RnRdJBVpbNIZBxbI0XPMRKo1q",
+      "/trabajos/polos-trabajo-dtf-1.webp",
+      "/trabajos/polos-trabajo-dtf-2.webp",
     ],
     whatsappMsg: "Hola Ai Graphics, quiero cotizar polos y ropa de trabajo con DTF."
   },
   {
     id: "dtf-caps",
+    slug: "gorras-dtf",
     name: "Gorras con Transfer DTF",
     category: "dtf",
     tagline: "Estampado térmico en todo tipo de gorras",
@@ -54,12 +60,13 @@ export const products = [
     gallery: [
       "/trabajos/gorras-trucker-dtf.webp",
       "/trabajos/gorra-trucker-dtf.webp",
-      "https://lh3.googleusercontent.com/d/1NE-OYOVOJbU-aEZHlyM8BlBPEwK7q0mE",
+      "/trabajos/gorras-dtf-1.webp",
     ],
     whatsappMsg: "Hola Ai Graphics, deseo cotizar gorras con estampado DTF."
   },
   {
     id: "dtf-school",
+    slug: "uniformes-escolares-dtf",
     name: "Uniformes Escolares en DTF",
     category: "dtf",
     tagline: "Personalización para escuelas y graduaciones",
@@ -69,7 +76,7 @@ export const products = [
     gallery: [
       "/trabajos/senior-class-graduacion.webp",
       "/trabajos/senior-falda.webp",
-      "https://lh3.googleusercontent.com/d/1367t_4WaLnVSuiUN3tQeB1ppV4Pc6Z3l",
+      "/trabajos/uniformes-escolares-dtf-1.webp",
     ],
     whatsappMsg: "Hola Ai Graphics, quiero cotizar uniformes escolares en DTF."
   },
@@ -77,6 +84,7 @@ export const products = [
   // ==================== 2. BORDADOS ====================
   {
     id: "embroidery-caps",
+    slug: "gorras-bordadas",
     name: "Gorras y Sombreros Bordados",
     category: "embroidery",
     tagline: "Bordado plano y 3D Puff de alta precisión",
@@ -86,14 +94,16 @@ export const products = [
     gallery: [
       "/trabajos/gorra-bordada.webp",
       "/trabajos/gorras-trucker-bordadas.webp",
-      "https://lh3.googleusercontent.com/d/1NE-OYOVOJbU-aEZHlyM8BlBPEwK7q0mE",
-      "https://lh3.googleusercontent.com/d/1jb329JGPzRfcVpq3Z-X4HUYkfTJqYcpK",
-      "https://lh3.googleusercontent.com/d/1wSH9noRiDpRx81OQu_hRFvdH3S3XScWK",
+      "/trabajos/gorras-dtf-1.webp",
+      "/trabajos/gorras-bordadas-1.webp",
+      "/trabajos/gorras-bordadas-2.webp",
     ],
     whatsappMsg: "Hola Ai Graphics, deseo cotizar gorras bordadas."
   },
   {
     id: "embroidery-polos",
+    slug: "polos-bordados",
+    featured: true,
     name: "Polos Corporativos Bordados",
     category: "embroidery",
     tagline: "Presencia elegante y duradera para tu empresa",
@@ -105,13 +115,14 @@ export const products = [
       "/trabajos/polo-gris-bordado.webp",
       "/trabajos/polo-blanco-bordado.webp",
       "/trabajos/logo-bordado-detalle.webp",
-      "https://lh3.googleusercontent.com/d/1gAWsTeoVUVuTw-b92B3vzDALZfV5Z1IP",
-      "https://lh3.googleusercontent.com/d/1Q-OOWN-XcBmChIzrnJGRmx7WoPYF4TNm",
+      "/trabajos/polos-trabajo-dtf-1.webp",
     ],
     whatsappMsg: "Hola Ai Graphics, quiero cotizar polos bordados para mi empresa."
   },
   {
     id: "embroidery-school",
+    slug: "uniformes-escolares-bordados",
+    featured: true,
     name: "Uniformes Escolares y Senior Bordados",
     category: "embroidery",
     tagline: "Bordado institucional para colegios y academias",
@@ -120,7 +131,7 @@ export const products = [
     description: "Bordado de insignias, escudos escolares y personalización de faldas, chalecos y suéteres de graduación.",
     gallery: [
       "/trabajos/uniforme-escolar-escudo-bordado.webp",
-      "https://lh3.googleusercontent.com/d/1367t_4WaLnVSuiUN3tQeB1ppV4Pc6Z3l",
+      "/trabajos/uniformes-escolares-dtf-1.webp",
     ],
     whatsappMsg: "Hola Ai Graphics, deseo cotizar bordados escolares."
   },
@@ -128,6 +139,8 @@ export const products = [
   // ==================== 3. SIGNS & GRAN FORMATO ====================
   {
     id: "signs-microperforado",
+    slug: "microperforado",
+    featured: true,
     name: "Microperforado para Ventanas y Vehículos",
     category: "signs",
     tagline: "One-Way Vision para vitrinas y cristales de autos",
@@ -143,6 +156,7 @@ export const products = [
   },
   {
     id: "signs-window-vinyl",
+    slug: "vinil-vitrinas",
     name: "Vinil y Rotulación para Ventanas y Vitrinas",
     category: "signs",
     tagline: "Gráficos comerciales de alto impacto para locales",
@@ -154,6 +168,8 @@ export const products = [
   },
   {
     id: "signs-rollups-banners",
+    slug: "banners-roll-ups",
+    featured: true,
     name: "Banners y Roll-Ups Retráctiles",
     category: "signs",
     tagline: "Estructuras portátiles para ferias, eventos y recepciones",
@@ -169,6 +185,7 @@ export const products = [
   },
   {
     id: "signs-rigid-pvc",
+    slug: "letreros-coroplast-pvc",
     name: "Letreros en Coroplast y PVC Rígido",
     category: "signs",
     tagline: "Señalética exterior resistente al agua y sol",
@@ -185,6 +202,7 @@ export const products = [
   // ==================== 4. MARKETING PRODUCTS ====================
   {
     id: "marketing-stickers",
+    slug: "stickers-troquelados",
     name: "Stickers y Calcomanías Troqueladas",
     category: "marketing",
     tagline: "Vinil impermeable troquelado (Die-Cut)",
@@ -193,12 +211,12 @@ export const products = [
     description: "Stickers troquelados en vinil de alta adherencia y durabilidad para empaques, termos, autos y branding.",
     gallery: [
       "/trabajos/stickers-troquelados.webp",
-      "https://lh3.googleusercontent.com/d/1ubQVnYdC1_Q3pPhpVcD8BR70c0AUQzmc",
     ],
     whatsappMsg: "Hola Ai Graphics, quiero cotizar stickers personalizados."
   },
   {
     id: "marketing-business-cards",
+    slug: "tarjetas-de-presentacion",
     name: "Tarjetas de Presentación (Business Cards)",
     category: "marketing",
     tagline: "Impresión premium y acabados profesionales",
@@ -210,6 +228,7 @@ export const products = [
   },
   {
     id: "marketing-flyers",
+    slug: "flyers",
     name: "Flyers y Folletos Publicitarios",
     category: "marketing",
     tagline: "Material impreso para promociones y eventos",
@@ -221,6 +240,7 @@ export const products = [
   },
   {
     id: "marketing-foam-counter",
+    slug: "displays-foam-board",
     name: "Displays en PVC y Foam Board / Foam Counter",
     category: "marketing",
     tagline: "Carteles ligeros y stands para mostrador",
@@ -232,6 +252,8 @@ export const products = [
   },
   {
     id: "marketing-mugs-drinkware",
+    slug: "tazas-promocionales",
+    featured: true,
     name: "Tazas y Artículos Promocionales",
     category: "marketing",
     tagline: "Sublimación y cristalería para regalos y marcas",
@@ -242,8 +264,7 @@ export const products = [
       "/trabajos/tazas-sublimadas.webp",
       "/trabajos/taza-cristal-personalizada.webp",
       "/trabajos/copas-personalizadas.webp",
-      "https://lh3.googleusercontent.com/d/1EDap3Ddp7z4wMcUS8Z5uK5j7xEJkkdhi",
-      "https://lh3.googleusercontent.com/d/1SahQFaqM2fn0h40z5Lii8jbFRyRz4T9k",
+      "/trabajos/tazas-promocionales-1.webp",
     ],
     whatsappMsg: "Hola Ai Graphics, quiero cotizar tazas o artículos promocionales."
   },
@@ -251,6 +272,7 @@ export const products = [
   // ==================== 5. MISCELÁNEOS ====================
   {
     id: "misc-delantales",
+    slug: "delantales-gorros-chef",
     name: "Delantales, Gorros de Chef y Misceláneos",
     category: "misc",
     tagline: "Artículos personalizados para restaurantes, panaderías y más",
@@ -264,3 +286,5 @@ export const products = [
     whatsappMsg: "Hola Ai Graphics, quiero cotizar delantales u otros artículos personalizados."
   }
 ];
+
+export const getProductBySlug = (slug) => products.find((p) => p.slug === slug);

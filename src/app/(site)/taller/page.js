@@ -1,18 +1,15 @@
+import { SITE_URL } from "@/lib/site";
 import Image from "next/image";
 import Link from "next/link";
+import QuoteButton from "@/components/QuoteButton";
 
 export const metadata = {
+  alternates: { canonical: `${SITE_URL}/taller` },
   title:
     "Nuestro Taller | Bordado, DTF y Gran Formato en Homestead | Ai Graphics",
   description:
     "Conoce el taller de Ai Graphics en Homestead: bordado computarizado, impresión DTF, impresión de gran formato e instalación de vinil y microperforado, todo hecho en casa.",
 };
-
-const WHATSAPP =
-  "https://wa.me/13059705085?text=" +
-  encodeURIComponent(
-    "Hola Ai Graphics, vi su taller en la página y quiero cotizar un proyecto.",
-  );
 
 // Pasos del proceso, cada uno con fotos reales del taller.
 const steps = [
@@ -144,14 +141,11 @@ export default function Taller() {
             entrega de principio a fin, sin intermediarios.
           </p>
           <div className="flex flex-wrap gap-3 justify-center lg:justify-start mt-8">
-            <a
-              href={WHATSAPP}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-7 py-4 rounded-xl bg-print-magenta text-white font-bold hover:bg-print-magenta-dark transition-all shadow-lg hover:scale-105"
-            >
-              💬 Cotizar por WhatsApp
-            </a>
+            <QuoteButton
+              label="Hablemos de tu proyecto"
+              message="Hola Ai Graphics, vi su taller en la página y quiero hacer un pedido."
+              size="lg"
+            />
             <Link
               href="/portfolio"
               className="px-7 py-4 rounded-xl bg-white text-print-cyan-dark font-bold border-2 border-print-cyan hover:bg-print-cyan hover:text-white transition-all"
@@ -299,14 +293,12 @@ export default function Taller() {
             <p className="font-display font-bold uppercase text-3xl md:text-4xl">
               ¿Tienes un proyecto en mente?
             </p>
-            <a
-              href={WHATSAPP}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block mt-6 px-8 py-4 rounded-xl bg-print-magenta text-white font-bold hover:bg-print-magenta-dark transition-all shadow-lg hover:scale-105"
-            >
-              💬 Cotízalo por WhatsApp
-            </a>
+            <QuoteButton
+              label="Escríbenos hoy"
+              message="Hola Ai Graphics, tengo un proyecto y quiero saber el precio."
+              size="lg"
+              className="mt-6"
+            />
           </div>
         </div>
       </section>

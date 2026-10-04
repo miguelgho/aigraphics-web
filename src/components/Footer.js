@@ -30,7 +30,7 @@ export default function Footer() {
             <Link href="/#servicios" className="hover:text-white">
               Servicios
             </Link>
-            <Link href="/#productos" className="hover:text-white">
+            <Link href="/productos" className="hover:text-white">
               Productos
             </Link>
             <Link href="/portfolio" className="hover:text-white">

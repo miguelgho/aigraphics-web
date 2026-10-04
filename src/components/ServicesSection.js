@@ -1,7 +1,10 @@
+import Link from "next/link";
+
 // Las 4 líneas de servicio, tal como aparecen en el roll-up oficial.
 const services = [
   {
     title: "Signs & Storefronts",
+    href: "/productos?categoria=signs",
     subtitle: "Letreros y Gran Formato",
     color: "magenta",
     items: ["Banners", "Window Vinyl", "Microperforado", "Menús", "Stickers"],
@@ -9,6 +12,7 @@ const services = [
   },
   {
     title: "Uniforms & Embroidery",
+    href: "/productos?categoria=embroidery",
     subtitle: "Uniformes y Bordados",
     color: "cyan",
     items: ["Polos", "Work Shirts", "Gorras", "Uniformes Escolares", "DTF"],
@@ -18,6 +22,7 @@ const services = [
   },
   {
     title: "Vehicle Graphics",
+    href: "/productos/microperforado",
     subtitle: "Rotulación de Vehículos",
     color: "magenta",
     items: ["Lettering", "Door Decals", "Car Magnets", "Window Perforation"],
@@ -27,6 +32,7 @@ const services = [
   },
   {
     title: "Marketing & Promo",
+    href: "/productos?categoria=marketing",
     subtitle: "Artículos Promocionales",
     color: "cyan",
     items: [
@@ -66,9 +72,9 @@ export default function ServicesSection() {
         {services.map((service) => {
           const c = colorClasses[service.color];
           return (
-            <a
+            <Link
               key={service.title}
-              href="#productos"
+              href={service.href}
               className="group bg-white rounded-3xl p-6 border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all"
             >
               <div
@@ -104,7 +110,7 @@ export default function ServicesSection() {
                   </li>
                 ))}
               </ul>
-            </a>
+            </Link>
           );
         })}
       </div>
