@@ -6,11 +6,19 @@ import QuoteButton from "@/components/QuoteButton";
 import { getCategories, getProductBySlug, getProducts } from "@/data/products";
 import { getTrabajos } from "@/sanity/trabajos";
 import { SITE_URL } from "@/lib/site";
-import { buildMetadata, categoryPath, path, productPath } from "@/lib/i18n";
+import {
+  absoluteUrl,
+  buildMetadata,
+  categoryPath,
+  path,
+  productPath,
+} from "@/lib/i18n";
 
 const copy = {
   en: {
-    metaTitle: (name) => `${name} in Homestead & Miami | Ai Graphics`,
+    places: [" in Homestead & Miami", " in Homestead", ""],
+    metaSuffix:
+      " Pickup by appointment in Homestead or shipping across the US.",
     home: "Home",
     products: "Products",
     breadcrumb: "Breadcrumb",
@@ -42,7 +50,8 @@ const copy = {
     related: "You may also like",
   },
   es: {
-    metaTitle: (name) => `${name} en Homestead y Miami | Ai Graphics`,
+    places: [" en Homestead y Miami", " en Homestead", ""],
+    metaSuffix: " Recogida con cita en Homestead o envío a todo EE.UU.",
     home: "Inicio",
     products: "Productos",
     breadcrumb: "Ruta",
@@ -78,14 +87,28 @@ const copy = {
 export const productStaticParams = (lang) =>
   getProducts(lang).map((p) => ({ slug: p.slug }));
 
+// Google corta los títulos de más de ~60 caracteres: se usa la versión más larga que quepa.
+function metaTitle(name, lang) {
+  const titles = copy[lang].places.map(
+    (place) => `${name}${place} | Ai Graphics`,
+  );
+  return titles.find((title) => title.length <= 60) ?? titles.at(-1);
+}
+
+// Descripción para Google: la del producto, más dónde entregamos si hay espacio.
+function metaDescription(description, lang) {
+  const longer = description + copy[lang].metaSuffix;
+  return longer.length <= 160 ? longer : description;
+}
+
 export function productMetadata(slug, lang) {
   const product = getProductBySlug(slug, lang);
   if (!product) return {};
   return buildMetadata({
     lang,
     paths: { en: productPath(product, "en"), es: productPath(product, "es") },
-    title: copy[lang].metaTitle(product.name),
-    description: product.description,
+    title: metaTitle(product.shortName ?? product.name, lang),
+    description: metaDescription(product.description, lang),
     image: product.coverImage,
   });
 }
@@ -131,11 +154,30 @@ export default async function ProductView({ slug, lang }) {
     },
   };
 
+  const crumbs = [
+    [t.home, path("home", lang)],
+    [t.products, path("products", lang)],
+    ...(category ? [[category.name, categoryPath(category.id, lang)]] : []),
+    [product.name, productPath(product, lang)],
+  ];
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: crumbs.map(([name, href], i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name,
+      item: absoluteUrl(href),
+    })),
+  };
+
   return (
     <div className="brand-dots">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([serviceSchema, breadcrumbSchema]),
+        }}
       />
 
       {/* Encabezado del producto */}

@@ -31,10 +31,9 @@ const machinePhotos = [
 
 const copy = {
   en: {
-    metaTitle:
-      "Our Workshop | Embroidery, DTF & Large Format in Homestead | Ai Graphics",
+    metaTitle: "Our Workshop: Embroidery & DTF in Homestead | Ai Graphics",
     metaDescription:
-      "Meet the Ai Graphics workshop in Homestead: computerized embroidery, DTF printing, large-format printing and vinyl and perforated film installation, all in-house.",
+      "Meet the Ai Graphics workshop in Homestead: computerized embroidery, DTF printing, large-format printing and vinyl installation, all in-house.",
     kicker: "Made in Homestead",
     title: "Our Workshop",
     intro:
@@ -119,8 +118,7 @@ const copy = {
     projectMsg: "Hi Ai Graphics, I have a project and I'd like a price.",
   },
   es: {
-    metaTitle:
-      "Nuestro Taller | Bordado, DTF y Gran Formato en Homestead | Ai Graphics",
+    metaTitle: "Nuestro Taller: Bordado y DTF en Homestead | Ai Graphics",
     metaDescription:
       "Conoce el taller de Ai Graphics en Homestead: bordado computarizado, impresión DTF, gran formato e instalación de vinil y microperforado, todo en casa.",
     kicker: "Hecho en Homestead",
