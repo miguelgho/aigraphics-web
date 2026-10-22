@@ -6,7 +6,7 @@ import { useEffect } from "react";
 const GA_ID = "G-72KGPBRDY2";
 
 export default function Analytics() {
-  // Track clicks on WhatsApp, phone and email links, and contact form submits, as GA4 events
+  // Track clicks on WhatsApp, phone, email and social links, and contact form submits, as GA4 events
   useEffect(() => {
     const handler = (e) => {
       const link = e.target.closest && e.target.closest("a[href]");
@@ -18,6 +18,11 @@ export default function Analytics() {
         window.gtag("event", "phone_click", { link_url: href });
       } else if (href.startsWith("mailto:")) {
         window.gtag("event", "email_click", { link_url: href });
+      } else if (/instagram\.com|tiktok\.com/.test(href)) {
+        window.gtag("event", "social_click", {
+          link_url: href,
+          network: href.includes("tiktok") ? "tiktok" : "instagram",
+        });
       }
     };
     // Formulario de contacto enviado (cuenta como cliente potencial)
