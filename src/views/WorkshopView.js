@@ -39,7 +39,7 @@ const copy = {
     intro:
       "Every uniform, banner and vehicle graphic comes off our own machines. That's how we control quality, colors and turnaround from start to finish, with no middlemen.",
     notice:
-      "📅 Our workshop is home-based: if you'd like to pick up your order or see samples, message us on WhatsApp first to schedule your visit.",
+      "📅 Our workshop is home-based: if you'd like to pick up your order or see samples, contact us first (call, text or WhatsApp) to schedule your visit.",
     hours: "🕖 Hours:",
     heroAlt:
       "Ai Graphics workshop with the embroidery machine and finished apparel",
@@ -126,7 +126,7 @@ const copy = {
     intro:
       "Cada uniforme, banner y rotulación sale de nuestras propias máquinas. Así cuidamos la calidad, los colores y los tiempos de entrega de principio a fin, sin intermediarios.",
     notice:
-      "📅 Nuestro taller funciona en casa: si quieres recoger tu pedido o ver muestras, avísanos antes por WhatsApp para coordinar tu visita.",
+      "📅 Nuestro taller funciona en casa: si quieres recoger tu pedido o ver muestras, avísanos antes (llamada, texto o WhatsApp) para coordinar tu visita.",
     hours: "🕖 Horario:",
     heroAlt: "Taller de Ai Graphics con la bordadora y prendas listas",
     talk: "Hablemos de tu proyecto",

@@ -6,7 +6,8 @@ import { useEffect } from "react";
 const GA_ID = "G-72KGPBRDY2";
 
 export default function Analytics() {
-  // Track clicks on WhatsApp, phone, email and social links, and contact form submits, as GA4 events
+  // Track clicks on WhatsApp, phone, text (SMS), email and social links, and contact form submits, as GA4 events.
+  // The quote button sends its own "quote_open" event when its contact options open.
   useEffect(() => {
     const handler = (e) => {
       const link = e.target.closest && e.target.closest("a[href]");
@@ -16,6 +17,8 @@ export default function Analytics() {
         window.gtag("event", "whatsapp_click", { link_url: href });
       } else if (href.startsWith("tel:")) {
         window.gtag("event", "phone_click", { link_url: href });
+      } else if (href.startsWith("sms:")) {
+        window.gtag("event", "sms_click", { link_url: href });
       } else if (href.startsWith("mailto:")) {
         window.gtag("event", "email_click", { link_url: href });
       } else if (/instagram\.com|tiktok\.com/.test(href)) {
