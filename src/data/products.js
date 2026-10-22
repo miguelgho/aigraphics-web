@@ -236,6 +236,7 @@ export const productData = [
     en: {
       slug: "perforated-window-film",
       name: "Perforated Window Film for Storefronts & Vehicles",
+      shortName: "Perforated Window Film",
       tagline: "One-way vision for windows and car glass",
       description:
         "Perforated vinyl that lets you see out from inside while showing your full-color ad to everyone outside.",
@@ -375,6 +376,7 @@ export const productData = [
     es: {
       slug: "tarjetas-de-presentacion",
       name: "Tarjetas de Presentación (Business Cards)",
+      shortName: "Tarjetas de Presentación",
       tagline: "Impresión premium y acabados profesionales",
       description:
         "Tarjetas corporativas en cartulina gruesa con acabado mate o brillante que reflejan la seriedad de tu empresa.",
@@ -422,6 +424,7 @@ export const productData = [
     es: {
       slug: "displays-foam-board",
       name: "Displays en PVC y Foam Board / Foam Counter",
+      shortName: "Displays en PVC y Foam Board",
       tagline: "Carteles ligeros y stands para mostrador",
       description:
         "Impresión montada sobre Foam Board y PVC espumado ideal para puntos de venta, menús y señalética de mesa.",

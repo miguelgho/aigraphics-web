@@ -19,8 +19,7 @@ const copy = {
     webDesignService: "Website Design",
   },
   es: {
-    title:
-      "Uniformes, Bordados y Gran Formato en Homestead y Miami | Ai Graphics",
+    title: "Uniformes, Bordados y Letreros en Homestead y Miami | Ai Graphics",
     description:
       "Uniformes de trabajo y escolares, bordado, camisetas DTF, banners, microperforado y rotulación de vehículos en Homestead y Miami.",
     schemaDescription:
