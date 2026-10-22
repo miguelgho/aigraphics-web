@@ -14,7 +14,7 @@ const copy = {
     intro:
       "Tell us about your project and we'll get back to you within 24 hours.",
     notice:
-      "📅 Our workshop is home-based: if you'd like to pick up your order or see samples, message us on WhatsApp first to schedule your visit.",
+      "📅 Our workshop is home-based: if you'd like to pick up your order or see samples, contact us first (call, text or WhatsApp) to schedule your visit.",
     hours: "🕖 Hours:",
     name: "Name / Company",
     namePh: "John Smith",
@@ -44,7 +44,7 @@ const copy = {
     title2: "cotización",
     intro: "Cuéntanos de tu proyecto y te respondemos en menos de 24 horas.",
     notice:
-      "📅 Nuestro taller funciona en casa: si quieres recoger tu pedido o ver muestras, avísanos antes por WhatsApp para coordinar tu visita.",
+      "📅 Nuestro taller funciona en casa: si quieres recoger tu pedido o ver muestras, avísanos antes (llamada, texto o WhatsApp) para coordinar tu visita.",
     hours: "🕖 Horario:",
     name: "Nombre / Empresa",
     namePh: "Juan Pérez",

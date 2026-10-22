@@ -23,7 +23,8 @@ const copy = {
     products: "Products",
     breadcrumb: "Breadcrumb",
     photoAlt: (name, i) => `${name}, job ${i}`,
-    price: "Request a price",
+    price: "Get a Free Quote",
+    orCall: "or call",
     bullets: [
       "Production in 3–5 business days",
       "Rush in 24–48 h",
@@ -56,7 +57,8 @@ const copy = {
     products: "Productos",
     breadcrumb: "Ruta",
     photoAlt: (name, i) => `${name}, trabajo ${i}`,
-    price: "Solicitar precio",
+    price: "Cotiza gratis",
+    orCall: "o llama al",
     bullets: [
       "Producción en 3–5 días hábiles",
       "Rush en 24–48 h",
@@ -227,19 +229,22 @@ export default async function ProductView({ slug, lang }) {
             <p className="text-print-dark text-lg leading-relaxed mt-5">
               {product.description}
             </p>
-            <div className="flex flex-wrap gap-3 mt-8">
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-3 mt-8">
               <QuoteButton
                 lang={lang}
                 label={t.price}
                 message={product.whatsappMsg}
                 size="lg"
               />
-              <a
-                href="tel:+13059705085"
-                className="px-7 py-4 rounded-xl bg-print-ink text-white font-bold hover:bg-print-dark transition-all shadow-lg"
-              >
-                📞 (305) 970-5085
-              </a>
+              <p className="text-print-dark text-sm">
+                {t.orCall}{" "}
+                <a
+                  href="tel:+13059705085"
+                  className="font-bold text-print-ink underline underline-offset-4 decoration-print-magenta hover:text-print-magenta-dark"
+                >
+                  (305) 970-5085
+                </a>
+              </p>
             </div>
             <ul className="flex flex-wrap gap-x-6 gap-y-2 mt-6 text-sm text-print-dark">
               {t.bullets.map((b) => (

@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { WhatsAppIcon } from "@/components/QuoteButton";
+import QuoteButton, { PhoneIcon } from "@/components/QuoteButton";
 import { getProducts } from "@/data/products";
 import {
   categoryPath,
@@ -18,12 +18,10 @@ const copy = {
     services: "Services",
     newBadge: "New",
     allProducts: "See all products →",
-    cta: "Get a quote",
-    ctaMsg: "Hi Ai Graphics, I'd like to request a quote.",
-    call: "📞 Call",
+    cta: "Get a Free Quote",
+    ctaMsg: "Hi Ai Graphics, I'd like a free quote.",
+    call: "Call",
     home: "Home",
-    whatsapp: "Message us on WhatsApp",
-    whatsappMsg: "Hi Ai Graphics, I'd like a quote.",
     openMenu: "Open menu",
     closeMenu: "Close menu",
     logoAlt: "Ai Graphics logo",
@@ -72,12 +70,10 @@ const copy = {
     services: "Servicios",
     newBadge: "Nuevo",
     allProducts: "Ver todos los productos →",
-    cta: "Pide tu cotización",
-    ctaMsg: "Hola Ai Graphics, me gustaría solicitar una cotización.",
-    call: "📞 Llamar",
+    cta: "Cotiza gratis",
+    ctaMsg: "Hola Ai Graphics, quiero una cotización gratis.",
+    call: "Llamar",
     home: "Inicio",
-    whatsapp: "Escríbenos por WhatsApp",
-    whatsappMsg: "Hola Ai Graphics, deseo una cotización.",
     openMenu: "Abrir menú",
     closeMenu: "Cerrar menú",
     logoAlt: "Logo de Ai Graphics",
@@ -123,9 +119,6 @@ const copy = {
     ],
   },
 };
-
-const whatsappHref = (msg) =>
-  `https://wa.me/13059705085?text=${encodeURIComponent(msg)}`;
 
 // Botón EN / ES: lleva a la misma página en el otro idioma.
 function LanguageSwitch({ lang, label, className = "" }) {
@@ -312,20 +305,20 @@ export default function Navbar({ lang = "en" }) {
           <div className="hidden sm:flex items-center gap-4">
             <LanguageSwitch lang={lang} label={t.switchLabel} />
             <a
-              href="tel:3059705085"
-              className="hidden xl:flex items-center gap-2 text-sm font-bold text-print-ink hover:text-print-magenta-dark transition-colors whitespace-nowrap"
+              href="tel:+13059705085"
+              className="hidden lg:flex items-center gap-1.5 text-sm font-bold text-print-ink hover:text-print-magenta-dark transition-colors whitespace-nowrap"
             >
-              <span>📞</span> (305) 970-5085
+              <PhoneIcon className="w-4 h-4 text-print-magenta" />
+              <span className="hidden xl:inline">(305) 970-5085</span>
+              <span className="xl:hidden">{t.call}</span>
             </a>
-            <a
-              href={whatsappHref(t.ctaMsg)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-print-magenta text-white text-xs font-bold hover:bg-print-magenta-dark transition-all shadow-sm whitespace-nowrap"
-            >
-              <WhatsAppIcon className="w-3.5 h-3.5" />
-              {t.cta}
-            </a>
+            <QuoteButton
+              lang={lang}
+              label={t.cta}
+              message={t.ctaMsg}
+              size="sm"
+              className="whitespace-nowrap"
+            />
           </div>
 
           <div className="flex lg:hidden items-center gap-2">
@@ -335,9 +328,10 @@ export default function Navbar({ lang = "en" }) {
               className="sm:hidden"
             />
             <a
-              href="tel:3059705085"
-              className="px-3 py-1.5 rounded-lg bg-gray-100 text-gray-800 text-xs font-bold"
+              href="tel:+13059705085"
+              className="flex items-center gap-1 px-1 text-xs font-bold text-print-ink hover:text-print-magenta-dark"
             >
+              <PhoneIcon className="w-3.5 h-3.5 text-print-magenta" />
               {t.call}
             </a>
             <button
@@ -430,14 +424,18 @@ export default function Navbar({ lang = "en" }) {
           ))}
 
           <a
-            href={whatsappHref(t.whatsappMsg)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-print-magenta text-white text-xs font-bold shadow-md"
+            href="tel:+13059705085"
+            className="mt-4 flex items-center justify-center gap-2 text-sm font-bold text-print-ink"
           >
-            <WhatsAppIcon className="w-3.5 h-3.5" />
-            {t.whatsapp}
+            <PhoneIcon className="w-4 h-4 text-print-magenta" />
+            (305) 970-5085
           </a>
+          <QuoteButton
+            lang={lang}
+            label={t.cta}
+            message={t.ctaMsg}
+            className="mt-3 w-full"
+          />
         </div>
       )}
     </header>

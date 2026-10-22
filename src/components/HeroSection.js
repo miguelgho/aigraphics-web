@@ -62,8 +62,9 @@ const copy = {
       "Work uniforms, custom embroidery, DTF printing, banners and signs in Homestead, Kendall, Cutler Bay and Miami",
     intro:
       "Work and school uniforms, embroidery, DTF printing, banners, perforated window film and vehicle graphics. All made in our own workshop, with your brand's look.",
-    start: "Start your order",
-    startMsg: "Hi Ai Graphics, I'd like to start an order.",
+    start: "Get a Free Quote",
+    startMsg: "Hi Ai Graphics, I'd like a free quote.",
+    orCall: "or call",
     seeProducts: "See products →",
     promises: [
       {
@@ -86,8 +87,9 @@ const copy = {
       "Uniformes de trabajo, bordados, impresión DTF, banners y letreros en Homestead, Kendall, Cutler Bay y Miami",
     intro:
       "Uniformes de trabajo y escolares, bordados, impresión DTF, banners, microperforado y rotulación de vehículos. Todo hecho en nuestro taller, con la imagen de tu marca.",
-    start: "Empieza tu pedido",
-    startMsg: "Hola Ai Graphics, me gustaría empezar un pedido.",
+    start: "Cotiza gratis",
+    startMsg: "Hola Ai Graphics, quiero una cotización gratis.",
+    orCall: "o llama al",
     seeProducts: "Ver productos →",
     promises: [
       { title: "Rush 24–48 h", desc: "Producción normal en 3–5 días hábiles" },
@@ -149,19 +151,22 @@ export default function HeroSection({ lang = "en" }) {
             {t.intro}
           </p>
 
-          <div className="flex flex-wrap gap-3 justify-center mt-8">
+          <div className="flex flex-col items-center gap-3 mt-8">
             <QuoteButton
               lang={lang}
               label={t.start}
               message={t.startMsg}
-              size="lg"
+              size="xl"
             />
-            <a
-              href="tel:3059705085"
-              className="px-7 py-4 rounded-xl bg-print-ink text-white font-bold hover:bg-print-dark transition-all shadow-lg hover:scale-105"
-            >
-              📞 (305) 970-5085
-            </a>
+            <p className="text-print-dark text-sm">
+              {t.orCall}{" "}
+              <a
+                href="tel:+13059705085"
+                className="font-bold text-print-ink underline underline-offset-4 decoration-print-magenta hover:text-print-magenta-dark"
+              >
+                (305) 970-5085
+              </a>
+            </p>
           </div>
         </div>
 

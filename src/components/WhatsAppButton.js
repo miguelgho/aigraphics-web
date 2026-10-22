@@ -1,12 +1,13 @@
-// Mensaje que aparece listo en WhatsApp al tocar el botón flotante.
+// Botón flotante pequeño de WhatsApp (para quienes lo prefieren); el botón principal es "Get a Free Quote".
+// Mensaje que aparece listo en WhatsApp al tocarlo.
 const copy = {
   en: {
     message: "Hi Ai Graphics, I'd like information about your services.",
-    label: "Message us on WhatsApp",
+    label: "WhatsApp",
   },
   es: {
     message: "Hola Ai Graphics, quiero información sobre sus servicios.",
-    label: "Escríbenos por WhatsApp",
+    label: "WhatsApp",
   },
 };
 
@@ -17,13 +18,13 @@ export default function WhatsAppButton({ lang = "en" }) {
       href={`https://wa.me/13059705085?text=${encodeURIComponent(t.message)}`}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 bg-print-cyan text-white p-4 rounded-full shadow-2xl ring-4 ring-white hover:bg-print-cyan-dark hover:scale-110 transition-transform duration-300 flex items-center justify-center"
+      className="fixed bottom-5 right-5 z-50 w-12 h-12 bg-[#25D366] text-white rounded-full shadow-lg hover:scale-110 transition-transform duration-300 flex items-center justify-center"
       aria-label={t.label}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="32"
-        height="32"
+        width="24"
+        height="24"
         fill="currentColor"
         viewBox="0 0 16 16"
       >

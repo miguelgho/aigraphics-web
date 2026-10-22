@@ -26,7 +26,7 @@ const faqs = {
     },
     {
       q: "Do you offer local pickup and shipping, and what areas do you serve?",
-      a: "Yes. You can pick up your order at our Homestead workshop by appointment (the workshop is home-based, so please message us on WhatsApp before coming). We also deliver across Homestead, Kendall, Cutler Bay, Miami and all of South Florida, and we ship nationwide across the United States. You can choose the option that works best for you when you order.",
+      a: "Yes. You can pick up your order at our Homestead workshop by appointment (the workshop is home-based, so please call, text or WhatsApp us before coming). We also deliver across Homestead, Kendall, Cutler Bay, Miami and all of South Florida, and we ship nationwide across the United States. You can choose the option that works best for you when you order.",
     },
     {
       q: "Do you print business cards and flyers that match my business brand and uniforms?",
@@ -64,7 +64,7 @@ const faqs = {
     },
     {
       q: "¿Ofrecen recogida local y envíos, y qué áreas cubren?",
-      a: "Sí. Puedes recoger tu pedido en nuestro taller de Homestead con cita previa (el taller funciona en casa, así que avísanos antes por WhatsApp). También entregamos cubriendo Homestead, Kendall, Cutler Bay, Miami y todo el sur de Florida, además de envíos a nivel nacional en todo Estados Unidos. Puedes coordinar la opción que te resulte más cómoda al hacer tu pedido.",
+      a: "Sí. Puedes recoger tu pedido en nuestro taller de Homestead con cita previa (el taller funciona en casa, así que avísanos antes por llamada, texto o WhatsApp). También entregamos cubriendo Homestead, Kendall, Cutler Bay, Miami y todo el sur de Florida, además de envíos a nivel nacional en todo Estados Unidos. Puedes coordinar la opción que te resulte más cómoda al hacer tu pedido.",
     },
     {
       q: "¿Imprimen tarjetas de presentación y flyers a juego con la marca y uniformes de mi negocio?",
