@@ -84,7 +84,7 @@ export const trabajo = defineType({
     }),
     defineField({
       name: "destacado",
-      title: "⭐ Destacado (mostrar primero)",
+      title: "Destacado (mostrar primero)",
       type: "boolean",
       initialValue: false,
     }),

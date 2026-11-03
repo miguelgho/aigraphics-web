@@ -66,7 +66,7 @@ export function buildMetadata({ lang, paths, title, description, image }) {
         ? [image]
         : [
             {
-              url: lang === "en" ? "/og-image.jpg" : "/og-image-es.jpg",
+              url: lang === "en" ? "/og-ai-graphics-en.jpg" : "/og-ai-graphics-es.jpg",
               width: 1200,
               height: 630,
               alt: "Ai Graphics",

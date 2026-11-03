@@ -2,6 +2,7 @@ import { BUSINESS_HOURS } from "@/lib/site";
 import Image from "next/image";
 import Link from "next/link";
 import QuoteButton from "@/components/QuoteButton";
+import BrandIcon from "@/components/BrandIcon";
 import { pageMetadata, path } from "@/lib/i18n";
 
 // Fotos reales del taller; los textos cambian según el idioma.
@@ -39,8 +40,8 @@ const copy = {
     intro:
       "Every uniform, banner and vehicle graphic comes off our own machines. That's how we control quality, colors and turnaround from start to finish, with no middlemen.",
     notice:
-      "📅 Our workshop is home-based: if you'd like to pick up your order or see samples, contact us first (call, text or WhatsApp) to schedule your visit.",
-    hours: "🕖 Hours:",
+      "Our workshop is home-based: if you'd like to pick up your order or see samples, contact us first (call, text or WhatsApp) to schedule your visit.",
+    hours: "Hours:",
     heroAlt:
       "Ai Graphics workshop with the embroidery machine and finished apparel",
     talk: "Let's talk about your project",
@@ -126,8 +127,8 @@ const copy = {
     intro:
       "Cada uniforme, banner y rotulación sale de nuestras propias máquinas. Así cuidamos la calidad, los colores y los tiempos de entrega de principio a fin, sin intermediarios.",
     notice:
-      "📅 Nuestro taller funciona en casa: si quieres recoger tu pedido o ver muestras, avísanos antes (llamada, texto o WhatsApp) para coordinar tu visita.",
-    hours: "🕖 Horario:",
+      "Nuestro taller funciona en casa: si quieres recoger tu pedido o ver muestras, avísanos antes (llamada, texto o WhatsApp) para coordinar tu visita.",
+    hours: "Horario:",
     heroAlt: "Taller de Ai Graphics con la bordadora y prendas listas",
     talk: "Hablemos de tu proyecto",
     talkMsg:
@@ -250,8 +251,16 @@ export default function WorkshopView({ lang }) {
             {t.intro}
           </p>
           <p className="mt-4 max-w-xl mx-auto lg:mx-0 text-sm text-print-ink bg-print-yellow/30 border border-print-yellow rounded-xl px-4 py-3">
+            <BrandIcon
+              name="calendar"
+              className="w-4 h-4 mr-1.5 text-print-magenta-dark"
+            />
             {t.notice}
             <span className="block mt-1 font-bold">
+              <BrandIcon
+                name="clock"
+                className="w-4 h-4 mr-1.5 text-print-magenta-dark"
+              />
               {t.hours} {BUSINESS_HOURS[lang]}
             </span>
           </p>

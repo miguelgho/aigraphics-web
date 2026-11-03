@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { getProducts } from "@/data/products";
 import { categoryPath, productPath } from "@/lib/i18n";
@@ -6,6 +7,7 @@ import { categoryPath, productPath } from "@/lib/i18n";
 const services = [
   {
     title: "Signs & Storefronts",
+    icon: "/iconos/signs.webp",
     link: { category: "signs" },
     subtitle: { en: "Signs and Large Format", es: "Letreros y Gran Formato" },
     color: "magenta",
@@ -13,10 +15,10 @@ const services = [
       en: ["Banners", "Window Vinyl", "Perforated Film", "Menus", "Stickers"],
       es: ["Banners", "Window Vinyl", "Microperforado", "Menús", "Stickers"],
     },
-    icon: <path d="M4 5h16v9H4zM7 14v5m10-5v5M4 19h16M8 8.5h8M8 11h5" />,
   },
   {
     title: "Uniforms & Embroidery",
+    icon: "/iconos/uniforms.webp",
     link: { category: "embroidery" },
     subtitle: { en: "Uniforms and Embroidery", es: "Uniformes y Bordados" },
     color: "cyan",
@@ -24,12 +26,10 @@ const services = [
       en: ["Polos", "Work Shirts", "Hats", "School Uniforms", "DTF"],
       es: ["Polos", "Work Shirts", "Gorras", "Uniformes Escolares", "DTF"],
     },
-    icon: (
-      <path d="M8 4 4 7l2 3 2-1v11h8V9l2 1 2-3-4-3c-.5 1.5-2 2.5-4 2.5S8.5 5.5 8 4z" />
-    ),
   },
   {
     title: "Vehicle Graphics",
+    icon: "/iconos/vehicle.webp",
     link: { product: "signs-microperforado" },
     subtitle: { en: "Car and Truck Lettering", es: "Rotulación de Vehículos" },
     color: "magenta",
@@ -37,12 +37,10 @@ const services = [
       en: ["Lettering", "Door Decals", "Car Magnets", "Window Perforation"],
       es: ["Lettering", "Door Decals", "Car Magnets", "Window Perforation"],
     },
-    icon: (
-      <path d="M3 16v-4l2-5h10l4 5h2v4h-2m-12 0H3m4 0a2 2 0 1 0 4 0 2 2 0 1 0-4 0m6 0h-2m2 0a2 2 0 1 0 4 0 2 2 0 1 0-4 0M5 12h14" />
-    ),
   },
   {
     title: "Marketing & Promo",
+    icon: "/iconos/marketing.webp",
     link: { category: "marketing" },
     subtitle: { en: "Promotional Products", es: "Artículos Promocionales" },
     color: "cyan",
@@ -50,7 +48,6 @@ const services = [
       en: ["Business Cards", "Flyers", "UV DTF Tumblers", "Mugs", "Drinkware"],
       es: ["Business Cards", "Flyers", "UV DTF Tumblers", "Tazas", "Drinkware"],
     },
-    icon: <path d="M3 7h13v10H3zM16 10l5-2v10H8v-1M6 11h7M6 14h4" />,
   },
 ];
 
@@ -95,22 +92,13 @@ export default function ServicesSection({ lang = "en" }) {
               href={hrefFor(service.link)}
               className="group bg-white rounded-3xl p-6 border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all"
             >
-              <div
-                className={`w-14 h-14 rounded-full ${c.bg} ring-4 ${c.ring} flex items-center justify-center text-white mb-5`}
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  className="w-7 h-7"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  {service.icon}
-                </svg>
-              </div>
+              <Image
+                src={service.icon}
+                alt=""
+                width={56}
+                height={56}
+                className="w-14 h-14 rounded-2xl mb-5 shadow-sm"
+              />
               <h3 className={`brand-ribbon ${c.bg} text-lg mb-1`}>
                 {service.title}
               </h3>

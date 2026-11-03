@@ -225,12 +225,12 @@ export default function Navbar({ lang = "en" }) {
             className="flex items-center group"
             onClick={closeAll}
           >
-            <div className="relative h-12 w-44 sm:w-52">
+            <div className="relative h-10 w-36 sm:h-12 sm:w-48">
               <Image
-                src="/logo.png"
+                src="/logo-ai-graphics.png"
                 alt={t.logoAlt}
                 fill
-                sizes="(max-width: 640px) 176px, 208px"
+                sizes="(max-width: 640px) 144px, 192px"
                 className="object-contain object-left"
                 priority
               />

@@ -1,4 +1,5 @@
 import { googleReviewsLinks } from "@/lib/googleReviews";
+import BrandIcon from "@/components/BrandIcon";
 
 const copy = {
   en: {
@@ -8,7 +9,7 @@ const copy = {
     fallbackTitle: "Google Reviews",
     fallbackText: "See what our customers in Homestead and Miami think.",
     seeAll: "See all on Google",
-    leave: "⭐ Leave us a review",
+    leave: "Leave us a review",
   },
   es: {
     title: "Lo que dicen nuestros clientes",
@@ -17,7 +18,7 @@ const copy = {
     fallbackTitle: "Reseñas de Google",
     fallbackText: "Mira lo que opinan nuestros clientes de Homestead y Miami.",
     seeAll: "Ver todas en Google",
-    leave: "⭐ Déjanos tu reseña",
+    leave: "Déjanos tu reseña",
   },
 };
 
@@ -134,8 +135,9 @@ export default function GoogleReviews({ data, lang = "en" }) {
               href={googleReviewsLinks.writeReview}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-3 rounded-xl bg-print-magenta text-white text-sm font-bold hover:bg-print-magenta-dark transition-colors"
+              className="px-5 py-3 rounded-xl bg-print-magenta text-white text-sm font-bold hover:bg-print-magenta-dark transition-colors inline-flex items-center gap-2"
             >
+              <BrandIcon name="reviews" className="w-4 h-4" />
               {t.leave}
             </a>
           )}
