@@ -17,8 +17,8 @@ const copy = {
     ctaMsg: "Hi Ai Graphics, I'd like information about website design.",
     seePrices: "See pricing",
     desktopAlt: "Ai Graphics website on a computer",
-    desktopShot: "/diseno-web/ejemplo-escritorio-en.webp",
-    mobileShot: "/diseno-web/ejemplo-celular-en.webp",
+    desktopShot: "/diseno-web/ejemplo-escritorio-en-2026.webp",
+    mobileShot: "/diseno-web/ejemplo-celular-en-2026.webp",
     mobileAlt: "Ai Graphics website on a phone",
     promoTitle: "Launch promo: website for $399.99",
     promoText:
@@ -164,8 +164,8 @@ const copy = {
       "Hola Ai Graphics, quiero información sobre el diseño de páginas web.",
     seePrices: "Ver precios",
     desktopAlt: "Página web de Ai Graphics en computadora",
-    desktopShot: "/diseno-web/ejemplo-escritorio-es.webp",
-    mobileShot: "/diseno-web/ejemplo-celular-es.webp",
+    desktopShot: "/diseno-web/ejemplo-escritorio-es-2026.webp",
+    mobileShot: "/diseno-web/ejemplo-celular-es-2026.webp",
     mobileAlt: "Página web de Ai Graphics en celular",
     promoTitle: "Promo de lanzamiento: página web a $399.99",
     promoText:
@@ -306,8 +306,8 @@ export const webDesignMetadata = (lang) =>
     description: copy[lang].metaDescription,
     image:
       lang === "en"
-        ? "/diseno-web/ejemplo-escritorio-en.webp"
-        : "/diseno-web/ejemplo-escritorio-es.webp",
+        ? "/diseno-web/ejemplo-escritorio-en-2026.webp"
+        : "/diseno-web/ejemplo-escritorio-es-2026.webp",
   });
 
 export default function WebDesignView({ lang }) {
