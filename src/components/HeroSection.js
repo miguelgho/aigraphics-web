@@ -126,18 +126,7 @@ export default function HeroSection({ lang = "en" }) {
       <div className="max-w-7xl mx-auto">
         {/* Titular */}
         <div className="text-center max-w-6xl mx-auto">
-          <p className="inline-flex items-center gap-2 text-print-dark text-xs sm:text-sm font-bold uppercase tracking-[0.2em]">
-            <svg
-              viewBox="0 0 24 24"
-              className="w-5 h-5 text-print-magenta"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.8"
-              aria-hidden="true"
-            >
-              <circle cx="12" cy="12" r="6" />
-              <path d="M12 2v20M2 12h20" />
-            </svg>
+          <p className="text-print-dark text-xs sm:text-sm font-bold uppercase tracking-[0.2em]">
             {t.kicker}
           </p>
 

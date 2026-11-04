@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import ProductCatalog from "@/components/ProductCatalog";
 import QuoteButton from "@/components/QuoteButton";
+import BrandIcon from "@/components/BrandIcon";
 import { getCategories, getProductBySlug, getProducts } from "@/data/products";
 import { getTrabajos } from "@/sanity/trabajos";
 import { SITE_URL } from "@/lib/site";
@@ -248,7 +249,13 @@ export default async function ProductView({ slug, lang }) {
             </div>
             <ul className="flex flex-wrap gap-x-6 gap-y-2 mt-6 text-sm text-print-dark">
               {t.bullets.map((b) => (
-                <li key={b}>✔ {b}</li>
+                <li key={b} className="inline-flex items-center gap-1.5">
+                  <BrandIcon
+                    name="check"
+                    className="w-3.5 h-3.5 text-print-magenta"
+                  />
+                  {b}
+                </li>
               ))}
             </ul>
           </div>

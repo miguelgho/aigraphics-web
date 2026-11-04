@@ -1,5 +1,6 @@
 import Image from "next/image";
 import QuoteButton from "@/components/QuoteButton";
+import BrandIcon from "@/components/BrandIcon";
 import { pageMetadata } from "@/lib/i18n";
 
 // Paquetes aprobados por Ai Graphics (ver la guía para cotizar por teléfono).
@@ -456,7 +457,10 @@ export default function WebDesignView({ lang }) {
               <ul className="mt-6 space-y-2 text-sm text-print-dark flex-1">
                 {plan.features.map((f) => (
                   <li key={f} className="flex gap-2">
-                    <span className="text-print-cyan-dark font-bold">✔</span>
+                    <BrandIcon
+                      name="check"
+                      className="w-4 h-4 mt-0.5 text-print-cyan-dark"
+                    />
                     {f}
                   </li>
                 ))}

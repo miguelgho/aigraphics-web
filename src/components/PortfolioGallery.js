@@ -3,6 +3,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { workCategories } from "@/data/workCategories";
 import QuoteButton from "@/components/QuoteButton";
+import BrandIcon from "@/components/BrandIcon";
 
 const ribbonBg = { magenta: "bg-print-magenta", cyan: "bg-print-cyan" };
 
@@ -92,8 +93,9 @@ export default function PortfolioGallery({ trabajos, lang = "en" }) {
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 {trabajo.fotos.length > 1 && (
-                  <span className="absolute top-3 right-3 bg-black/60 text-white text-xs font-bold px-2.5 py-1 rounded-full">
-                    📷 {trabajo.fotos.length}
+                  <span className="absolute top-3 right-3 inline-flex items-center gap-1.5 bg-black/60 text-white text-xs font-bold px-2.5 py-1 rounded-full">
+                    <BrandIcon name="portfolio" className="w-3.5 h-3.5" />
+                    {trabajo.fotos.length}
                   </span>
                 )}
               </div>
@@ -128,7 +130,7 @@ export default function PortfolioGallery({ trabajos, lang = "en" }) {
               aria-label={t.close}
               className="absolute top-3 right-4 z-10 text-gray-400 hover:text-gray-800 text-2xl font-bold"
             >
-              ✕
+              <BrandIcon name="close" className="w-5 h-5" />
             </button>
 
             <div className="relative aspect-[4/3] bg-gray-100 rounded-2xl overflow-hidden">

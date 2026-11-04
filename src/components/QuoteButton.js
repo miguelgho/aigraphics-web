@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { BUSINESS_HOURS } from "@/lib/site";
+import BrandIcon from "@/components/BrandIcon";
 
 // Botón de cotización: abre una mini-ventana para elegir cómo contactarnos
 // (llamada, mensaje de texto o WhatsApp). El "message" llega listo en el texto y en WhatsApp.
@@ -66,34 +67,11 @@ export function WhatsAppIcon({ className = "w-4 h-4" }) {
 }
 
 export function PhoneIcon({ className = "w-4 h-4" }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className={className}
-      aria-hidden="true"
-    >
-      <path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" />
-    </svg>
-  );
+  return <BrandIcon name="phone" className={className} />;
 }
 
 function ChatIcon({ className = "w-4 h-4" }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-      aria-hidden="true"
-    >
-      <path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z" />
-      <path d="M8.5 11h7M8.5 14h4" />
-    </svg>
-  );
+  return <BrandIcon name="chat" className={className} />;
 }
 
 function ContactOption({ href, icon, color, title, hint, external }) {
@@ -186,7 +164,7 @@ export default function QuoteButton({
               aria-label={t.close}
               className="absolute top-3 right-4 text-gray-400 hover:text-gray-800 text-2xl font-bold"
             >
-              ✕
+              <BrandIcon name="close" className="w-5 h-5" />
             </button>
             <p className="font-display font-bold uppercase text-3xl text-print-ink">
               {t.title}

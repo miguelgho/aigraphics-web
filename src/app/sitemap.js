@@ -23,6 +23,7 @@ export default function sitemap() {
         languages: {
           "en-US": absoluteUrl(paths.en),
           "es-US": absoluteUrl(paths.es),
+          "x-default": absoluteUrl(paths.en),
         },
       },
     }));

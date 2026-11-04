@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { BUSINESS_HOURS } from "@/lib/site";
+import BrandIcon from "@/components/BrandIcon";
 import { faqsPath, path } from "@/lib/i18n";
 
 const copy = {
@@ -51,14 +52,7 @@ export default function Footer({ lang = "en" }) {
             aria-label={t.callLabel}
           >
             <span className="w-14 h-14 rounded-full bg-print-magenta flex items-center justify-center ring-4 ring-white/15">
-              <svg
-                viewBox="0 0 24 24"
-                className="w-7 h-7"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" />
-              </svg>
+              <BrandIcon name="phone" className="w-7 h-7" />
             </span>
             <span className="font-display font-bold italic text-4xl sm:text-5xl tracking-wide group-hover:text-print-magenta transition-colors">
               305-970-5085
@@ -139,7 +133,8 @@ export default function Footer({ lang = "en" }) {
             <span className="font-bold text-white">Ai Graphics LLC</span> ·
             Homestead / Miami, FL · Create. Print. Shine.
             <span className="block text-xs text-gray-400 mt-1">
-              🕖 {BUSINESS_HOURS[lang]} · {t.visits}
+              <BrandIcon name="clock" className="w-3.5 h-3.5 mr-1" />
+              {BUSINESS_HOURS[lang]} · {t.visits}
             </span>
           </p>
 

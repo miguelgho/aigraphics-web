@@ -1,6 +1,7 @@
 import { BUSINESS_HOURS } from "@/lib/site";
 import Link from "next/link";
 import { theme } from "@/lib/theme";
+import BrandIcon from "@/components/BrandIcon";
 import { pageMetadata, path } from "@/lib/i18n";
 
 const copy = {
@@ -14,8 +15,8 @@ const copy = {
     intro:
       "Tell us about your project and we'll get back to you within 24 hours.",
     notice:
-      "📅 Our workshop is home-based: if you'd like to pick up your order or see samples, contact us first (call, text or WhatsApp) to schedule your visit.",
-    hours: "🕖 Hours:",
+      "Our workshop is home-based: if you'd like to pick up your order or see samples, contact us first (call, text or WhatsApp) to schedule your visit.",
+    hours: "Hours:",
     name: "Name / Company",
     namePh: "John Smith",
     phone: "Phone",
@@ -44,8 +45,8 @@ const copy = {
     title2: "cotización",
     intro: "Cuéntanos de tu proyecto y te respondemos en menos de 24 horas.",
     notice:
-      "📅 Nuestro taller funciona en casa: si quieres recoger tu pedido o ver muestras, avísanos antes (llamada, texto o WhatsApp) para coordinar tu visita.",
-    hours: "🕖 Horario:",
+      "Nuestro taller funciona en casa: si quieres recoger tu pedido o ver muestras, avísanos antes (llamada, texto o WhatsApp) para coordinar tu visita.",
+    hours: "Horario:",
     name: "Nombre / Empresa",
     namePh: "Juan Pérez",
     phone: "Teléfono",
@@ -94,8 +95,16 @@ export default function ContactView({ lang }) {
         </h1>
         <p className="text-gray-500 text-center mb-10 text-sm">{t.intro}</p>
         <p className="-mt-6 mb-10 text-center text-xs text-print-ink bg-print-yellow/30 border border-print-yellow rounded-xl px-4 py-3">
+          <BrandIcon
+            name="calendar"
+            className="w-4 h-4 mr-1.5 text-print-magenta-dark"
+          />
           {t.notice}
           <span className="block mt-1 font-bold">
+            <BrandIcon
+              name="clock"
+              className="w-4 h-4 mr-1.5 text-print-magenta-dark"
+            />
             {t.hours} {BUSINESS_HOURS[lang]}
           </span>
         </p>
