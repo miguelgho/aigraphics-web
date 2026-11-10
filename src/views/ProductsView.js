@@ -4,8 +4,7 @@ import { pageMetadata } from "@/lib/i18n";
 
 const copy = {
   en: {
-    metaTitle:
-      "Products: Uniforms, Embroidery, DTF & Large Format | Ai Graphics",
+    metaTitle: "Products: Uniforms, Embroidery, DTF & Signs | Ai Graphics",
     metaDescription:
       "Embroidered polos and uniforms, DTF t-shirts and hoodies, hats, banners, roll-up stands, window film, stickers and promo products in Homestead and Miami.",
     title: "All our products",
@@ -13,8 +12,7 @@ const copy = {
       "Pick a category or open any product to see photos of our work and place your order.",
   },
   es: {
-    metaTitle:
-      "Productos: Uniformes, Bordados, DTF y Gran Formato | Ai Graphics",
+    metaTitle: "Productos: Uniformes, Bordados, DTF y Letreros | Ai Graphics",
     metaDescription:
       "Polos y uniformes bordados, camisetas y enguatadas DTF, gorras, banners, roll-ups, microperforado, stickers y artículos promocionales en Homestead y Miami.",
     title: "Todos nuestros productos",

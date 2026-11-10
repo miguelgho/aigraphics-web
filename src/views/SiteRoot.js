@@ -10,7 +10,7 @@ import { googleReviewsLinks } from "@/lib/googleReviews";
 
 const copy = {
   en: {
-    title: "Uniforms, Embroidery & Signs in Homestead and Miami | Ai Graphics",
+    title: "Uniforms, Embroidery & Signs in Homestead, FL | Ai Graphics",
     description:
       "Work and school uniforms, embroidery, DTF t-shirts, banners, perforated window film and vehicle graphics in Homestead and Miami, FL.",
     schemaDescription:
@@ -19,7 +19,7 @@ const copy = {
     webDesignService: "Website Design",
   },
   es: {
-    title: "Uniformes, Bordados y Letreros en Homestead y Miami | Ai Graphics",
+    title: "Uniformes, Bordados y Letreros en Homestead | Ai Graphics",
     description:
       "Uniformes de trabajo y escolares, bordado, camisetas DTF, banners, microperforado y rotulación de vehículos en Homestead y Miami.",
     schemaDescription:

@@ -6,7 +6,7 @@ import { pageMetadata, path } from "@/lib/i18n";
 
 const copy = {
   en: {
-    metaTitle: "Contact & Quotes | Ai Graphics",
+    metaTitle: "Contact Us & Get a Free Quote in Homestead | Ai Graphics",
     metaDescription:
       "Tell us about your uniforms, embroidery, DTF, signs or website project and we'll reply within 24 hours.",
     back: "← Back to home",
@@ -37,7 +37,7 @@ const copy = {
     submit: "Send request",
   },
   es: {
-    metaTitle: "Contacto y Cotizaciones | Ai Graphics",
+    metaTitle: "Contacto y Cotización Gratis en Homestead | Ai Graphics",
     metaDescription:
       "Cuéntanos tu proyecto de uniformes, bordados, DTF, letreros o diseño web y te respondemos en menos de 24 horas.",
     back: "← Volver al inicio",

@@ -12,7 +12,7 @@ const copy = {
       "Uniforms, embroidery, signs, storefronts and vehicles we've made for businesses, schools and teams across South Florida.",
   },
   es: {
-    metaTitle: "Portafolio de Trabajos | Ai Graphics",
+    metaTitle: "Portafolio: Uniformes, Bordados y Letreros | Ai Graphics",
     metaDescription:
       "Uniformes, bordados, impresión DTF, letreros, microperforado y rotulación de vehículos hechos por Ai Graphics en Homestead y Miami.",
     title: "Nuestros Trabajos",
