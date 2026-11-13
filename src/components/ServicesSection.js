@@ -94,7 +94,7 @@ export default function ServicesSection({ lang = "en" }) {
             >
               <Image
                 src={service.icon}
-                alt=""
+                alt={service.subtitle[lang]}
                 width={56}
                 height={56}
                 className="w-14 h-14 rounded-2xl mb-5 shadow-sm"

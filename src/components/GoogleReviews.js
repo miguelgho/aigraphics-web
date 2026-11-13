@@ -160,7 +160,7 @@ export default function GoogleReviews({ data, lang = "en" }) {
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
                     src={review.photo}
-                    alt=""
+                    alt={review.author}
                     referrerPolicy="no-referrer"
                     className="w-11 h-11 rounded-full object-cover"
                   />
