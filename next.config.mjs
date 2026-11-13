@@ -21,6 +21,8 @@ const nextConfig = {
     ];
   },
   images: {
+    // Sin versiones de más de 1600 px: las fotos de trabajos no las necesitan y pesarían de más.
+    deviceSizes: [640, 750, 828, 1080, 1200, 1600],
     remotePatterns: [
       {
         protocol: "https",
