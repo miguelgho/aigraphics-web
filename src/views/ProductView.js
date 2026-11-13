@@ -50,6 +50,11 @@ const copy = {
     ],
     startOrder: "Start my order",
     related: "You may also like",
+    stylesTitle: "Shirts we work with",
+    stylesNote:
+      "These are the styles our customers order the most. Ask us about colors, sizes and other brands.",
+    usesTitle: "Great for",
+    faqTitle: "Questions about this product",
   },
   es: {
     places: [" en Homestead y Miami", " en Homestead", ""],
@@ -84,6 +89,11 @@ const copy = {
     ],
     startOrder: "Empezar mi pedido",
     related: "También te puede interesar",
+    stylesTitle: "Camisetas con las que trabajamos",
+    stylesNote:
+      "Son los modelos que más piden nuestros clientes. Pregúntanos por colores, tallas y otras marcas.",
+    usesTitle: "Ideal para",
+    faqTitle: "Preguntas sobre este producto",
   },
 };
 
@@ -163,6 +173,19 @@ export default async function ProductView({ slug, lang }) {
     ...(category ? [[category.name, categoryPath(category.id, lang)]] : []),
     [product.name, productPath(product, lang)],
   ];
+  const faqs = product.faqs?.[lang] ?? [];
+  const faqSchema = faqs.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: faqs.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
+      }
+    : null;
+
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -179,7 +202,9 @@ export default async function ProductView({ slug, lang }) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify([serviceSchema, breadcrumbSchema]),
+          __html: JSON.stringify(
+            [serviceSchema, breadcrumbSchema, faqSchema].filter(Boolean),
+          ),
         }}
       />
 
@@ -278,6 +303,58 @@ export default async function ProductView({ slug, lang }) {
         </div>
       </section>
 
+      {/* Modelos de prenda y usos (solo los productos que los tienen) */}
+      {(product.styles || product.uses) && (
+        <section className="py-14 px-4 sm:px-6">
+          <div className="max-w-7xl mx-auto">
+            {product.styles && (
+              <>
+                <h2 className="font-display font-bold uppercase text-print-cyan text-3xl md:text-4xl text-center">
+                  {t.stylesTitle}
+                </h2>
+                <span
+                  className="brand-swoosh w-40 max-w-full mx-auto mt-2 mb-4"
+                  aria-hidden="true"
+                />
+                <p className="text-center text-print-dark text-sm max-w-2xl mx-auto mb-8">
+                  {t.stylesNote}
+                </p>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                  {product.styles.map((style) => (
+                    <li
+                      key={style.code}
+                      className="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm"
+                    >
+                      <h3 className="font-bold text-print-ink">{style.code}</h3>
+                      <p className="text-sm text-print-dark mt-2 leading-relaxed">
+                        {style[lang]}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+            {product.uses && (
+              <div className="mt-12 text-center">
+                <h2 className="font-display font-bold uppercase text-print-ink text-2xl md:text-3xl">
+                  {t.usesTitle}
+                </h2>
+                <ul className="flex flex-wrap justify-center gap-2 mt-5">
+                  {product.uses[lang].map((use) => (
+                    <li
+                      key={use}
+                      className="px-4 py-2 rounded-full bg-white border border-gray-200 text-sm font-semibold text-print-dark"
+                    >
+                      {use}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
       {/* Galería */}
       {photos.length > 1 && (
         <section className="bg-white py-14 px-4 sm:px-6">
@@ -352,6 +429,41 @@ export default async function ProductView({ slug, lang }) {
           </div>
         </div>
       </section>
+
+      {faqs.length > 0 && (
+        <section className="pb-14 px-4 sm:px-6">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="font-display font-bold uppercase text-print-cyan text-3xl md:text-4xl text-center">
+              {t.faqTitle}
+            </h2>
+            <span
+              className="brand-swoosh w-40 max-w-full mx-auto mt-2 mb-8"
+              aria-hidden="true"
+            />
+            <div className="space-y-3">
+              {faqs.map((faq) => (
+                <details
+                  key={faq.q}
+                  className="group bg-white rounded-2xl border border-gray-100 shadow-sm"
+                >
+                  <summary className="flex items-center justify-between gap-4 cursor-pointer list-none p-5 font-bold text-print-ink">
+                    {faq.q}
+                    <span
+                      className="text-print-magenta text-2xl leading-none transition-transform group-open:rotate-45"
+                      aria-hidden="true"
+                    >
+                      +
+                    </span>
+                  </summary>
+                  <p className="px-5 pb-5 -mt-1 text-sm text-print-dark leading-relaxed">
+                    {faq.a}
+                  </p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {related.length > 0 && (
         <div className="bg-white">

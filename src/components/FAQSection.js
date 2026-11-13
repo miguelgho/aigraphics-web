@@ -115,7 +115,7 @@ export default function FAQSection({ lang = "en" }) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      <div className="text-center mb-12">
+      <div className="text-center mb-8 sm:mb-12">
         <span className="inline-block px-3.5 py-1.5 rounded-full bg-print-magenta/10 text-print-magenta-dark text-xs font-bold uppercase tracking-wider mb-2">
           {t.badge}
         </span>
@@ -131,17 +131,25 @@ export default function FAQSection({ lang = "en" }) {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {faqs[lang].map((faq, idx) => (
-          <div
-            key={idx}
-            className="bg-white p-6 sm:p-7 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
+      <div className="max-w-3xl mx-auto space-y-3">
+        {faqs[lang].map((faq) => (
+          <details
+            key={faq.q}
+            className="group bg-white rounded-2xl border border-gray-100 shadow-sm open:shadow-md transition-shadow"
           >
-            <h3 className="font-bold text-gray-900 mb-3 text-base sm:text-lg leading-snug">
+            <summary className="flex items-center justify-between gap-4 cursor-pointer list-none p-5 sm:p-6 font-bold text-gray-900 text-base sm:text-lg leading-snug">
               {faq.q}
-            </h3>
-            <p className="text-gray-600 text-sm leading-relaxed">{faq.a}</p>
-          </div>
+              <span
+                className="shrink-0 text-print-magenta text-3xl leading-none transition-transform group-open:rotate-45"
+                aria-hidden="true"
+              >
+                +
+              </span>
+            </summary>
+            <p className="px-5 sm:px-6 pb-5 sm:pb-6 -mt-1 text-gray-600 text-sm leading-relaxed">
+              {faq.a}
+            </p>
+          </details>
         ))}
       </div>
     </section>

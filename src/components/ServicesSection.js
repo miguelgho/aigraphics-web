@@ -71,8 +71,8 @@ export default function ServicesSection({ lang = "en" }) {
         );
 
   return (
-    <section id="servicios" className="py-16 px-4 max-w-7xl mx-auto">
-      <div className="text-center mb-12">
+    <section id="servicios" className="py-12 px-4 max-w-7xl mx-auto">
+      <div className="text-center mb-8 sm:mb-12">
         <h2 className="font-display font-bold uppercase text-print-cyan text-4xl md:text-5xl">
           Custom Branding & Signs
         </h2>
@@ -83,39 +83,38 @@ export default function ServicesSection({ lang = "en" }) {
         <p className="text-print-dark max-w-2xl mx-auto mt-5">{intro[lang]}</p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
         {services.map((service) => {
           const c = colorClasses[service.color];
           return (
             <Link
               key={service.title}
               href={hrefFor(service.link)}
-              className="group bg-white rounded-3xl p-6 border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all"
+              className="group bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col"
             >
               <Image
                 src={service.icon}
                 alt={service.subtitle[lang]}
                 width={56}
                 height={56}
-                className="w-14 h-14 rounded-2xl mb-5 shadow-sm"
+                className="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl mb-3 sm:mb-4 shadow-sm"
               />
-              <h3 className={`brand-ribbon ${c.bg} text-lg mb-1`}>
+              <h3
+                className={`font-display font-bold uppercase text-base sm:text-xl leading-tight ${
+                  service.color === "magenta"
+                    ? "text-print-magenta-dark"
+                    : "text-print-cyan-dark"
+                }`}
+              >
                 {service.title}
               </h3>
-              <p className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-4">
-                {service.subtitle[lang]}
+              <p className="text-xs sm:text-sm text-print-dark leading-relaxed mt-2 flex-1">
+                {service.items[lang].join(" · ")}
               </p>
-              <ul className="space-y-1.5 text-print-dark text-sm">
-                {service.items[lang].map((item) => (
-                  <li key={item} className="flex items-center gap-2">
-                    <span
-                      className={`w-1.5 h-1.5 rounded-full ${c.bg}`}
-                      aria-hidden="true"
-                    />
-                    {item}
-                  </li>
-                ))}
-              </ul>
+              <span
+                className={`mt-3 h-1 w-10 rounded-full ${c.bg} group-hover:w-16 transition-all`}
+                aria-hidden="true"
+              />
             </Link>
           );
         })}

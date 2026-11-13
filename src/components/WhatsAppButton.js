@@ -1,4 +1,8 @@
-// Botón flotante pequeño de WhatsApp (para quienes lo prefieren); el botón principal es "Get a Free Quote".
+"use client";
+import { useEffect, useState } from "react";
+
+// Botón flotante pequeño de WhatsApp (es el contacto que más usan los clientes).
+// Aparece después de pasar la portada, para no tapar el título ni los botones de arriba.
 // Mensaje que aparece listo en WhatsApp al tocarlo.
 const copy = {
   en: {
@@ -13,12 +17,26 @@ const copy = {
 
 export default function WhatsAppButton({ lang = "en" }) {
   const t = copy[lang];
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY > 500);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <a
       href={`https://wa.me/13059705085?text=${encodeURIComponent(t.message)}`}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-5 right-5 z-50 w-12 h-12 bg-[#25D366] text-white rounded-full shadow-lg hover:scale-110 transition-transform duration-300 flex items-center justify-center"
+      className={`fixed bottom-5 right-5 z-50 w-12 h-12 bg-[#25D366] text-white rounded-full shadow-lg hover:scale-110 transition-all duration-300 flex items-center justify-center ${
+        visible
+          ? "opacity-100 translate-y-0"
+          : "opacity-0 translate-y-4 pointer-events-none"
+      }`}
+      tabIndex={visible ? 0 : -1}
       aria-label={t.label}
     >
       <svg

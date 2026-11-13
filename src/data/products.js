@@ -1,6 +1,6 @@
 // Catálogo en inglés (en) y español (es).
 // Cada producto tiene su propia página: /products/[slug] en inglés y /es/productos/[slug] en español.
-// "featured" marca los que se muestran en la página principal.
+// La página principal muestra los más vendidos (lista BEST_SELLERS en src/views/HomeView.js).
 
 const categoryNames = {
   all: { en: "All Products", es: "Todos los Productos" },
@@ -13,6 +13,111 @@ const categoryNames = {
 
 export const productData = [
   // ==================== 1. IMPRESIÓN DTF ====================
+  // Lo que más se vende (ventas Square + sistema de pedidos, 2026).
+  // "styles", "uses" y "faqs" son secciones extra que solo muestran los productos que las tienen.
+  {
+    id: "performance-shirts",
+    featured: true,
+    category: "dtf",
+    coverImage: "/trabajos/manga-larga-dtf.webp",
+    color: "#1C9CE5",
+    gallery: [
+      "/trabajos/manga-larga-dtf.webp",
+      "/trabajos/camiseta-gris-dtf.webp",
+      "/trabajos/camiseta-equipo-dtf.webp",
+      "/trabajos/polo-amarillo-dtf.webp",
+    ],
+    styles: [
+      {
+        code: "Team 365 TT11L / TT11",
+        en: "Zone Performance long and short sleeve. Light, moisture-wicking polyester: our most ordered shirt.",
+        es: "Zone Performance manga larga y corta. Poliéster liviano que absorbe el sudor: nuestra camiseta más pedida.",
+      },
+      {
+        code: "AllPro 48400 / 48000",
+        en: "Pro-Lock Performance long and short sleeve. Soft hand feel and great value for big teams.",
+        es: "Pro-Lock Performance manga larga y corta. Tela suave y muy buen precio para equipos grandes.",
+      },
+      {
+        code: "CORE365 CE10L",
+        en: "Capital Performance long sleeve. Unisex fit, also available in women's cut.",
+        es: "Capital Performance manga larga. Corte unisex, también disponible en corte de dama.",
+      },
+      {
+        code: "Columbia PFG",
+        en: "Bahama and Tamiami fishing shirts. Vented button-down shirts for boats, marinas and charters.",
+        es: "Camisas de pesca Bahama y Tamiami. Con ventilación y botones, para lanchas, marinas y charters.",
+      },
+    ],
+    uses: {
+      en: [
+        "Landscaping & lawn care",
+        "Construction & contractors",
+        "Fishing, boats & charters",
+        "Pressure washing & cleaning",
+        "Mechanics & auto shops",
+        "Teams, events & tournaments",
+      ],
+      es: [
+        "Jardinería y landscaping",
+        "Construcción y contratistas",
+        "Pesca, lanchas y charters",
+        "Pressure washing y limpieza",
+        "Mecánicos y talleres",
+        "Equipos, eventos y torneos",
+      ],
+    },
+    faqs: {
+      en: [
+        {
+          q: "How is the logo applied on performance shirts?",
+          a: "Most performance shirts are decorated with DTF, which stays soft and stretches with the fabric, in full color. We can also embroider a small logo on the chest.",
+        },
+        {
+          q: "Can I order one shirt for each employee with their name?",
+          a: "Yes. We do single pieces and full team orders, and we can add individual names on the sleeve or back.",
+        },
+        {
+          q: "Long sleeve or short sleeve for working outside?",
+          a: "For many hours in the Florida sun, most of our customers choose long sleeve: it covers the arms and the light fabric stays cool. Short sleeve works great for shops and indoor work.",
+        },
+      ],
+      es: [
+        {
+          q: "¿Cómo se aplica el logo en las camisetas performance?",
+          a: "La mayoría las decoramos con DTF, que queda suave y se estira con la tela, a todo color. También podemos bordar un logo pequeño en el pecho.",
+        },
+        {
+          q: "¿Puedo pedir una camiseta por empleado con su nombre?",
+          a: "Sí. Hacemos desde una pieza hasta pedidos completos para tu equipo, y podemos poner el nombre de cada persona en la manga o la espalda.",
+        },
+        {
+          q: "¿Manga larga o manga corta para trabajar al aire libre?",
+          a: "Para muchas horas bajo el sol de Florida, la mayoría de nuestros clientes elige manga larga: cubre los brazos y la tela liviana se mantiene fresca. La manga corta funciona muy bien en talleres y trabajo bajo techo.",
+        },
+      ],
+    },
+    en: {
+      slug: "performance-dry-fit-shirts",
+      name: "Custom Performance & Dry-Fit Shirts",
+      shortName: "Custom Dry-Fit Shirts",
+      tagline: "Our best seller for crews that work outside",
+      description:
+        "Long and short sleeve performance shirts with your logo in full color: light, moisture-wicking and made for the Florida heat.",
+      whatsappMsg:
+        "Hi Ai Graphics, I'd like a quote for performance / dry-fit shirts with my logo.",
+    },
+    es: {
+      slug: "camisetas-performance-dry-fit",
+      name: "Camisetas Performance y Dry-Fit Personalizadas",
+      shortName: "Camisetas Dry-Fit con Logo",
+      tagline: "Lo más pedido por equipos que trabajan al aire libre",
+      description:
+        "Camisetas performance manga larga y corta con tu logo a todo color: livianas, absorben el sudor y están hechas para el calor de Florida.",
+      whatsappMsg:
+        "Hola Ai Graphics, quiero cotizar camisetas performance / dry-fit con mi logo.",
+    },
+  },
   {
     id: "dtf-tshirts",
     category: "dtf",

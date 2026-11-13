@@ -28,9 +28,9 @@ const copy = {
     switchLabel: "Ver esta página en español",
     menu: [
       {
-        page: "webDesign",
-        title: "Website Design",
-        desc: "Your business online, ready for Google",
+        product: "performance-shirts",
+        title: "Performance & Dry-Fit Shirts",
+        desc: "Our best seller, long and short sleeve",
         isNew: true,
       },
       {
@@ -58,6 +58,11 @@ const copy = {
         title: "Promotional Products",
         desc: "Stickers, business cards, flyers and mugs",
       },
+      {
+        page: "webDesign",
+        title: "Website Design",
+        desc: "Your business online, ready for Google",
+      },
     ],
     links: [
       { page: "portfolio", label: "Portfolio" },
@@ -80,9 +85,9 @@ const copy = {
     switchLabel: "View this page in English",
     menu: [
       {
-        page: "webDesign",
-        title: "Diseño de Páginas Web",
-        desc: "Tu negocio en internet, listo para Google",
+        product: "performance-shirts",
+        title: "Camisetas Performance y Dry-Fit",
+        desc: "Lo más pedido, manga larga y corta",
         isNew: true,
       },
       {
@@ -109,6 +114,11 @@ const copy = {
         category: "marketing",
         title: "Promocionales",
         desc: "Stickers, tarjetas, flyers y tazas",
+      },
+      {
+        page: "webDesign",
+        title: "Diseño de Páginas Web",
+        desc: "Tu negocio en internet, listo para Google",
       },
     ],
     links: [

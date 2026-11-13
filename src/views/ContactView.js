@@ -1,4 +1,5 @@
 import { BUSINESS_HOURS } from "@/lib/site";
+import { PhoneIcon, WhatsAppIcon } from "@/components/QuoteButton";
 import Link from "next/link";
 import { theme } from "@/lib/theme";
 import BrandIcon from "@/components/BrandIcon";
@@ -13,7 +14,17 @@ const copy = {
     title1: "Get your",
     title2: "quote",
     intro:
-      "Tell us about your project and we'll get back to you within 24 hours.",
+      "The fastest way: message us on WhatsApp, call or text. We reply the same day.",
+    quickMessage: "Hi Ai Graphics, I'd like a free quote.",
+    whatsapp: "WhatsApp",
+    whatsappHint: "Fastest reply",
+    call: "Call",
+    callHint: "Talk to us now",
+    text: "Text",
+    textHint: "Send a text message",
+    orForm: "or fill out the form",
+    formIntro: "We'll get back to you within 24 hours.",
+    emailOptional: "Email (optional)",
     notice:
       "Our workshop is home-based: if you'd like to pick up your order or see samples, contact us first (call, text or WhatsApp) to schedule your visit.",
     hours: "Hours:",
@@ -43,7 +54,18 @@ const copy = {
     back: "← Volver al inicio",
     title1: "Pide tu",
     title2: "cotización",
-    intro: "Cuéntanos de tu proyecto y te respondemos en menos de 24 horas.",
+    intro:
+      "Lo más rápido: escríbenos por WhatsApp, llámanos o mándanos un texto. Respondemos el mismo día.",
+    quickMessage: "Hola Ai Graphics, quiero una cotización gratis.",
+    whatsapp: "WhatsApp",
+    whatsappHint: "Respuesta más rápida",
+    call: "Llamar",
+    callHint: "Habla con nosotros",
+    text: "Texto",
+    textHint: "Envíanos un mensaje",
+    orForm: "o llena el formulario",
+    formIntro: "Te respondemos en menos de 24 horas.",
+    emailOptional: "Correo electrónico (opcional)",
     notice:
       "Nuestro taller funciona en casa: si quieres recoger tu pedido o ver muestras, avísanos antes (llamada, texto o WhatsApp) para coordinar tu visita.",
     hours: "Horario:",
@@ -77,11 +99,28 @@ export const contactMetadata = (lang) =>
     description: copy[lang].metaDescription,
   });
 
+function ContactTile({ href, color, icon, title, hint, external }) {
+  return (
+    <a
+      href={href}
+      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+      className={`flex flex-col items-center justify-center text-center rounded-2xl px-2 py-5 sm:py-6 text-white shadow-lg hover:-translate-y-0.5 hover:shadow-xl transition-all ${color}`}
+    >
+      {icon}
+      <span className="font-bold text-base sm:text-lg mt-2">{title}</span>
+      <span className="text-[11px] sm:text-xs text-white/85 leading-tight mt-0.5">
+        {hint}
+      </span>
+    </a>
+  );
+}
+
 export default function ContactView({ lang }) {
   const t = copy[lang];
+  const message = encodeURIComponent(t.quickMessage);
   return (
-    <div className="brand-dots py-16 px-6 font-sans">
-      <div className="max-w-3xl mx-auto bg-white p-10 rounded-3xl shadow-sm border border-gray-100">
+    <div className="brand-dots py-8 sm:py-16 px-4 sm:px-6 font-sans">
+      <div className="max-w-3xl mx-auto bg-white p-5 sm:p-10 rounded-3xl shadow-sm border border-gray-100">
         <Link
           href={path("home", lang)}
           className="text-print-cyan-dark font-bold text-sm mb-6 inline-block hover:text-print-magenta-dark transition"
@@ -93,8 +132,37 @@ export default function ContactView({ lang }) {
           {t.title1}{" "}
           <span className="text-print-magenta italic">{t.title2}</span>
         </h1>
-        <p className="text-gray-500 text-center mb-10 text-sm">{t.intro}</p>
-        <p className="-mt-6 mb-10 text-center text-xs text-print-ink bg-print-yellow/30 border border-print-yellow rounded-xl px-4 py-3">
+        <p className="text-gray-600 text-center mb-6 text-sm sm:text-base">
+          {t.intro}
+        </p>
+
+        {/* Contacto directo primero: es lo que más usan los clientes */}
+        <div className="grid grid-cols-3 gap-3 mb-6">
+          <ContactTile
+            href={`https://wa.me/13059705085?text=${message}`}
+            color="bg-[#25D366]"
+            icon={<WhatsAppIcon className="w-8 h-8" />}
+            title={t.whatsapp}
+            hint={t.whatsappHint}
+            external
+          />
+          <ContactTile
+            href="tel:+13059705085"
+            color="bg-print-magenta"
+            icon={<PhoneIcon className="w-8 h-8" />}
+            title={t.call}
+            hint={t.callHint}
+          />
+          <ContactTile
+            href={`sms:+13059705085?&body=${message}`}
+            color="bg-print-cyan"
+            icon={<BrandIcon name="chat" className="w-8 h-8" />}
+            title={t.text}
+            hint={t.textHint}
+          />
+        </div>
+
+        <p className="mb-10 text-center text-xs text-print-ink bg-print-yellow/30 border border-print-yellow rounded-xl px-4 py-3">
           <BrandIcon
             name="calendar"
             className="w-4 h-4 mr-1.5 text-print-magenta-dark"
@@ -108,6 +176,16 @@ export default function ContactView({ lang }) {
             {t.hours} {BUSINESS_HOURS[lang]}
           </span>
         </p>
+
+        <div className="flex items-center gap-4 mb-2" aria-hidden="true">
+          <span className="h-px flex-1 bg-gray-200" />
+          <span className="text-xs font-bold uppercase tracking-wider text-gray-400">
+            {t.orForm}
+          </span>
+          <span className="h-px flex-1 bg-gray-200" />
+        </div>
+        <h2 className="sr-only">{t.orForm}</h2>
+        <p className="text-center text-gray-500 text-sm mb-6">{t.formIntro}</p>
 
         <form
           action="https://formspree.io/f/mnjovdaa"
@@ -139,11 +217,10 @@ export default function ContactView({ lang }) {
           </div>
 
           <div>
-            <label className={theme.formLabel}>{t.email}</label>
+            <label className={theme.formLabel}>{t.emailOptional}</label>
             <input
               type="email"
               name="email"
-              required
               className={theme.inputShared}
               placeholder={t.emailPh}
             />

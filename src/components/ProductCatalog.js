@@ -6,8 +6,16 @@ import { getCategories } from "@/data/products";
 import { productPath } from "@/lib/i18n";
 
 const copy = {
-  en: { filterBy: "Filter by", details: "See details and photos →" },
-  es: { filterBy: "Filtrar por", details: "Ver detalles y fotos →" },
+  en: {
+    filterBy: "Filter by",
+    details: "See details and photos →",
+    short: "See photos →",
+  },
+  es: {
+    filterBy: "Filtrar por",
+    details: "Ver detalles y fotos →",
+    short: "Ver fotos →",
+  },
 };
 
 // Tarjetas de productos que llevan a la página de cada producto.
@@ -20,6 +28,7 @@ export default function ProductCatalog({
   showFilter = false,
   initialCategory = "all",
   headingLevel = "h2",
+  compact = false,
   children,
 }) {
   const Heading = headingLevel;
@@ -65,23 +74,47 @@ export default function ProductCatalog({
         </div>
       )}
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div
+        className={
+          compact
+            ? "grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6"
+            : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+        }
+      >
         {filteredProducts.map((product) => (
           <Link
             key={product.id}
             href={productPath(product, lang)}
             className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col"
           >
-            <div className="relative h-56 w-full overflow-hidden bg-gray-100">
+            <div
+              className={`relative w-full overflow-hidden bg-gray-100 ${
+                compact ? "aspect-square sm:aspect-[4/3]" : "h-56"
+              }`}
+            >
               <Image
                 src={product.coverImage}
                 alt={product.name}
                 fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                sizes={
+                  compact
+                    ? "(max-width: 1024px) 50vw, 33vw"
+                    : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                }
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
               />
             </div>
 
+            {compact ? (
+              <div className="p-3 sm:p-5 flex-1 flex flex-col justify-between gap-2">
+                <h3 className="font-bold text-gray-900 text-sm sm:text-lg leading-snug">
+                  {product.name}
+                </h3>
+                <span className="text-xs sm:text-sm font-bold text-print-cyan-dark group-hover:text-print-magenta-dark transition-colors">
+                  {t.short}
+                </span>
+              </div>
+            ) : (
             <div className="p-6 flex-1 flex flex-col justify-between">
               <div>
                 <span
@@ -102,6 +135,7 @@ export default function ProductCatalog({
                 {t.details}
               </span>
             </div>
+            )}
           </Link>
         ))}
       </div>
